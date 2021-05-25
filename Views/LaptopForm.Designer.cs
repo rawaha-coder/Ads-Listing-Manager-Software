@@ -1,7 +1,7 @@
 ﻿
 namespace Ads_Listing_Manager_Software.Views
 {
-    partial class DesktopForm
+    partial class LaptopForm
     {
         /// <summary>
         /// Required designer variable.
@@ -44,16 +44,16 @@ namespace Ads_Listing_Manager_Software.Views
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
             // 
-            // DesktopForm
+            // LaptopForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(159)))), ((int)(((byte)(181)))));
-            this.ClientSize = new System.Drawing.Size(770, 672);
+            this.ClientSize = new System.Drawing.Size(764, 661);
             this.Controls.Add(this.btnClose);
-            this.Name = "DesktopForm";
+            this.Name = "LaptopForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DesktopForm";
+            this.Text = "LaptopForm";
             this.ResumeLayout(false);
 
         }

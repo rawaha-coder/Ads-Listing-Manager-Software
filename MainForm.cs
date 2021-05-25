@@ -1,4 +1,5 @@
-﻿using Ads_Listing_Manager_Software.Views;
+﻿using Ads_Listing_Manager_Software.Database;
+using Ads_Listing_Manager_Software.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,26 +20,10 @@ namespace Ads_Listing_Manager_Software
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void HideShowSideMenu_Click(object sender, EventArgs e)
-        {
-            if (SideMenuIsHide)
-            {
-
-            }
-            else
-            {
-
-            }
-        }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            //BrandDAO b = BrandDAO.getInstance();
+            //b.CreateTable();
         }
 
         private Form activeForm = null;
@@ -60,5 +45,32 @@ namespace Ads_Listing_Manager_Software
         {
             OpenChildForm(new DesktopForm());
         }
+
+        private void btnLaptopForm_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new LaptopForm());
+        }
+
+        private void btnAddBrand_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new AddBrandForm());
+        }
+
+        private void btnAddModel_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new AddModelForm());
+        }
+
+        private void btnAddType_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new AddTypeForm());
+        }
+
+        private void btnAddItem_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new AddItemForm());
+        }
+
+
     }
 }
