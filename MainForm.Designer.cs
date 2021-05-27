@@ -80,7 +80,7 @@ namespace Ads_Listing_Manager_Software
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(178, 39);
             this.btnAddItem.TabIndex = 5;
-            this.btnAddItem.Text = "Item";
+            this.btnAddItem.Text = "Product";
             this.btnAddItem.UseVisualStyleBackColor = false;
             this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
             // 
@@ -95,7 +95,7 @@ namespace Ads_Listing_Manager_Software
             this.btnAddType.Name = "btnAddType";
             this.btnAddType.Size = new System.Drawing.Size(178, 39);
             this.btnAddType.TabIndex = 4;
-            this.btnAddType.Text = "Type";
+            this.btnAddType.Text = "Component";
             this.btnAddType.UseVisualStyleBackColor = false;
             this.btnAddType.Click += new System.EventHandler(this.btnAddType_Click);
             // 

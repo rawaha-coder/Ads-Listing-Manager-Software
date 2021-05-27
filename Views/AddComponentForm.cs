@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Ads_Listing_Manager_Software.Views
 {
-    public partial class AddTypeForm : Form
+    public partial class AddComponentForm : Form
     {
-        public AddTypeForm()
+        public AddComponentForm()
         {
             InitializeComponent();
         }
@@ -20,6 +20,11 @@ namespace Ads_Listing_Manager_Software.Views
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AddComponentForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

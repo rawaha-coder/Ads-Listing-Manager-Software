@@ -29,55 +29,58 @@ namespace Ads_Listing_Manager_Software.Views
         /// </summary>
         private void InitializeComponent()
         {
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblListModel = new System.Windows.Forms.Label();
             this.txtModelDescription = new System.Windows.Forms.TextBox();
             this.lblModelDescription = new System.Windows.Forms.Label();
-            this.boxListBrand = new System.Windows.Forms.ListBox();
+            this.boxListModel = new System.Windows.Forms.ListBox();
             this.btnClose = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDeleteModel = new System.Windows.Forms.Button();
+            this.btnUpdateModel = new System.Windows.Forms.Button();
+            this.btnAddModel = new System.Windows.Forms.Button();
             this.lblAddModel = new System.Windows.Forms.Label();
-            this.txtAddModel = new System.Windows.Forms.TextBox();
+            this.txtModelName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.txtModelPrice = new System.Windows.Forms.TextBox();
+            this.lblBrand = new System.Windows.Forms.Label();
+            this.cmbxListBrand = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // label3
+            // lblListModel
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(386, 66);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(174, 23);
-            this.label3.TabIndex = 25;
-            this.label3.Text = "Brand";
+            this.lblListModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblListModel.Location = new System.Drawing.Point(386, 66);
+            this.lblListModel.Name = "lblListModel";
+            this.lblListModel.Size = new System.Drawing.Size(174, 23);
+            this.lblListModel.TabIndex = 25;
+            this.lblListModel.Text = "Models";
             // 
             // txtModelDescription
             // 
             this.txtModelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtModelDescription.Location = new System.Drawing.Point(12, 239);
+            this.txtModelDescription.Location = new System.Drawing.Point(12, 266);
             this.txtModelDescription.Multiline = true;
             this.txtModelDescription.Name = "txtModelDescription";
-            this.txtModelDescription.Size = new System.Drawing.Size(318, 315);
+            this.txtModelDescription.Size = new System.Drawing.Size(318, 288);
             this.txtModelDescription.TabIndex = 24;
             // 
             // lblModelDescription
             // 
             this.lblModelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblModelDescription.Location = new System.Drawing.Point(12, 213);
+            this.lblModelDescription.Location = new System.Drawing.Point(12, 240);
             this.lblModelDescription.Name = "lblModelDescription";
             this.lblModelDescription.Size = new System.Drawing.Size(255, 23);
             this.lblModelDescription.TabIndex = 23;
             this.lblModelDescription.Text = "Description";
             // 
-            // boxListBrand
+            // boxListModel
             // 
-            this.boxListBrand.FormattingEnabled = true;
-            this.boxListBrand.ItemHeight = 15;
-            this.boxListBrand.Location = new System.Drawing.Point(386, 92);
-            this.boxListBrand.Name = "boxListBrand";
-            this.boxListBrand.Size = new System.Drawing.Size(174, 469);
-            this.boxListBrand.TabIndex = 22;
+            this.boxListModel.FormattingEnabled = true;
+            this.boxListModel.ItemHeight = 15;
+            this.boxListModel.Location = new System.Drawing.Point(386, 92);
+            this.boxListModel.Name = "boxListModel";
+            this.boxListModel.Size = new System.Drawing.Size(174, 469);
+            this.boxListModel.TabIndex = 22;
+            this.boxListModel.DoubleClick += new System.EventHandler(this.boxListModel_DoubleClick);
             // 
             // btnClose
             // 
@@ -89,66 +92,88 @@ namespace Ads_Listing_Manager_Software.Views
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // button3
+            // btnDeleteModel
             // 
-            this.button3.Location = new System.Drawing.Point(174, 560);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 20;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnDeleteModel.Location = new System.Drawing.Point(174, 560);
+            this.btnDeleteModel.Name = "btnDeleteModel";
+            this.btnDeleteModel.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteModel.TabIndex = 20;
+            this.btnDeleteModel.Text = "Delete";
+            this.btnDeleteModel.UseVisualStyleBackColor = true;
+            this.btnDeleteModel.Click += new System.EventHandler(this.btnDeleteModel_Click);
             // 
-            // button2
+            // btnUpdateModel
             // 
-            this.button2.Location = new System.Drawing.Point(93, 560);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Update";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnUpdateModel.Location = new System.Drawing.Point(93, 560);
+            this.btnUpdateModel.Name = "btnUpdateModel";
+            this.btnUpdateModel.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateModel.TabIndex = 19;
+            this.btnUpdateModel.Text = "Update";
+            this.btnUpdateModel.UseVisualStyleBackColor = true;
+            this.btnUpdateModel.Click += new System.EventHandler(this.btnUpdateModel_Click);
             // 
-            // button1
+            // btnAddModel
             // 
-            this.button1.Location = new System.Drawing.Point(12, 560);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAddModel.Location = new System.Drawing.Point(12, 560);
+            this.btnAddModel.Name = "btnAddModel";
+            this.btnAddModel.Size = new System.Drawing.Size(75, 23);
+            this.btnAddModel.TabIndex = 18;
+            this.btnAddModel.Text = "Add";
+            this.btnAddModel.UseVisualStyleBackColor = true;
+            this.btnAddModel.Click += new System.EventHandler(this.btnAddModel_Click);
             // 
             // lblAddModel
             // 
             this.lblAddModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblAddModel.Location = new System.Drawing.Point(12, 66);
+            this.lblAddModel.Location = new System.Drawing.Point(12, 120);
             this.lblAddModel.Name = "lblAddModel";
             this.lblAddModel.Size = new System.Drawing.Size(318, 23);
             this.lblAddModel.TabIndex = 17;
             this.lblAddModel.Text = "Model";
             // 
-            // txtAddModel
+            // txtModelName
             // 
-            this.txtAddModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtAddModel.Location = new System.Drawing.Point(12, 90);
-            this.txtAddModel.Name = "txtAddModel";
-            this.txtAddModel.Size = new System.Drawing.Size(318, 24);
-            this.txtAddModel.TabIndex = 16;
+            this.txtModelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtModelName.Location = new System.Drawing.Point(12, 144);
+            this.txtModelName.Name = "txtModelName";
+            this.txtModelName.Size = new System.Drawing.Size(318, 24);
+            this.txtModelName.TabIndex = 16;
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(12, 136);
+            this.label1.Location = new System.Drawing.Point(12, 181);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(318, 23);
             this.label1.TabIndex = 27;
             this.label1.Text = "Price";
             // 
-            // txtPrice
+            // txtModelPrice
             // 
-            this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPrice.Location = new System.Drawing.Point(12, 162);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(318, 24);
-            this.txtPrice.TabIndex = 26;
+            this.txtModelPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtModelPrice.Location = new System.Drawing.Point(12, 205);
+            this.txtModelPrice.Name = "txtModelPrice";
+            this.txtModelPrice.Size = new System.Drawing.Size(318, 24);
+            this.txtModelPrice.TabIndex = 26;
+            // 
+            // lblBrand
+            // 
+            this.lblBrand.AutoSize = true;
+            this.lblBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblBrand.Location = new System.Drawing.Point(12, 63);
+            this.lblBrand.Name = "lblBrand";
+            this.lblBrand.Size = new System.Drawing.Size(52, 20);
+            this.lblBrand.TabIndex = 28;
+            this.lblBrand.Text = "Brand";
+            // 
+            // cmbxListBrand
+            // 
+            this.cmbxListBrand.FormattingEnabled = true;
+            this.cmbxListBrand.Location = new System.Drawing.Point(13, 85);
+            this.cmbxListBrand.Name = "cmbxListBrand";
+            this.cmbxListBrand.Size = new System.Drawing.Size(317, 23);
+            this.cmbxListBrand.TabIndex = 29;
+            this.cmbxListBrand.SelectedIndexChanged += new System.EventHandler(this.cmbxListBrand_SelectedIndexChanged);
             // 
             // AddModelForm
             // 
@@ -156,40 +181,45 @@ namespace Ads_Listing_Manager_Software.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(159)))), ((int)(((byte)(181)))));
             this.ClientSize = new System.Drawing.Size(764, 661);
+            this.Controls.Add(this.cmbxListBrand);
+            this.Controls.Add(this.lblBrand);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtPrice);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtModelPrice);
+            this.Controls.Add(this.lblListModel);
             this.Controls.Add(this.txtModelDescription);
             this.Controls.Add(this.lblModelDescription);
-            this.Controls.Add(this.boxListBrand);
+            this.Controls.Add(this.boxListModel);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnDeleteModel);
+            this.Controls.Add(this.btnUpdateModel);
+            this.Controls.Add(this.btnAddModel);
             this.Controls.Add(this.lblAddModel);
-            this.Controls.Add(this.txtAddModel);
+            this.Controls.Add(this.txtModelName);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "AddModelForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddModelForm";
+            this.Load += new System.EventHandler(this.AddModelForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblListModel;
         private System.Windows.Forms.TextBox txtModelDescription;
         private System.Windows.Forms.Label lblModelDescription;
-        private System.Windows.Forms.ListBox boxListBrand;
+        private System.Windows.Forms.ListBox boxListModel;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDeleteModel;
+        private System.Windows.Forms.Button btnUpdateModel;
+        private System.Windows.Forms.Button btnAddModel;
         private System.Windows.Forms.Label lblAddModel;
-        private System.Windows.Forms.TextBox txtAddModel;
+        private System.Windows.Forms.TextBox txtModelName;
         private System.Windows.Forms.Label Ad;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtPrice;
+        private System.Windows.Forms.TextBox txtModelPrice;
+        private System.Windows.Forms.Label lblBrand;
+        private System.Windows.Forms.ComboBox cmbxListBrand;
     }
 }

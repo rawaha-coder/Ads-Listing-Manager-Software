@@ -1,4 +1,4 @@
-﻿using Ads_Listing_Manager_Software.Model;
+﻿using Ads_Listing_Manager_Software.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -133,7 +133,7 @@ namespace Ads_Listing_Manager_Software.Database
         {
             var updateStmt = "UPDATE " + TABLE_BRAND + " SET "
                  + COLUMN_BRAND_NAME + " =@" + COLUMN_BRAND_NAME + ", "
-                 + COLUMN_BRAND_DESCRIPTION + " =@" + COLUMN_BRAND_DESCRIPTION + ", "
+                 + COLUMN_BRAND_DESCRIPTION + " =@" + COLUMN_BRAND_DESCRIPTION + " "
                 + " WHERE " + COLUMN_BRAND_ID + " = " + item.Id + " ";
 
             try
@@ -142,6 +142,26 @@ namespace Ads_Listing_Manager_Software.Database
                 OpenConnection();
                 sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_BRAND_NAME, item.Name));
                 sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_BRAND_DESCRIPTION, item.Description));
+                sQLiteCommand.ExecuteNonQuery();
+            }
+            catch (SQLiteException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+
+        public void DeleteData(Brand item)
+        {
+            var deleteStmt = "DELETE FROM " + TABLE_BRAND + " WHERE " + COLUMN_BRAND_ID + " = " + item.Id + " ";
+
+            try
+            {
+                SQLiteCommand sQLiteCommand = new SQLiteCommand(deleteStmt, mSQLiteConnection);
+                OpenConnection();
                 sQLiteCommand.ExecuteNonQuery();
             }
             catch (SQLiteException ex)

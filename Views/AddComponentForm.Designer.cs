@@ -1,7 +1,7 @@
 ﻿
 namespace Ads_Listing_Manager_Software.Views
 {
-    partial class AddTypeForm
+    partial class AddComponentForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace Ads_Listing_Manager_Software.Views
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblListType = new System.Windows.Forms.Label();
+            this.lblListComponent = new System.Windows.Forms.Label();
             this.txtTypeDescription = new System.Windows.Forms.TextBox();
             this.lblTypeDescription = new System.Windows.Forms.Label();
             this.boxListType = new System.Windows.Forms.ListBox();
@@ -37,18 +37,18 @@ namespace Ads_Listing_Manager_Software.Views
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.lblAddType = new System.Windows.Forms.Label();
+            this.lblAddComponent = new System.Windows.Forms.Label();
             this.txtAddType = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // lblListType
+            // lblListComponent
             // 
-            this.lblListType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblListType.Location = new System.Drawing.Point(386, 66);
-            this.lblListType.Name = "lblListType";
-            this.lblListType.Size = new System.Drawing.Size(174, 23);
-            this.lblListType.TabIndex = 25;
-            this.lblListType.Text = "List Type";
+            this.lblListComponent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblListComponent.Location = new System.Drawing.Point(386, 66);
+            this.lblListComponent.Name = "lblListComponent";
+            this.lblListComponent.Size = new System.Drawing.Size(174, 23);
+            this.lblListComponent.TabIndex = 25;
+            this.lblListComponent.Text = "List Component";
             // 
             // txtTypeDescription
             // 
@@ -114,14 +114,14 @@ namespace Ads_Listing_Manager_Software.Views
             this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // lblAddType
+            // lblAddComponent
             // 
-            this.lblAddType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblAddType.Location = new System.Drawing.Point(12, 66);
-            this.lblAddType.Name = "lblAddType";
-            this.lblAddType.Size = new System.Drawing.Size(255, 23);
-            this.lblAddType.TabIndex = 17;
-            this.lblAddType.Text = "Type";
+            this.lblAddComponent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblAddComponent.Location = new System.Drawing.Point(12, 66);
+            this.lblAddComponent.Name = "lblAddComponent";
+            this.lblAddComponent.Size = new System.Drawing.Size(255, 23);
+            this.lblAddComponent.TabIndex = 17;
+            this.lblAddComponent.Text = "Component";
             // 
             // txtAddType
             // 
@@ -131,13 +131,13 @@ namespace Ads_Listing_Manager_Software.Views
             this.txtAddType.Size = new System.Drawing.Size(318, 24);
             this.txtAddType.TabIndex = 16;
             // 
-            // AddTypeForm
+            // AddComponentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(159)))), ((int)(((byte)(181)))));
             this.ClientSize = new System.Drawing.Size(764, 661);
-            this.Controls.Add(this.lblListType);
+            this.Controls.Add(this.lblListComponent);
             this.Controls.Add(this.txtTypeDescription);
             this.Controls.Add(this.lblTypeDescription);
             this.Controls.Add(this.boxListType);
@@ -145,18 +145,19 @@ namespace Ads_Listing_Manager_Software.Views
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.lblAddType);
+            this.Controls.Add(this.lblAddComponent);
             this.Controls.Add(this.txtAddType);
-            this.Name = "AddTypeForm";
+            this.Name = "AddComponentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddTypeForm";
+            this.Load += new System.EventHandler(this.AddComponentForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label lblListType;
+        private System.Windows.Forms.Label lblListComponent;
         private System.Windows.Forms.TextBox txtTypeDescription;
         private System.Windows.Forms.Label lblTypeDescription;
         private System.Windows.Forms.ListBox boxListType;
@@ -164,7 +165,7 @@ namespace Ads_Listing_Manager_Software.Views
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label lblAddType;
+        private System.Windows.Forms.Label lblAddComponent;
         private System.Windows.Forms.TextBox txtAddType;
     }
 }

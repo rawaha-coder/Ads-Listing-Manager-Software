@@ -76,6 +76,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.btnUpdateBrand.TabIndex = 9;
             this.btnUpdateBrand.Text = "Update";
             this.btnUpdateBrand.UseVisualStyleBackColor = true;
+            this.btnUpdateBrand.Click += new System.EventHandler(this.btnUpdateBrand_Click);
             // 
             // btnDeleteBrand
             // 
@@ -85,6 +86,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.btnDeleteBrand.TabIndex = 10;
             this.btnDeleteBrand.Text = "Delete";
             this.btnDeleteBrand.UseVisualStyleBackColor = true;
+            this.btnDeleteBrand.Click += new System.EventHandler(this.btnDeleteBrand_Click);
             // 
             // boxListBrand
             // 
@@ -125,12 +127,15 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             // btnClose
             // 
+            this.btnClose.BackColor = System.Drawing.Color.Gray;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Location = new System.Drawing.Point(12, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 11;
             this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // AddBrandForm
