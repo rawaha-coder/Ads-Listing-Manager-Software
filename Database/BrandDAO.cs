@@ -1,4 +1,4 @@
-﻿using Ads_Listing_Manager_Software.Model;
+﻿using Ads_Listing_Manager_Software.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -15,22 +15,18 @@ namespace Ads_Listing_Manager_Software.Database
         public const string COLUMN_BRAND_NAME = "BrandName";
         public const string COLUMN_BRAND_DESCRIPTION = "BrandDescription";
 
-        private static BrandDAO instance = new BrandDAO();
+        private static BrandDAO instance = null;
 
-        private BrandDAO() : base()
-        {
-        }
+        private BrandDAO() : base(){}
 
         public static BrandDAO getInstance()
         {
             if (instance == null)
-            {
                 instance = new BrandDAO();
-            }
             return instance;
         }
 
-        public void addData(Brand brand)
+        public void AddData(Brand brand)
         {
             string insertStmt = "INSERT INTO " + TABLE_BRAND + " ("
                     + COLUMN_BRAND_NAME + ", "
@@ -58,7 +54,7 @@ namespace Ads_Listing_Manager_Software.Database
         }
 
 
-        public List<Brand> getData()
+        public List<Brand> GetData()
         {
             List<Brand> list = new List<Brand>();
             var selectStmt = "SELECT * FROM " + TABLE_BRAND + " ORDER BY " + COLUMN_BRAND_NAME + " ASC;";
@@ -74,9 +70,9 @@ namespace Ads_Listing_Manager_Software.Database
                     {
                         Brand item = new Brand
                         {
-                            Id = Convert.ToInt32((result[COLUMN_BRAND_ID]).ToString()),
-                            Name = (string)result[COLUMN_BRAND_NAME],
-                            Description = (string)result[COLUMN_BRAND_DESCRIPTION],
+                            Id = result.GetInt32(result.GetOrdinal(COLUMN_BRAND_ID)),
+                            Name = result.GetString(result.GetOrdinal(COLUMN_BRAND_NAME)),
+                            Description = result.GetString(result.GetOrdinal(COLUMN_BRAND_DESCRIPTION)),
                         };
                         list.Add(item);
                     }
@@ -110,9 +106,9 @@ namespace Ads_Listing_Manager_Software.Database
                     {
                         Brand item = new Brand
                         {
-                            Id = Convert.ToInt32((result[COLUMN_BRAND_ID]).ToString()),
-                            Name = (string)result[COLUMN_BRAND_NAME],
-                            Description = (string)result[COLUMN_BRAND_DESCRIPTION],
+                            Id = result.GetInt32(result.GetOrdinal(COLUMN_BRAND_ID)),
+                            Name = result.GetString(result.GetOrdinal(COLUMN_BRAND_NAME)),
+                            Description = result.GetString(result.GetOrdinal(COLUMN_BRAND_DESCRIPTION)),
                         };
                         dictionary.Add(item.Name, item);
                     }
@@ -133,7 +129,7 @@ namespace Ads_Listing_Manager_Software.Database
         {
             var updateStmt = "UPDATE " + TABLE_BRAND + " SET "
                  + COLUMN_BRAND_NAME + " =@" + COLUMN_BRAND_NAME + ", "
-                 + COLUMN_BRAND_DESCRIPTION + " =@" + COLUMN_BRAND_DESCRIPTION + ", "
+                 + COLUMN_BRAND_DESCRIPTION + " =@" + COLUMN_BRAND_DESCRIPTION + " "
                 + " WHERE " + COLUMN_BRAND_ID + " = " + item.Id + " ";
 
             try
@@ -142,6 +138,26 @@ namespace Ads_Listing_Manager_Software.Database
                 OpenConnection();
                 sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_BRAND_NAME, item.Name));
                 sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_BRAND_DESCRIPTION, item.Description));
+                sQLiteCommand.ExecuteNonQuery();
+            }
+            catch (SQLiteException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+
+        public void DeleteData(Brand item)
+        {
+            var deleteStmt = "DELETE FROM " + TABLE_BRAND + " WHERE " + COLUMN_BRAND_ID + " = " + item.Id + " ";
+
+            try
+            {
+                SQLiteCommand sQLiteCommand = new SQLiteCommand(deleteStmt, mSQLiteConnection);
+                OpenConnection();
                 sQLiteCommand.ExecuteNonQuery();
             }
             catch (SQLiteException ex)

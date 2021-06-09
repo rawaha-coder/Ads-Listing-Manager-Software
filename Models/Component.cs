@@ -4,18 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ads_Listing_Manager_Software.Model
+namespace Ads_Listing_Manager_Software.Models
 {
-    class Model
+    class Component
     {
         int id;
         string name;
-        double price;
-        Brand brand;
+        string description;
 
         public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
-        public double Price { get => price; set => price = value; }
-        internal Brand Brand { get => brand; set => brand = value; }
+        public string Description { get => description; set => description = value; }
     }
 }

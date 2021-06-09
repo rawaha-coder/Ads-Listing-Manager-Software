@@ -1,5 +1,5 @@
 ﻿using Ads_Listing_Manager_Software.Database;
-using Ads_Listing_Manager_Software.Model;
+using Ads_Listing_Manager_Software.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,12 +20,32 @@ namespace Ads_Listing_Manager_Software.Views
         public AddBrandForm()
         {
             InitializeComponent();
-            Load_Data();
+            LoadBrandData();
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void LoadBrandData()
         {
-            this.Close();
+            listItem.Clear();
+            boxListBrand.Items.Clear();
+            try
+            {
+                listItem = brandDAO.GetData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+            foreach (Brand item in listItem)
+            {
+                boxListBrand.Items.Add(item.Name);
+            }
+        }
+
+        private void ClearField()
+        {
+            txtBrand.Text = "";
+            txtDescription.Text = "";
         }
 
         private void btnAddBrand_Click(object sender, EventArgs e)
@@ -38,12 +58,12 @@ namespace Ads_Listing_Manager_Software.Views
             try
             {
                 Brand brand = new Brand();
-                brand.Name = txtBrand.Text;
+                brand.Name = txtBrand.Text.Trim().ToUpper();
                 brand.Description = txtDescription.Text;
-                brandDAO.addData(brand);
+                brandDAO.AddData(brand);
                 MessageBox.Show("Brand Saved", "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
                 ClearField();
-                Load_Data();
+                LoadBrandData();
             }
             catch (Exception ex)
             {
@@ -51,36 +71,60 @@ namespace Ads_Listing_Manager_Software.Views
             }
         }
 
-        private void Load_Data()
+        private void boxListBrand_DoubleClick(object sender, EventArgs e)
         {
-            listItem.Clear();
             try
             {
-                listItem = brandDAO.getData();
+                txtBrand.Text = listItem[boxListBrand.SelectedIndex].Name;
+                txtDescription.Text = listItem[boxListBrand.SelectedIndex].Description; ;
+                mBrand.Id = listItem[boxListBrand.SelectedIndex].Id;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnUpdateBrand_Click(object sender, EventArgs e)
+        {
+            if (txtBrand.Text == "")
+            {
+                MessageBox.Show("Brand name required");
                 return;
             }
-            foreach (Brand item in listItem)
+            try
             {
-                boxListBrand.Items.Add(item.Name);
+                mBrand.Name = txtBrand.Text.Trim().ToUpper();
+                mBrand.Description = txtDescription.Text;
+                brandDAO.UpdateData(mBrand);
+                MessageBox.Show("Brand Updated", "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+                ClearField();
+                LoadBrandData();
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Brand Not Updated: " + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+            }
         }
 
-        private void ClearField()
+        private void btnDeleteBrand_Click(object sender, EventArgs e)
         {
-            txtBrand.Text = "";
-            txtDescription.Text = "";
-        }
-
-        private void boxListBrand_DoubleClick(object sender, EventArgs e)
-        {
-            txtBrand.Text = listItem[boxListBrand.SelectedIndex].Name;
-            txtDescription.Text = listItem[boxListBrand.SelectedIndex].Description; ;
-            mBrand.Id = listItem[boxListBrand.SelectedIndex].Id;
+            if (mBrand.Id <= 0)
+            {
+                MessageBox.Show("Brand name required");
+                return;
+            }
+            try
+            {
+                brandDAO.DeleteData(mBrand);
+                MessageBox.Show("Brand Deleted", "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+                ClearField();
+                LoadBrandData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Brand Not Deleted: " + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+            }
         }
     }
 }

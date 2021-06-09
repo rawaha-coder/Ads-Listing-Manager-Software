@@ -15,6 +15,7 @@ namespace Ads_Listing_Manager_Software
     public partial class MainForm : Form
     {
         private bool SideMenuIsHide = false;
+        private Form activeForm = null;
         public MainForm()
         {
             InitializeComponent();
@@ -22,11 +23,11 @@ namespace Ads_Listing_Manager_Software
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //BrandDAO b = BrandDAO.getInstance();
+            //ComponentDAO b = ComponentDAO.getInstance();
             //b.CreateTable();
         }
 
-        private Form activeForm = null;
+
         private void OpenChildForm(Form childForm)
         {
             if (activeForm != null) activeForm.Close();
@@ -63,7 +64,7 @@ namespace Ads_Listing_Manager_Software
 
         private void btnAddType_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new AddTypeForm());
+            OpenChildForm(new AddComponentForm());
         }
 
         private void btnAddItem_Click(object sender, EventArgs e)
@@ -71,6 +72,9 @@ namespace Ads_Listing_Manager_Software
             OpenChildForm(new AddItemForm());
         }
 
-
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            activeForm.Close();
+        }
     }
 }

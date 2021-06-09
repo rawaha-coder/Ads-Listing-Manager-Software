@@ -44,6 +44,7 @@ namespace Ads_Listing_Manager_Software
             this.button7 = new System.Windows.Forms.Button();
             this.btnLaptopForm = new System.Windows.Forms.Button();
             this.btnDesktopForm = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
             this.SideMenuPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPicBox)).BeginInit();
@@ -57,6 +58,7 @@ namespace Ads_Listing_Manager_Software
             // 
             this.SideMenuPanel.AutoScroll = true;
             this.SideMenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(15)))), ((int)(((byte)(33)))));
+            this.SideMenuPanel.Controls.Add(this.btnHome);
             this.SideMenuPanel.Controls.Add(this.btnAddItem);
             this.SideMenuPanel.Controls.Add(this.btnAddType);
             this.SideMenuPanel.Controls.Add(this.btnAddModel);
@@ -80,7 +82,7 @@ namespace Ads_Listing_Manager_Software
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(178, 39);
             this.btnAddItem.TabIndex = 5;
-            this.btnAddItem.Text = "Item";
+            this.btnAddItem.Text = "Product";
             this.btnAddItem.UseVisualStyleBackColor = false;
             this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
             // 
@@ -95,7 +97,7 @@ namespace Ads_Listing_Manager_Software
             this.btnAddType.Name = "btnAddType";
             this.btnAddType.Size = new System.Drawing.Size(178, 39);
             this.btnAddType.TabIndex = 4;
-            this.btnAddType.Text = "Type";
+            this.btnAddType.Text = "Component";
             this.btnAddType.UseVisualStyleBackColor = false;
             this.btnAddType.Click += new System.EventHandler(this.btnAddType_Click);
             // 
@@ -267,6 +269,20 @@ namespace Ads_Listing_Manager_Software
             this.btnDesktopForm.UseVisualStyleBackColor = false;
             this.btnDesktopForm.Click += new System.EventHandler(this.btnDesktopForm_Click);
             // 
+            // btnHome
+            // 
+            this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
+            this.btnHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(121)))), ((int)(((byte)(29)))));
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.Location = new System.Drawing.Point(0, 711);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(2);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(178, 39);
+            this.btnHome.TabIndex = 6;
+            this.btnHome.Text = "Home";
+            this.btnHome.UseVisualStyleBackColor = false;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -308,6 +324,7 @@ namespace Ads_Listing_Manager_Software
         private System.Windows.Forms.Button btnAddItem;
         private System.Windows.Forms.Panel PanelChildForm;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnHome;
     }
 }
 
