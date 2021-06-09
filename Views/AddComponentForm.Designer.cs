@@ -30,15 +30,14 @@ namespace Ads_Listing_Manager_Software.Views
         private void InitializeComponent()
         {
             this.lblListComponent = new System.Windows.Forms.Label();
-            this.txtTypeDescription = new System.Windows.Forms.TextBox();
+            this.txtComponentDescription = new System.Windows.Forms.TextBox();
             this.lblTypeDescription = new System.Windows.Forms.Label();
-            this.boxListType = new System.Windows.Forms.ListBox();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.boxListComponent = new System.Windows.Forms.ListBox();
+            this.btnDeleteComponent = new System.Windows.Forms.Button();
+            this.btnUpdateComponent = new System.Windows.Forms.Button();
+            this.btnAddComponent = new System.Windows.Forms.Button();
             this.lblAddComponent = new System.Windows.Forms.Label();
-            this.txtAddType = new System.Windows.Forms.TextBox();
+            this.txtComponentName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblListComponent
@@ -50,14 +49,14 @@ namespace Ads_Listing_Manager_Software.Views
             this.lblListComponent.TabIndex = 25;
             this.lblListComponent.Text = "List Component";
             // 
-            // txtTypeDescription
+            // txtComponentDescription
             // 
-            this.txtTypeDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtTypeDescription.Location = new System.Drawing.Point(12, 167);
-            this.txtTypeDescription.Multiline = true;
-            this.txtTypeDescription.Name = "txtTypeDescription";
-            this.txtTypeDescription.Size = new System.Drawing.Size(318, 387);
-            this.txtTypeDescription.TabIndex = 24;
+            this.txtComponentDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtComponentDescription.Location = new System.Drawing.Point(12, 167);
+            this.txtComponentDescription.Multiline = true;
+            this.txtComponentDescription.Name = "txtComponentDescription";
+            this.txtComponentDescription.Size = new System.Drawing.Size(318, 387);
+            this.txtComponentDescription.TabIndex = 24;
             // 
             // lblTypeDescription
             // 
@@ -68,51 +67,45 @@ namespace Ads_Listing_Manager_Software.Views
             this.lblTypeDescription.TabIndex = 23;
             this.lblTypeDescription.Text = "Description";
             // 
-            // boxListType
+            // boxListComponent
             // 
-            this.boxListType.FormattingEnabled = true;
-            this.boxListType.ItemHeight = 15;
-            this.boxListType.Location = new System.Drawing.Point(386, 92);
-            this.boxListType.Name = "boxListType";
-            this.boxListType.Size = new System.Drawing.Size(174, 469);
-            this.boxListType.TabIndex = 22;
+            this.boxListComponent.FormattingEnabled = true;
+            this.boxListComponent.ItemHeight = 15;
+            this.boxListComponent.Location = new System.Drawing.Point(386, 92);
+            this.boxListComponent.Name = "boxListComponent";
+            this.boxListComponent.Size = new System.Drawing.Size(174, 469);
+            this.boxListComponent.TabIndex = 22;
+            this.boxListComponent.DoubleClick += new System.EventHandler(this.boxListComponent_DoubleClick);
             // 
-            // btnClose
+            // btnDeleteComponent
             // 
-            this.btnClose.Location = new System.Drawing.Point(12, 12);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 21;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnDeleteComponent.Location = new System.Drawing.Point(174, 560);
+            this.btnDeleteComponent.Name = "btnDeleteComponent";
+            this.btnDeleteComponent.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteComponent.TabIndex = 20;
+            this.btnDeleteComponent.Text = "Delete";
+            this.btnDeleteComponent.UseVisualStyleBackColor = true;
+            this.btnDeleteComponent.Click += new System.EventHandler(this.btnDeleteComponent_Click);
             // 
-            // button3
+            // btnUpdateComponent
             // 
-            this.button3.Location = new System.Drawing.Point(174, 560);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 20;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnUpdateComponent.Location = new System.Drawing.Point(93, 560);
+            this.btnUpdateComponent.Name = "btnUpdateComponent";
+            this.btnUpdateComponent.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateComponent.TabIndex = 19;
+            this.btnUpdateComponent.Text = "Update";
+            this.btnUpdateComponent.UseVisualStyleBackColor = true;
+            this.btnUpdateComponent.Click += new System.EventHandler(this.btnUpdateComponent_Click);
             // 
-            // button2
+            // btnAddComponent
             // 
-            this.button2.Location = new System.Drawing.Point(93, 560);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Update";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 560);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAddComponent.Location = new System.Drawing.Point(12, 560);
+            this.btnAddComponent.Name = "btnAddComponent";
+            this.btnAddComponent.Size = new System.Drawing.Size(75, 23);
+            this.btnAddComponent.TabIndex = 18;
+            this.btnAddComponent.Text = "Add";
+            this.btnAddComponent.UseVisualStyleBackColor = true;
+            this.btnAddComponent.Click += new System.EventHandler(this.btnAddComponent_Click);
             // 
             // lblAddComponent
             // 
@@ -123,13 +116,13 @@ namespace Ads_Listing_Manager_Software.Views
             this.lblAddComponent.TabIndex = 17;
             this.lblAddComponent.Text = "Component";
             // 
-            // txtAddType
+            // txtComponentName
             // 
-            this.txtAddType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtAddType.Location = new System.Drawing.Point(12, 90);
-            this.txtAddType.Name = "txtAddType";
-            this.txtAddType.Size = new System.Drawing.Size(318, 24);
-            this.txtAddType.TabIndex = 16;
+            this.txtComponentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtComponentName.Location = new System.Drawing.Point(12, 90);
+            this.txtComponentName.Name = "txtComponentName";
+            this.txtComponentName.Size = new System.Drawing.Size(318, 24);
+            this.txtComponentName.TabIndex = 16;
             // 
             // AddComponentForm
             // 
@@ -138,15 +131,14 @@ namespace Ads_Listing_Manager_Software.Views
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(159)))), ((int)(((byte)(181)))));
             this.ClientSize = new System.Drawing.Size(764, 661);
             this.Controls.Add(this.lblListComponent);
-            this.Controls.Add(this.txtTypeDescription);
+            this.Controls.Add(this.txtComponentDescription);
             this.Controls.Add(this.lblTypeDescription);
-            this.Controls.Add(this.boxListType);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.boxListComponent);
+            this.Controls.Add(this.btnDeleteComponent);
+            this.Controls.Add(this.btnUpdateComponent);
+            this.Controls.Add(this.btnAddComponent);
             this.Controls.Add(this.lblAddComponent);
-            this.Controls.Add(this.txtAddType);
+            this.Controls.Add(this.txtComponentName);
             this.Name = "AddComponentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddTypeForm";
@@ -158,14 +150,13 @@ namespace Ads_Listing_Manager_Software.Views
 
         #endregion
         private System.Windows.Forms.Label lblListComponent;
-        private System.Windows.Forms.TextBox txtTypeDescription;
+        private System.Windows.Forms.TextBox txtComponentDescription;
         private System.Windows.Forms.Label lblTypeDescription;
-        private System.Windows.Forms.ListBox boxListType;
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListBox boxListComponent;
+        private System.Windows.Forms.Button btnDeleteComponent;
+        private System.Windows.Forms.Button btnUpdateComponent;
+        private System.Windows.Forms.Button btnAddComponent;
         private System.Windows.Forms.Label lblAddComponent;
-        private System.Windows.Forms.TextBox txtAddType;
+        private System.Windows.Forms.TextBox txtComponentName;
     }
 }

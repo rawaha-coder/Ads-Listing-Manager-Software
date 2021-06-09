@@ -20,16 +20,16 @@ namespace Ads_Listing_Manager_Software.Views
         public AddBrandForm()
         {
             InitializeComponent();
-            Load_Data();
+            LoadBrandData();
         }
 
-        private void Load_Data()
+        private void LoadBrandData()
         {
             listItem.Clear();
             boxListBrand.Items.Clear();
             try
             {
-                listItem = brandDAO.getData();
+                listItem = brandDAO.GetData();
             }
             catch (Exception ex)
             {
@@ -48,11 +48,6 @@ namespace Ads_Listing_Manager_Software.Views
             txtDescription.Text = "";
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void btnAddBrand_Click(object sender, EventArgs e)
         {
             if(txtBrand.Text == "")
@@ -65,10 +60,10 @@ namespace Ads_Listing_Manager_Software.Views
                 Brand brand = new Brand();
                 brand.Name = txtBrand.Text.Trim().ToUpper();
                 brand.Description = txtDescription.Text;
-                brandDAO.addData(brand);
+                brandDAO.AddData(brand);
                 MessageBox.Show("Brand Saved", "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
                 ClearField();
-                Load_Data();
+                LoadBrandData();
             }
             catch (Exception ex)
             {
@@ -88,7 +83,6 @@ namespace Ads_Listing_Manager_Software.Views
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
 
         private void btnUpdateBrand_Click(object sender, EventArgs e)
@@ -105,7 +99,7 @@ namespace Ads_Listing_Manager_Software.Views
                 brandDAO.UpdateData(mBrand);
                 MessageBox.Show("Brand Updated", "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
                 ClearField();
-                Load_Data();
+                LoadBrandData();
             }
             catch (Exception ex)
             {
@@ -115,7 +109,7 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void btnDeleteBrand_Click(object sender, EventArgs e)
         {
-            if (txtBrand.Text == "")
+            if (mBrand.Id <= 0)
             {
                 MessageBox.Show("Brand name required");
                 return;
@@ -125,7 +119,7 @@ namespace Ads_Listing_Manager_Software.Views
                 brandDAO.DeleteData(mBrand);
                 MessageBox.Show("Brand Deleted", "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
                 ClearField();
-                Load_Data();
+                LoadBrandData();
             }
             catch (Exception ex)
             {

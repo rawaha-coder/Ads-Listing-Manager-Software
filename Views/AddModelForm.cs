@@ -28,18 +28,18 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void AddModelForm_Load(object sender, EventArgs e)
         {
-            Load_Brand_Data();
+            LoadBrandData();
         }
 
 
 
-        private void Load_Brand_Data()
+        private void LoadBrandData()
         {
             listBrand.Clear();
             cmbxListBrand.Items.Clear();
             try
             {
-                listBrand = brandDAO.getData();
+                listBrand = brandDAO.GetData();
             }
             catch (Exception ex)
             {
@@ -136,7 +136,8 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void cmbxListBrand_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Load_Model_Data();
+            if(cmbxListBrand.SelectedIndex != -1)
+                Load_Model_Data();
         }
 
         private void Load_Model_Data()
@@ -164,11 +165,19 @@ namespace Ads_Listing_Manager_Software.Views
             txtModelPrice.Text = "";
             txtModelDescription.Text = "";
             cmbxListBrand.SelectedIndex = -1;
+            boxListModel.Items.Clear();
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void ValidateNumberEntred(object sender, KeyPressEventArgs e)
         {
-            this.Close();
+            if ((e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == 8 || e.KeyChar == 46)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -15,22 +15,18 @@ namespace Ads_Listing_Manager_Software.Database
         public const string COLUMN_BRAND_NAME = "BrandName";
         public const string COLUMN_BRAND_DESCRIPTION = "BrandDescription";
 
-        private static BrandDAO instance = new BrandDAO();
+        private static BrandDAO instance = null;
 
-        private BrandDAO() : base()
-        {
-        }
+        private BrandDAO() : base(){}
 
         public static BrandDAO getInstance()
         {
             if (instance == null)
-            {
                 instance = new BrandDAO();
-            }
             return instance;
         }
 
-        public void addData(Brand brand)
+        public void AddData(Brand brand)
         {
             string insertStmt = "INSERT INTO " + TABLE_BRAND + " ("
                     + COLUMN_BRAND_NAME + ", "
@@ -58,7 +54,7 @@ namespace Ads_Listing_Manager_Software.Database
         }
 
 
-        public List<Brand> getData()
+        public List<Brand> GetData()
         {
             List<Brand> list = new List<Brand>();
             var selectStmt = "SELECT * FROM " + TABLE_BRAND + " ORDER BY " + COLUMN_BRAND_NAME + " ASC;";
@@ -74,9 +70,9 @@ namespace Ads_Listing_Manager_Software.Database
                     {
                         Brand item = new Brand
                         {
-                            Id = Convert.ToInt32((result[COLUMN_BRAND_ID]).ToString()),
-                            Name = (string)result[COLUMN_BRAND_NAME],
-                            Description = (string)result[COLUMN_BRAND_DESCRIPTION],
+                            Id = result.GetInt32(result.GetOrdinal(COLUMN_BRAND_ID)),
+                            Name = result.GetString(result.GetOrdinal(COLUMN_BRAND_NAME)),
+                            Description = result.GetString(result.GetOrdinal(COLUMN_BRAND_DESCRIPTION)),
                         };
                         list.Add(item);
                     }
@@ -110,9 +106,9 @@ namespace Ads_Listing_Manager_Software.Database
                     {
                         Brand item = new Brand
                         {
-                            Id = Convert.ToInt32((result[COLUMN_BRAND_ID]).ToString()),
-                            Name = (string)result[COLUMN_BRAND_NAME],
-                            Description = (string)result[COLUMN_BRAND_DESCRIPTION],
+                            Id = result.GetInt32(result.GetOrdinal(COLUMN_BRAND_ID)),
+                            Name = result.GetString(result.GetOrdinal(COLUMN_BRAND_NAME)),
+                            Description = result.GetString(result.GetOrdinal(COLUMN_BRAND_DESCRIPTION)),
                         };
                         dictionary.Add(item.Name, item);
                     }

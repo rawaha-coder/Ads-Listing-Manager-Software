@@ -10,8 +10,10 @@ namespace Ads_Listing_Manager_Software.Models
     {
         int id;
         string name;
+        string description;
 
         public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
+        public string Description { get => description; set => description = value; }
     }
 }

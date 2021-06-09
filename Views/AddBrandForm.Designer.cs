@@ -38,7 +38,6 @@ namespace Ads_Listing_Manager_Software.Views
             this.label2 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtBrand
@@ -125,19 +124,6 @@ namespace Ads_Listing_Manager_Software.Views
             this.label3.TabIndex = 15;
             this.label3.Text = "List Brand";
             // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.Gray;
-            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Location = new System.Drawing.Point(12, 12);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 11;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // AddBrandForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -149,7 +135,6 @@ namespace Ads_Listing_Manager_Software.Views
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.boxListBrand);
-            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnDeleteBrand);
             this.Controls.Add(this.btnUpdateBrand);
             this.Controls.Add(this.btnAddBrand);
@@ -174,6 +159,5 @@ namespace Ads_Listing_Manager_Software.Views
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnClose;
     }
 }

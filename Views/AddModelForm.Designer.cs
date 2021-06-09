@@ -33,7 +33,6 @@ namespace Ads_Listing_Manager_Software.Views
             this.txtModelDescription = new System.Windows.Forms.TextBox();
             this.lblModelDescription = new System.Windows.Forms.Label();
             this.boxListModel = new System.Windows.Forms.ListBox();
-            this.btnClose = new System.Windows.Forms.Button();
             this.btnDeleteModel = new System.Windows.Forms.Button();
             this.btnUpdateModel = new System.Windows.Forms.Button();
             this.btnAddModel = new System.Windows.Forms.Button();
@@ -57,16 +56,16 @@ namespace Ads_Listing_Manager_Software.Views
             // txtModelDescription
             // 
             this.txtModelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtModelDescription.Location = new System.Drawing.Point(12, 266);
+            this.txtModelDescription.Location = new System.Drawing.Point(12, 274);
             this.txtModelDescription.Multiline = true;
             this.txtModelDescription.Name = "txtModelDescription";
-            this.txtModelDescription.Size = new System.Drawing.Size(318, 288);
+            this.txtModelDescription.Size = new System.Drawing.Size(318, 280);
             this.txtModelDescription.TabIndex = 24;
             // 
             // lblModelDescription
             // 
             this.lblModelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblModelDescription.Location = new System.Drawing.Point(12, 240);
+            this.lblModelDescription.Location = new System.Drawing.Point(12, 248);
             this.lblModelDescription.Name = "lblModelDescription";
             this.lblModelDescription.Size = new System.Drawing.Size(255, 23);
             this.lblModelDescription.TabIndex = 23;
@@ -81,16 +80,6 @@ namespace Ads_Listing_Manager_Software.Views
             this.boxListModel.Size = new System.Drawing.Size(174, 469);
             this.boxListModel.TabIndex = 22;
             this.boxListModel.DoubleClick += new System.EventHandler(this.boxListModel_DoubleClick);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(12, 12);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 21;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnDeleteModel
             // 
@@ -155,6 +144,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.txtModelPrice.Name = "txtModelPrice";
             this.txtModelPrice.Size = new System.Drawing.Size(318, 24);
             this.txtModelPrice.TabIndex = 26;
+            this.txtModelPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateNumberEntred);
             // 
             // lblBrand
             // 
@@ -189,7 +179,6 @@ namespace Ads_Listing_Manager_Software.Views
             this.Controls.Add(this.txtModelDescription);
             this.Controls.Add(this.lblModelDescription);
             this.Controls.Add(this.boxListModel);
-            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnDeleteModel);
             this.Controls.Add(this.btnUpdateModel);
             this.Controls.Add(this.btnAddModel);
@@ -210,7 +199,6 @@ namespace Ads_Listing_Manager_Software.Views
         private System.Windows.Forms.TextBox txtModelDescription;
         private System.Windows.Forms.Label lblModelDescription;
         private System.Windows.Forms.ListBox boxListModel;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnDeleteModel;
         private System.Windows.Forms.Button btnUpdateModel;
         private System.Windows.Forms.Button btnAddModel;

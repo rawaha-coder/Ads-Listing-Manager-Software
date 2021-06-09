@@ -125,7 +125,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(318, 23);
             this.label1.TabIndex = 17;
-            this.label1.Text = "Item";
+            this.label1.Text = "Product";
             // 
             // textBox1
             // 
@@ -141,9 +141,9 @@ namespace Ads_Listing_Manager_Software.Views
             this.lblType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblType.Location = new System.Drawing.Point(12, 66);
             this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(43, 20);
+            this.lblType.Size = new System.Drawing.Size(92, 20);
             this.lblType.TabIndex = 26;
-            this.lblType.Text = "Type";
+            this.lblType.Text = "Component";
             // 
             // comboBox1
             // 
