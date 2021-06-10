@@ -23,7 +23,6 @@ namespace Ads_Listing_Manager_Software.Views
         public AddModelForm()
         {
             InitializeComponent();
-
         }
 
         private void AddModelForm_Load(object sender, EventArgs e)
@@ -31,21 +30,22 @@ namespace Ads_Listing_Manager_Software.Views
             LoadBrandData();
         }
 
-
-
         private void LoadBrandData()
         {
-            listBrand.Clear();
-            cmbxListBrand.Items.Clear();
+            listBrand.Clear(); cmbxListBrand.Items.Clear();
             try
             {
                 listBrand = brandDAO.GetData();
+                getBrandList();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                return;
             }
+        }
+
+        private void getBrandList()
+        {
             foreach (Brand item in listBrand)
             {
                 cmbxListBrand.Items.Add(item.Name);
@@ -54,7 +54,7 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void btnAddModel_Click(object sender, EventArgs e)
         {
-            if (txtModelName.Text == "" || txtModelPrice.Text == "" || cmbxListBrand.SelectedIndex == -1)
+            if (CheckInput())
             {
                 MessageBox.Show("Model name required");
                 return;
@@ -74,6 +74,11 @@ namespace Ads_Listing_Manager_Software.Views
             {
                 MessageBox.Show("Model Not Saved: " + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
+        }
+
+        private bool CheckInput()
+        {
+            return txtModelName.Text == "" || txtModelPrice.Text == "" || cmbxListBrand.SelectedIndex == -1;
         }
 
         private void btnUpdateModel_Click(object sender, EventArgs e)
@@ -137,10 +142,10 @@ namespace Ads_Listing_Manager_Software.Views
         private void cmbxListBrand_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(cmbxListBrand.SelectedIndex != -1)
-                Load_Model_Data();
+                LoadModelData();
         }
 
-        private void Load_Model_Data()
+        private void LoadModelData()
         {
             listModel.Clear();
             boxListModel.Items.Clear();
