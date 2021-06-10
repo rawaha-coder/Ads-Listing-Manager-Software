@@ -23,7 +23,7 @@ namespace Ads_Listing_Manager_Software
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //ComponentDAO b = ComponentDAO.getInstance();
+            //ProductDAO b = ProductDAO.getInstance();
             //b.CreateTable();
         }
 
@@ -69,7 +69,7 @@ namespace Ads_Listing_Manager_Software
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new AddItemForm());
+            OpenChildForm(new AddProductForm());
         }
 
         private void btnHome_Click(object sender, EventArgs e)
