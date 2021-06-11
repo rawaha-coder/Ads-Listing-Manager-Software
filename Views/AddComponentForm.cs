@@ -42,6 +42,11 @@ namespace Ads_Listing_Manager_Software.Views
                 return;
             }
 
+            getComponentList();
+        }
+
+        private void getComponentList()
+        {
             foreach (Component item in listComponent)
             {
                 boxListComponent.Items.Add(item.Name);
@@ -50,7 +55,7 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void btnAddComponent_Click(object sender, EventArgs e)
         {
-            if (txtComponentName.Text == "")
+            if (isInputNotValide())
             {
                 MessageBox.Show("Component name required");
                 return;
@@ -58,6 +63,7 @@ namespace Ads_Listing_Manager_Software.Views
             try
             {
                 Component item = new Component();
+                item.Id = Convert.ToInt32(txtComponentID.Text);
                 item.Name = txtComponentName.Text.Trim().ToUpper();
                 item.Description = txtComponentDescription.Text;
                 mComponentDAO.AddData(item);
@@ -69,6 +75,11 @@ namespace Ads_Listing_Manager_Software.Views
             {
                 MessageBox.Show("Model Not Saved: " + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
+        }
+
+        private bool isInputNotValide()
+        {
+            return txtComponentName.Text == "" || txtComponentID.Text == "";
         }
 
         private void btnUpdateComponent_Click(object sender, EventArgs e)
@@ -131,6 +142,11 @@ namespace Ads_Listing_Manager_Software.Views
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void txtComponentID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utility.Utility.ValidateIntegerNumberEntred(sender, e);
         }
     }
 }

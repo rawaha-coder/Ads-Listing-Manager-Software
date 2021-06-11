@@ -137,7 +137,7 @@ namespace Ads_Listing_Manager_Software.Database
         public void CreateTable()
         {
             string createStmt = "CREATE TABLE " + TABLE_COMPONENT
-                    + "(" + COLUMN_COMPONENT_ID + " INTEGER PRIMARY KEY, "
+                    + "(" + COLUMN_COMPONENT_ID + " INTEGER UNIQUE NOT NULL, "
                     + COLUMN_COMPONENT_NAME + " TEXT UNIQUE NOT NULL, "
                     + COLUMN_COMPONENT_DESCRIPTION + " TEXT DEFAULT '')";
 
