@@ -1,5 +1,6 @@
 ﻿using Ads_Listing_Manager_Software.Database;
 using Ads_Listing_Manager_Software.Models;
+using Ads_Listing_Manager_Software.Utility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,10 +42,9 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void LoadBrandList()
         {
+            listBrand.Clear(); comboBrandList.Items.Clear();
             try
             {
-                listBrand.Clear();
-                comboBrandList.Items.Clear();
                 listBrand = mBrandDAO.GetData();
                 getBrandList();
             }
@@ -70,10 +70,9 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void LoadModelList()
         {
+            listModel.Clear(); comboModelList.Items.Clear();
             try
             {
-                listModel.Clear();
-                comboModelList.Items.Clear();
                 listModel = mModelDAO.getModelsByBrandId(listBrand[comboBrandList.SelectedIndex].Id);
                 getModelList();
             }
@@ -93,10 +92,9 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void LoadComponentList()
         {
+            listComponent.Clear(); comboComponentList.Items.Clear();
             try
             {
-                listComponent.Clear();
-                comboComponentList.Items.Clear();
                 listComponent = mComponentDAO.GetData();
                 getComponentList();
             }
@@ -151,12 +149,24 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void boxListProduct_DoubleClick(object sender, EventArgs e)
         {
-
+            try
+            {
+                Product product = listProduct[boxListProduct.SelectedIndex];
+                txtProductName.Text = product.Name;
+                txtProductPrice.Text = product.Price.ToString();
+                txtProductDescription.Text = product.Description; ;
+                mProduct.Model.Id = product.Model.Id;
+                mProduct.Type.Id = product.Type.Id;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            if (notValidate())
+            if (isNotValidate())
             {
                 MessageBox.Show("Please check input!");
                 return;
@@ -170,12 +180,17 @@ namespace Ads_Listing_Manager_Software.Views
                 mProduct.Type.Id = listComponent[comboComponentList.SelectedIndex].Id;
                 mProductDAO.AddData(mProduct);
                 MessageBox.Show("Product Saved", "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
-                //ClearField();
+                ClearField();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Model Not Saved: " + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
+        }
+
+        private bool isNotValidate()
+        {
+            return txtProductName.Text == "" || txtProductPrice.Text == "" || comboModelList.SelectedIndex == -1 || comboComponentList.SelectedIndex == -1;
         }
 
         private void ClearField()
@@ -185,38 +200,42 @@ namespace Ads_Listing_Manager_Software.Views
             txtProductDescription.Text = "";
             comboModelList.SelectedIndex = -1;
             comboComponentList.SelectedIndex = -1;
-            boxListProduct.Items.Clear();
-        }
-
-        private bool notValidate()
-        {
-            return txtProductName.Text == "" || txtProductPrice.Text == "" || comboModelList.SelectedIndex == -1 || comboComponentList.SelectedIndex == -1 ;
+            if(boxListProduct.Items.Count > 0)
+                boxListProduct.Items.Clear();
         }
 
         private void btnUpdateProduct_Click(object sender, EventArgs e)
         {
-
+            mProduct.Name = txtProductName.Text;
+            mProduct.Price = Convert.ToDouble(txtProductPrice.Text);
+            mProduct.Description = txtProductDescription.Text;
+            mProduct.Model.Id = listModel[comboModelList.SelectedIndex].Id;
+            mProduct.Type.Id = listComponent[comboComponentList.SelectedIndex].Id;
+            mProductDAO.UpdateData(mProduct);
         }
 
         private void btnDeleteProduct_Click(object sender, EventArgs e)
         {
-
+            if (isNotValidate())
+            {
+                MessageBox.Show("Model name required");
+                return;
+            }
+            try
+            {
+                mProductDAO.DeleteData(mProduct);
+                MessageBox.Show("Brand Deleted", "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+                ClearField();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Brand Not Deleted: " + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+            }
         }
 
         private void ValidateNumberEntred(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == 8 || e.KeyChar == 46)
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
+            Utility.Utility.ValidateNumberEntred(sender, e);
         }
-
-
-
-
     }
 }

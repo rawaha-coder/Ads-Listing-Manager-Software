@@ -23,8 +23,16 @@ namespace Ads_Listing_Manager_Software
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //ProductDAO b = ProductDAO.getInstance();
-            //b.CreateTable();
+            try
+            {
+                //ComponentDAO b = ComponentDAO.getInstance();
+                //b.CreateTable();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
 

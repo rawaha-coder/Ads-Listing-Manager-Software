@@ -175,14 +175,7 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void ValidateNumberEntred(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == 8 || e.KeyChar == 46)
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
+            Utility.Utility.ValidateNumberEntred(sender, e);
         }
     }
 }

@@ -47,7 +47,7 @@ namespace Ads_Listing_Manager_Software.Database
                     while (result.Read())
                     {
                         Product item = new Product();
-                        item.Id = Convert.ToInt32((result[COLUMN_PRODUCT_ID]).ToString());
+                        item.Id = result.GetInt32(result.GetOrdinal(COLUMN_PRODUCT_ID));
                         item.Name = result.GetString(result.GetOrdinal(COLUMN_PRODUCT_NAME));
                         item.Price = result.GetDouble(result.GetOrdinal(COLUMN_PRODUCT_PRICE));
                         item.Description = result.GetString(result.GetOrdinal(COLUMN_PRODUCT_DESCRIPTION));
@@ -104,9 +104,24 @@ namespace Ads_Listing_Manager_Software.Database
             }
         }
 
-        public void DeleteData(Product t)
+        public void DeleteData(Product item)
         {
-            throw new NotImplementedException();
+            var deleteStmt = "DELETE FROM " + TABLE_PRODUCT + " WHERE " + COLUMN_PRODUCT_ID + " = " + item.Id + " ";
+
+            try
+            {
+                SQLiteCommand sQLiteCommand = new SQLiteCommand(deleteStmt, mSQLiteConnection);
+                OpenConnection();
+                sQLiteCommand.ExecuteNonQuery();
+            }
+            catch (SQLiteException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                CloseConnection();
+            }
         }
 
         public List<Product> GetData()
@@ -114,9 +129,35 @@ namespace Ads_Listing_Manager_Software.Database
             throw new NotImplementedException();
         }
 
-        public void UpdateData(Product t)
+        public void UpdateData(Product item)
         {
-            throw new NotImplementedException();
+            var updateStmt = "UPDATE " + TABLE_PRODUCT + " SET "
+                            + COLUMN_PRODUCT_NAME + " =@" + COLUMN_PRODUCT_NAME + ", "
+                            + COLUMN_PRODUCT_PRICE + " =@" + COLUMN_PRODUCT_PRICE + ", "
+                            + COLUMN_PRODUCT_MODEL + " =@" + COLUMN_PRODUCT_MODEL + ", "
+                            + COLUMN_PRODUCT_TYPE + " =@" + COLUMN_PRODUCT_TYPE + ", "
+                            + COLUMN_PRODUCT_DESCRIPTION + " =@" + COLUMN_PRODUCT_DESCRIPTION + " "
+                            + " WHERE " + COLUMN_PRODUCT_ID + " = " + item.Id + " ";
+            try
+            {
+                SQLiteCommand sQLiteCommand = new SQLiteCommand(updateStmt, mSQLiteConnection);
+                OpenConnection();
+                sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_PRODUCT_NAME, item.Name));
+                sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_PRODUCT_PRICE, item.Price));
+                sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_PRODUCT_MODEL, item.Model.Id));
+                sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_PRODUCT_TYPE, item.Type.Id));
+                sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_PRODUCT_DESCRIPTION, item.Description));
+
+                sQLiteCommand.ExecuteNonQuery();
+            }
+            catch (SQLiteException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                CloseConnection();
+            }
         }
 
         public void CreateTable()
