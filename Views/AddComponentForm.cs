@@ -17,7 +17,6 @@ namespace Ads_Listing_Manager_Software.Views
         Component mComponent = new Component();
         List<Component> listComponent = new List<Component>();
 
-
         public AddComponentForm()
         {
             InitializeComponent();
@@ -30,77 +29,92 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void LoadComponentData()
         {
-            listComponent.Clear();
-            boxListComponent.Items.Clear();
+            ClearField();
             try
             {
-                listComponent = mComponentDAO.GetData();
+                listComponent = mComponentDAO.SelectData();
+                getComponentList();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                return;
             }
+        }
 
-            getComponentList();
+        private void ClearField()
+        {
+            txtComponentID.Text = "";
+            txtComponentName.Text = "";
+            txtComponentDescription.Text = "";
+            listComponent.Clear();
+            boxListComponent.Items.Clear();
         }
 
         private void getComponentList()
         {
             foreach (Component item in listComponent)
             {
-                boxListComponent.Items.Add(item.Name);
+                boxListComponent.Items.Add(item.Id + ": " + item.Name);
             }
         }
 
         private void btnAddComponent_Click(object sender, EventArgs e)
         {
-            if (isInputNotValide())
+            if (InputIsNotValide())
             {
-                MessageBox.Show("Component name required");
+                MessageBox.Show(Utility.Utility.CHECK_INPUT_VALUE);
                 return;
             }
+            SaveComponentData();
+        }
+
+        private void SaveComponentData()
+        {
             try
             {
-                Component item = new Component();
-                item.Id = Convert.ToInt32(txtComponentID.Text);
-                item.Name = txtComponentName.Text.Trim().ToUpper();
-                item.Description = txtComponentDescription.Text;
-                mComponentDAO.AddData(item);
-                MessageBox.Show("Component Saved", "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
-                ClearField();
+                GetFieldsInput();
+                mComponentDAO.AddData(mComponent);
                 LoadComponentData();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Model Not Saved: " + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show(Utility.Utility.DATA_NOT_SAVED + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
         }
 
-        private bool isInputNotValide()
+        private void GetFieldsInput()
+        {
+            mComponent.Id = Convert.ToInt32(txtComponentID.Text);
+            mComponent.Name = txtComponentName.Text.Trim().ToUpper();
+            mComponent.Description = txtComponentDescription.Text;
+        }
+
+        private bool InputIsNotValide()
         {
             return txtComponentName.Text == "" || txtComponentID.Text == "";
         }
 
         private void btnUpdateComponent_Click(object sender, EventArgs e)
         {
-            if (txtComponentName.Text == "")
+            if (InputIsNotValide())
             {
-                MessageBox.Show("Brand name required");
+                MessageBox.Show(Utility.Utility.CHECK_INPUT_VALUE);
                 return;
             }
+            UpdateComponentdata();
+        }
+
+        private void UpdateComponentdata()
+        {
             try
             {
-                mComponent.Name = txtComponentName.Text.Trim().ToUpper();
-                mComponent.Description = txtComponentDescription.Text;
+                GetFieldsInput();
                 mComponentDAO.UpdateData(mComponent);
-                MessageBox.Show("Brand Updated", "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
-                ClearField();
                 LoadComponentData();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Brand Not Updated: " + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show(Utility.Utility.DATA_NOT_UPDATED + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
         }
 
@@ -108,40 +122,43 @@ namespace Ads_Listing_Manager_Software.Views
         {
             if (mComponent.Id <= 0)
             {
-                MessageBox.Show("Brand name required");
+                MessageBox.Show(Utility.Utility.CHECK_INPUT_VALUE);
                 return;
             }
+            DeleteComponentData();
+        }
+
+        private void DeleteComponentData()
+        {
             try
             {
                 mComponentDAO.DeleteData(mComponent);
-                MessageBox.Show("Brand Deleted", "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
-                ClearField();
                 LoadComponentData();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Brand Not Deleted: " + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show(Utility.Utility.DATA_NOT_DELETED + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
-        }
-
-        private void ClearField()
-        {
-            txtComponentName.Text = "";
-            txtComponentDescription.Text = "";
         }
 
         private void boxListComponent_DoubleClick(object sender, EventArgs e)
         {
             try
             {
-                txtComponentName.Text = listComponent[boxListComponent.SelectedIndex].Name;
-                txtComponentDescription.Text = listComponent[boxListComponent.SelectedIndex].Description; ;
-                mComponent.Id = listComponent[boxListComponent.SelectedIndex].Id;
+                mComponent = listComponent[boxListComponent.SelectedIndex];
+                FillTextBox();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void FillTextBox()
+        {
+            txtComponentID.Text = mComponent.Id.ToString();
+            txtComponentName.Text = mComponent.Name;
+            txtComponentDescription.Text = mComponent.Description; ;
         }
 
         private void txtComponentID_KeyPress(object sender, KeyPressEventArgs e)

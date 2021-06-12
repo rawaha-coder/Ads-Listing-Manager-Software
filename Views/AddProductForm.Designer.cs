@@ -51,7 +51,7 @@ namespace Ads_Listing_Manager_Software.Views
             // labelListProduct
             // 
             this.labelListProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelListProduct.Location = new System.Drawing.Point(386, 39);
+            this.labelListProduct.Location = new System.Drawing.Point(354, 39);
             this.labelListProduct.Name = "labelListProduct";
             this.labelListProduct.Size = new System.Drawing.Size(174, 23);
             this.labelListProduct.TabIndex = 25;
@@ -79,9 +79,9 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             this.boxListProduct.FormattingEnabled = true;
             this.boxListProduct.ItemHeight = 15;
-            this.boxListProduct.Location = new System.Drawing.Point(386, 62);
+            this.boxListProduct.Location = new System.Drawing.Point(354, 62);
             this.boxListProduct.Name = "boxListProduct";
-            this.boxListProduct.Size = new System.Drawing.Size(174, 484);
+            this.boxListProduct.Size = new System.Drawing.Size(418, 529);
             this.boxListProduct.TabIndex = 10;
             this.boxListProduct.DoubleClick += new System.EventHandler(this.boxListProduct_DoubleClick);
             // 
@@ -212,7 +212,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(159)))), ((int)(((byte)(181)))));
-            this.ClientSize = new System.Drawing.Size(764, 661);
+            this.ClientSize = new System.Drawing.Size(784, 661);
             this.Controls.Add(this.comboBrandList);
             this.Controls.Add(this.labelBrand);
             this.Controls.Add(this.comboModelList);

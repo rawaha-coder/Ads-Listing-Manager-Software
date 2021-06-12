@@ -41,7 +41,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.label1 = new System.Windows.Forms.Label();
             this.txtModelPrice = new System.Windows.Forms.TextBox();
             this.lblBrand = new System.Windows.Forms.Label();
-            this.cmbxListBrand = new System.Windows.Forms.ComboBox();
+            this.comboListBrand = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblListModel
@@ -156,14 +156,14 @@ namespace Ads_Listing_Manager_Software.Views
             this.lblBrand.TabIndex = 28;
             this.lblBrand.Text = "Brand";
             // 
-            // cmbxListBrand
+            // comboListBrand
             // 
-            this.cmbxListBrand.FormattingEnabled = true;
-            this.cmbxListBrand.Location = new System.Drawing.Point(13, 85);
-            this.cmbxListBrand.Name = "cmbxListBrand";
-            this.cmbxListBrand.Size = new System.Drawing.Size(317, 23);
-            this.cmbxListBrand.TabIndex = 29;
-            this.cmbxListBrand.SelectedIndexChanged += new System.EventHandler(this.cmbxListBrand_SelectedIndexChanged);
+            this.comboListBrand.FormattingEnabled = true;
+            this.comboListBrand.Location = new System.Drawing.Point(13, 85);
+            this.comboListBrand.Name = "comboListBrand";
+            this.comboListBrand.Size = new System.Drawing.Size(317, 23);
+            this.comboListBrand.TabIndex = 29;
+            this.comboListBrand.SelectedIndexChanged += new System.EventHandler(this.cmbxListBrand_SelectedIndexChanged);
             // 
             // AddModelForm
             // 
@@ -171,7 +171,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(159)))), ((int)(((byte)(181)))));
             this.ClientSize = new System.Drawing.Size(764, 661);
-            this.Controls.Add(this.cmbxListBrand);
+            this.Controls.Add(this.comboListBrand);
             this.Controls.Add(this.lblBrand);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtModelPrice);
@@ -208,6 +208,6 @@ namespace Ads_Listing_Manager_Software.Views
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtModelPrice;
         private System.Windows.Forms.Label lblBrand;
-        private System.Windows.Forms.ComboBox cmbxListBrand;
+        private System.Windows.Forms.ComboBox comboListBrand;
     }
 }

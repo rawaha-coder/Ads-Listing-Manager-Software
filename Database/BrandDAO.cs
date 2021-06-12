@@ -89,42 +89,6 @@ namespace Ads_Listing_Manager_Software.Database
             }
         }
 
-        public Dictionary<string, Brand> ProductDictionary(int type)
-        {
-            Dictionary<string, Brand> dictionary = new Dictionary<string, Brand>();
-
-            var selectStmt = "SELECT * FROM " + TABLE_BRAND + " ORDER BY " + COLUMN_BRAND_NAME + " ASC;";
-
-            try
-            {
-                SQLiteCommand sQLiteCommand = new SQLiteCommand(selectStmt, mSQLiteConnection);
-                OpenConnection();
-                SQLiteDataReader result = sQLiteCommand.ExecuteReader();
-                if (result.HasRows)
-                {
-                    while (result.Read())
-                    {
-                        Brand item = new Brand
-                        {
-                            Id = result.GetInt32(result.GetOrdinal(COLUMN_BRAND_ID)),
-                            Name = result.GetString(result.GetOrdinal(COLUMN_BRAND_NAME)),
-                            Description = result.GetString(result.GetOrdinal(COLUMN_BRAND_DESCRIPTION)),
-                        };
-                        dictionary.Add(item.Name, item);
-                    }
-                }
-                return dictionary;
-            }
-            catch (SQLiteException ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            finally
-            {
-                CloseConnection();
-            }
-        }
-
         public void UpdateData(Brand item)
         {
             var updateStmt = "UPDATE " + TABLE_BRAND + " SET "

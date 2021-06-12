@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Ads_Listing_Manager_Software.Database
 {
-    class ComponentDAO:DAO, IDatabaseCRUD<Component>
+    class ComponentDAO:DAO, DatabaseCRUD<Component>
     {
         public const string TABLE_COMPONENT = "Components";
         public const string COLUMN_COMPONENT_ID = "ComponentId";
@@ -29,16 +29,19 @@ namespace Ads_Listing_Manager_Software.Database
         public void AddData(Component component)
         {
             string insertStmt = "INSERT INTO " + TABLE_COMPONENT + " ("
-        + COLUMN_COMPONENT_NAME + ", "
-        + COLUMN_COMPONENT_DESCRIPTION
-        + ") VALUES ("
-        + "@" + COLUMN_COMPONENT_NAME + ", "
-        + "@" + COLUMN_COMPONENT_DESCRIPTION
-        + ")";
+                                + COLUMN_COMPONENT_ID + ", "
+                                + COLUMN_COMPONENT_NAME + ", "
+                                + COLUMN_COMPONENT_DESCRIPTION
+                                + ") VALUES ("
+                                + "@" + COLUMN_COMPONENT_ID + ", "
+                                + "@" + COLUMN_COMPONENT_NAME + ", "
+                                + "@" + COLUMN_COMPONENT_DESCRIPTION
+                                + ")";
             try
             {
                 SQLiteCommand sQLiteCommand = new SQLiteCommand(insertStmt, mSQLiteConnection);
                 OpenConnection();
+                sQLiteCommand.Parameters.AddWithValue(COLUMN_COMPONENT_ID, component.Id);
                 sQLiteCommand.Parameters.AddWithValue(COLUMN_COMPONENT_NAME, component.Name);
                 sQLiteCommand.Parameters.AddWithValue(COLUMN_COMPONENT_DESCRIPTION, component.Description);
                 sQLiteCommand.ExecuteNonQuery();
@@ -55,8 +58,9 @@ namespace Ads_Listing_Manager_Software.Database
 
         public void DeleteData(Component component)
         {
-            var deleteStmt = "DELETE FROM " + TABLE_COMPONENT + " WHERE " + COLUMN_COMPONENT_ID + " = " + component.Id + " ";
-
+            var deleteStmt = "DELETE FROM " + TABLE_COMPONENT 
+                + " WHERE " + COLUMN_COMPONENT_ID + " = " + component.Id + " "
+                + " AND " + COLUMN_COMPONENT_ID + " > 5 ";
             try
             {
                 SQLiteCommand sQLiteCommand = new SQLiteCommand(deleteStmt, mSQLiteConnection);
@@ -73,10 +77,10 @@ namespace Ads_Listing_Manager_Software.Database
             }
         }
 
-        public List<Component> GetData()
+        public List<Component> SelectData()
         {
             List<Component> list = new List<Component>();
-            var selectStmt = "SELECT * FROM " + TABLE_COMPONENT + " ORDER BY " + COLUMN_COMPONENT_NAME + " ASC;";
+            var selectStmt = "SELECT * FROM " + TABLE_COMPONENT + " ORDER BY " + COLUMN_COMPONENT_ID + " ASC;";
 
             try
             {
@@ -111,14 +115,17 @@ namespace Ads_Listing_Manager_Software.Database
         public void UpdateData(Component component)
         {
             var updateStmt = "UPDATE " + TABLE_COMPONENT + " SET "
+                            + COLUMN_COMPONENT_ID + " =@" + COLUMN_COMPONENT_ID + ", "
                             + COLUMN_COMPONENT_NAME + " =@" + COLUMN_COMPONENT_NAME + ", "
                             + COLUMN_COMPONENT_DESCRIPTION + " =@" + COLUMN_COMPONENT_DESCRIPTION + " "
-                            + " WHERE " + COLUMN_COMPONENT_ID + " = " + component.Id + " ";
+                            + " WHERE " + COLUMN_COMPONENT_ID + " = " + component.Id + " "
+                            + " AND " + COLUMN_COMPONENT_ID + " > 5 ";
 
             try
             {
                 SQLiteCommand sQLiteCommand = new SQLiteCommand(updateStmt, mSQLiteConnection);
                 OpenConnection();
+                sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_COMPONENT_ID, component.Id));
                 sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_COMPONENT_NAME, component.Name));
                 sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_COMPONENT_DESCRIPTION, component.Description));
                 sQLiteCommand.ExecuteNonQuery();
