@@ -62,22 +62,31 @@ namespace Ads_Listing_Manager_Software.Views
         {
             if (InputIsNotValide())
             {
-                MessageBox.Show("Component Id and Name required");
+                MessageBox.Show(Utility.Utility.CHECK_INPUT_VALUE);
                 return;
             }
+            SaveComponentData();
+        }
+
+        private void SaveComponentData()
+        {
             try
             {
-                mComponent.Id = Convert.ToInt32(txtComponentID.Text);
-                mComponent.Name = txtComponentName.Text.Trim().ToUpper();
-                mComponent.Description = txtComponentDescription.Text;
+                GetFieldsInput();
                 mComponentDAO.AddData(mComponent);
-                MessageBox.Show("Component Saved", "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
                 LoadComponentData();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Model Not Saved: " + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show(Utility.Utility.DATA_NOT_SAVED + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
+        }
+
+        private void GetFieldsInput()
+        {
+            mComponent.Id = Convert.ToInt32(txtComponentID.Text);
+            mComponent.Name = txtComponentName.Text.Trim().ToUpper();
+            mComponent.Description = txtComponentDescription.Text;
         }
 
         private bool InputIsNotValide()
@@ -89,21 +98,23 @@ namespace Ads_Listing_Manager_Software.Views
         {
             if (InputIsNotValide())
             {
-                MessageBox.Show("Component Id and Name required");
+                MessageBox.Show(Utility.Utility.CHECK_INPUT_VALUE);
                 return;
             }
+            UpdateComponentdata();
+        }
+
+        private void UpdateComponentdata()
+        {
             try
             {
-                mComponent.Id = Convert.ToInt32(txtComponentID.Text);
-                mComponent.Name = txtComponentName.Text.Trim().ToUpper();
-                mComponent.Description = txtComponentDescription.Text;
+                GetFieldsInput();
                 mComponentDAO.UpdateData(mComponent);
-                MessageBox.Show("Brand Updated", "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
                 LoadComponentData();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Brand Not Updated: " + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show(Utility.Utility.DATA_NOT_UPDATED + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
         }
 
@@ -111,22 +122,24 @@ namespace Ads_Listing_Manager_Software.Views
         {
             if (mComponent.Id <= 0)
             {
-                MessageBox.Show("Component Id and Name required");
+                MessageBox.Show(Utility.Utility.CHECK_INPUT_VALUE);
                 return;
             }
+            DeleteComponentData();
+        }
+
+        private void DeleteComponentData()
+        {
             try
             {
                 mComponentDAO.DeleteData(mComponent);
-                MessageBox.Show("Brand Deleted", "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
                 LoadComponentData();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Brand Not Deleted: " + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show(Utility.Utility.DATA_NOT_DELETED + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
         }
-
-
 
         private void boxListComponent_DoubleClick(object sender, EventArgs e)
         {

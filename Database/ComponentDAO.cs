@@ -58,7 +58,9 @@ namespace Ads_Listing_Manager_Software.Database
 
         public void DeleteData(Component component)
         {
-            var deleteStmt = "DELETE FROM " + TABLE_COMPONENT + " WHERE " + COLUMN_COMPONENT_ID + " = " + component.Id + " ";
+            var deleteStmt = "DELETE FROM " + TABLE_COMPONENT 
+                + " WHERE " + COLUMN_COMPONENT_ID + " = " + component.Id + " "
+                + " AND " + COLUMN_COMPONENT_ID + " > 5 ";
             try
             {
                 SQLiteCommand sQLiteCommand = new SQLiteCommand(deleteStmt, mSQLiteConnection);
@@ -116,7 +118,8 @@ namespace Ads_Listing_Manager_Software.Database
                             + COLUMN_COMPONENT_ID + " =@" + COLUMN_COMPONENT_ID + ", "
                             + COLUMN_COMPONENT_NAME + " =@" + COLUMN_COMPONENT_NAME + ", "
                             + COLUMN_COMPONENT_DESCRIPTION + " =@" + COLUMN_COMPONENT_DESCRIPTION + " "
-                            + " WHERE " + COLUMN_COMPONENT_ID + " = " + component.Id + " ";
+                            + " WHERE " + COLUMN_COMPONENT_ID + " = " + component.Id + " "
+                            + " AND " + COLUMN_COMPONENT_ID + " > 5 ";
 
             try
             {

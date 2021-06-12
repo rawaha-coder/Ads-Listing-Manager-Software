@@ -10,10 +10,10 @@ namespace Ads_Listing_Manager_Software.Utility
     class Utility
     {
 
-        public const string CHECK_INPUT_VALUE = "Check input values";
-        public const string DATA_NOT_SAVED = "Data not saved";
-        public const string DATA_NOT_DELETED = "Data not deleted";
-        public const string DATA_NOT_UPDATED = "Data not updated";
+        public const string CHECK_INPUT_VALUE = "Check input values ";
+        public const string DATA_NOT_SAVED = "Data not saved ";
+        public const string DATA_NOT_DELETED = "Data not deleted ";
+        public const string DATA_NOT_UPDATED = "Data not updated ";
 
         public static void ValidateNumberEntred(object sender, KeyPressEventArgs e)
         {
