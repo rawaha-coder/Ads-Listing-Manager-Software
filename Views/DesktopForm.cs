@@ -19,6 +19,20 @@ namespace Ads_Listing_Manager_Software.Views
         List<Product> RAMList = new List<Product>();
         List<Product> NVIDIAList = new List<Product>();
 
+        double mModelPrice = 0.0;
+        double mCPUPrice = 0.0;
+        double mSSDPrice = 0.0;
+        double mHDDPrice = 0.0;
+        double mRAMPrice = 0.0;
+        double mNVIDIAPrice = 0.0;
+
+        string mModelName = "";
+        string mCPUName = "";
+        string mSSDName = "";
+        string mHDDName = "";
+        string mRAMName = "";
+        string mNVIDIAName = "";
+
         public DesktopForm()
         {
             InitializeComponent();
@@ -26,7 +40,29 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void DesktopForm_Load(object sender, EventArgs e)
         {
+            initToZeroString();
             LoadBrandList();
+        }
+
+        private void initToZeroString()
+        {
+            txtModelPrice.Text = "0.0";
+            txtCPUPrice.Text = "0.0";
+            txtSSDPrice.Text = "0.0";
+            txtHDDPrice.Text = "0.0";
+            txtRAMPrice.Text = "0.0";
+            txtNvidiaPrice.Text = "0.0";
+            txtResultCalcul.Text = "0.0";
+            txtFeePrice.Text = "";
+            txtProfitPrice.Text = "";
+
+            mModelName = "";
+            mCPUName = "";
+            mSSDName = "";
+            mHDDName = "";
+            mRAMName = "";
+            mNVIDIAName = "";
+
         }
 
         private void LoadBrandList()
@@ -82,16 +118,19 @@ namespace Ads_Listing_Manager_Software.Views
         {
             if (comboModelList.SelectedIndex != -1)
             {
-                int modelId = listModel[comboModelList.SelectedIndex].Id;
-                LoadProductList(CPUList, modelId, 1, comboCPUList);
-                LoadProductList(SSDList, modelId, 2, comboSSDList);
-                LoadProductList(HDDList, modelId, 3, comboHDDList);
-                LoadProductList(RAMList, modelId, 4, comboRAM);
-                LoadProductList(NVIDIAList, modelId, 5, comboNVIDIAList);
+                Model model = listModel[comboModelList.SelectedIndex];
+                txtModelPrice.Text = model.Price.ToString();
+                mModelPrice = model.Price;
+                mModelName = model.Name;
+                LoadProductList(ref CPUList, model.Id, 1, comboCPUList);
+                LoadProductList(ref SSDList, model.Id, 2, comboSSDList);
+                LoadProductList(ref HDDList, model.Id, 3, comboHDDList);
+                LoadProductList(ref RAMList, model.Id, 4, comboRAMList);
+                LoadProductList(ref NVIDIAList, model.Id, 5, comboNVIDIAList);
             }
         }
 
-        private void LoadProductList(List<Product> list, int modelId, int ComponentId, ComboBox combo)
+        private void LoadProductList(ref List<Product> list, int modelId, int ComponentId, ComboBox combo)
         {
             try
             {
@@ -114,5 +153,113 @@ namespace Ads_Listing_Manager_Software.Views
             }
         }
 
+        private void comboCPUList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboCPUList.SelectedIndex != -1 && CPUList.Count > 0)
+            {
+                Product product = CPUList[comboCPUList.SelectedIndex];
+                txtCPUPrice.Text = product.Price.ToString();
+                mCPUName = product.Name;
+                mCPUPrice = product.Price;
+            }
+        }
+
+        private void comboSSDList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboSSDList.SelectedIndex != -1 && SSDList.Count > 0)
+            {
+                Product product = SSDList[comboSSDList.SelectedIndex];
+                txtSSDPrice.Text = product.Price.ToString();
+                mSSDName = product.Name;
+                mSSDPrice = product.Price;
+            }
+        }
+
+        private void comboHDDList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboHDDList.SelectedIndex != -1 && HDDList.Count > 0)
+            {
+                Product product = HDDList[comboHDDList.SelectedIndex];
+                txtHDDPrice.Text = product.Price.ToString();
+                mHDDName = product.Name;
+                mHDDPrice = product.Price;
+            }
+        }
+
+        private void comboRAMList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboRAMList.SelectedIndex != -1 && RAMList.Count > 0)
+            {
+                Product product = RAMList[comboRAMList.SelectedIndex];
+                txtRAMPrice.Text = product.Price.ToString();
+                mRAMName = product.Name;
+                mRAMPrice = product.Price;
+            }
+        }
+
+        private void comboNVIDIAList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboNVIDIAList.SelectedIndex != -1 && NVIDIAList.Count > 0)
+            {
+                Product product = NVIDIAList[comboNVIDIAList.SelectedIndex];
+                txtNvidiaPrice.Text = product.Price.ToString();
+                mNVIDIAName = product.Name;
+                mNVIDIAPrice = product.Price;
+            }
+        }
+
+        private void btnCalculTotalPrice_Click(object sender, EventArgs e)
+        {
+            var price = CalculTotalPay();
+            txtResultCalcul.Text = price.ToString();
+            GetArticle();
+        }
+
+        private double CalculTotalPay()
+        {
+            double total = 0.0;
+            total = CalculTotalPrice() + (CalculTotalPrice() * FeePercentage()) + (CalculTotalPrice() * ProfitPercentage());
+            return total;
+        }
+
+        private double CalculTotalPrice()
+        {
+            double CalculTotalPrice = mModelPrice + mCPUPrice + mSSDPrice + mHDDPrice + mRAMPrice + mNVIDIAPrice;
+            return CalculTotalPrice;
+        }
+
+        private double FeePercentage()
+        {
+            double fee = (txtFeePrice.Text != "") ? Convert.ToDouble(txtFeePrice.Text) : 0;
+            double feePercenage = fee / 100;
+            return feePercenage;
+        }
+
+        private double ProfitPercentage()
+        {
+            double profit = (txtProfitPrice.Text != "") ? Convert.ToDouble(txtProfitPrice.Text) : 0;
+            double feePercenage = profit / 100;
+            return feePercenage;
+        }
+
+        private void GetArticle()
+        {
+            txtDescription.Clear();
+            txtDescription.Text += "PC Model: " + mModelName + Environment.NewLine;
+            txtDescription.Text += "CPU: " + mCPUName + Environment.NewLine;
+            txtDescription.Text += "Memory: " + mRAMName + Environment.NewLine;
+            txtDescription.Text += "Storage: " + mSSDName + " + " + mHDDName + Environment.NewLine;
+            txtDescription.Text += "Video Card: " + mNVIDIAName + Environment.NewLine;
+        }
+
+        private void txtFeePrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utility.Utility.ValidateNumberEntred(sender, e);
+        }
+
+        private void txtProfitPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utility.Utility.ValidateNumberEntred(sender, e);
+        }
     }
 }

@@ -32,7 +32,7 @@ namespace Ads_Listing_Manager_Software
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.SideMenuPanel = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.Button();
-            this.btnAddItem = new System.Windows.Forms.Button();
+            this.btnAddProduct = new System.Windows.Forms.Button();
             this.btnAddType = new System.Windows.Forms.Button();
             this.btnAddModel = new System.Windows.Forms.Button();
             this.btnAddBrand = new System.Windows.Forms.Button();
@@ -60,13 +60,13 @@ namespace Ads_Listing_Manager_Software
             this.SideMenuPanel.AutoScroll = true;
             this.SideMenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(15)))), ((int)(((byte)(33)))));
             this.SideMenuPanel.Controls.Add(this.btnHome);
-            this.SideMenuPanel.Controls.Add(this.btnAddItem);
+            this.SideMenuPanel.Controls.Add(this.btnAddProduct);
             this.SideMenuPanel.Controls.Add(this.btnAddType);
             this.SideMenuPanel.Controls.Add(this.btnAddModel);
             this.SideMenuPanel.Controls.Add(this.btnAddBrand);
             this.SideMenuPanel.Controls.Add(this.panel1);
             this.SideMenuPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.SideMenuPanel.Location = new System.Drawing.Point(806, 0);
+            this.SideMenuPanel.Location = new System.Drawing.Point(1006, 0);
             this.SideMenuPanel.Margin = new System.Windows.Forms.Padding(2);
             this.SideMenuPanel.Name = "SideMenuPanel";
             this.SideMenuPanel.Size = new System.Drawing.Size(178, 761);
@@ -86,20 +86,20 @@ namespace Ads_Listing_Manager_Software
             this.btnHome.UseVisualStyleBackColor = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // btnAddItem
+            // btnAddProduct
             // 
-            this.btnAddItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
-            this.btnAddItem.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAddItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(121)))), ((int)(((byte)(29)))));
-            this.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddItem.Location = new System.Drawing.Point(0, 206);
-            this.btnAddItem.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(178, 39);
-            this.btnAddItem.TabIndex = 5;
-            this.btnAddItem.Text = "Product";
-            this.btnAddItem.UseVisualStyleBackColor = false;
-            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
+            this.btnAddProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
+            this.btnAddProduct.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAddProduct.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(121)))), ((int)(((byte)(29)))));
+            this.btnAddProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddProduct.Location = new System.Drawing.Point(0, 206);
+            this.btnAddProduct.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddProduct.Name = "btnAddProduct";
+            this.btnAddProduct.Size = new System.Drawing.Size(178, 39);
+            this.btnAddProduct.TabIndex = 5;
+            this.btnAddProduct.Text = "Product";
+            this.btnAddProduct.UseVisualStyleBackColor = false;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // btnAddType
             // 
@@ -179,7 +179,7 @@ namespace Ads_Listing_Manager_Software
             this.MainWindowsPanel.Location = new System.Drawing.Point(0, 0);
             this.MainWindowsPanel.Margin = new System.Windows.Forms.Padding(2);
             this.MainWindowsPanel.Name = "MainWindowsPanel";
-            this.MainWindowsPanel.Size = new System.Drawing.Size(806, 761);
+            this.MainWindowsPanel.Size = new System.Drawing.Size(1006, 761);
             this.MainWindowsPanel.TabIndex = 1;
             // 
             // PanelChildForm
@@ -191,7 +191,7 @@ namespace Ads_Listing_Manager_Software
             this.PanelChildForm.Location = new System.Drawing.Point(0, 41);
             this.PanelChildForm.Margin = new System.Windows.Forms.Padding(2);
             this.PanelChildForm.Name = "PanelChildForm";
-            this.PanelChildForm.Size = new System.Drawing.Size(806, 720);
+            this.PanelChildForm.Size = new System.Drawing.Size(1006, 720);
             this.PanelChildForm.TabIndex = 1;
             // 
             // pictureBox1
@@ -205,7 +205,7 @@ namespace Ads_Listing_Manager_Software
             this.pictureBox1.Location = new System.Drawing.Point(131, 165);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(569, 350);
+            this.pictureBox1.Size = new System.Drawing.Size(769, 350);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -223,7 +223,7 @@ namespace Ads_Listing_Manager_Software
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.panel2.Size = new System.Drawing.Size(806, 41);
+            this.panel2.Size = new System.Drawing.Size(1006, 41);
             this.panel2.TabIndex = 0;
             // 
             // button8
@@ -289,7 +289,7 @@ namespace Ads_Listing_Manager_Software
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(984, 761);
+            this.ClientSize = new System.Drawing.Size(1184, 761);
             this.Controls.Add(this.MainWindowsPanel);
             this.Controls.Add(this.SideMenuPanel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -323,7 +323,7 @@ namespace Ads_Listing_Manager_Software
         private System.Windows.Forms.Button btnLaptopForm;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button btnAddItem;
+        private System.Windows.Forms.Button btnAddProduct;
         private System.Windows.Forms.Panel PanelChildForm;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnHome;
