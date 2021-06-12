@@ -50,14 +50,13 @@ namespace Ads_Listing_Manager_Software.Views
             this.txtSSDPrice = new System.Windows.Forms.TextBox();
             this.txtCPUPrice = new System.Windows.Forms.TextBox();
             this.txtModelPrice = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtResultCalcul = new System.Windows.Forms.TextBox();
+            this.btnCalculPrice = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtProfitPrice = new System.Windows.Forms.TextBox();
+            this.txtFeePrice = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
@@ -70,8 +69,9 @@ namespace Ads_Listing_Manager_Software.Views
             this.comboBrandList.FormattingEnabled = true;
             this.comboBrandList.Location = new System.Drawing.Point(99, 34);
             this.comboBrandList.Name = "comboBrandList";
-            this.comboBrandList.Size = new System.Drawing.Size(318, 23);
+            this.comboBrandList.Size = new System.Drawing.Size(457, 23);
             this.comboBrandList.TabIndex = 33;
+            this.comboBrandList.SelectedIndexChanged += new System.EventHandler(this.comboBrandList_SelectedIndexChanged);
             // 
             // labelBrand
             // 
@@ -90,6 +90,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.comboModelList.Name = "comboModelList";
             this.comboModelList.Size = new System.Drawing.Size(318, 23);
             this.comboModelList.TabIndex = 34;
+            this.comboModelList.SelectedIndexChanged += new System.EventHandler(this.comboModelList_SelectedIndexChanged);
             // 
             // labelModel
             // 
@@ -199,7 +200,6 @@ namespace Ads_Listing_Manager_Software.Views
             this.groupBox1.Controls.Add(this.txtSSDPrice);
             this.groupBox1.Controls.Add(this.txtCPUPrice);
             this.groupBox1.Controls.Add(this.txtModelPrice);
-            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.labelBrand);
             this.groupBox1.Controls.Add(this.comboNVIDIAList);
             this.groupBox1.Controls.Add(this.labelComponent);
@@ -269,22 +269,14 @@ namespace Ads_Listing_Manager_Software.Views
             this.txtModelPrice.Size = new System.Drawing.Size(100, 23);
             this.txtModelPrice.TabIndex = 48;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(456, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 47;
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.txtResultCalcul);
+            this.groupBox2.Controls.Add(this.btnCalculPrice);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.txtProfitPrice);
+            this.groupBox2.Controls.Add(this.txtFeePrice);
             this.groupBox2.Location = new System.Drawing.Point(13, 345);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(578, 68);
@@ -292,25 +284,25 @@ namespace Ads_Listing_Manager_Software.Views
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Calcul price";
             // 
-            // textBox4
+            // txtResultCalcul
             // 
-            this.textBox4.Location = new System.Drawing.Point(455, 29);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(100, 23);
-            this.textBox4.TabIndex = 54;
+            this.txtResultCalcul.Location = new System.Drawing.Point(455, 29);
+            this.txtResultCalcul.Name = "txtResultCalcul";
+            this.txtResultCalcul.ReadOnly = true;
+            this.txtResultCalcul.Size = new System.Drawing.Size(100, 23);
+            this.txtResultCalcul.TabIndex = 54;
             // 
-            // button1
+            // btnCalculPrice
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(347, 25);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 32);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Calcul";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnCalculPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnCalculPrice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCalculPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCalculPrice.Location = new System.Drawing.Point(347, 25);
+            this.btnCalculPrice.Name = "btnCalculPrice";
+            this.btnCalculPrice.Size = new System.Drawing.Size(90, 32);
+            this.btnCalculPrice.TabIndex = 4;
+            this.btnCalculPrice.Text = "Calcul";
+            this.btnCalculPrice.UseVisualStyleBackColor = false;
             // 
             // label6
             // 
@@ -332,19 +324,19 @@ namespace Ads_Listing_Manager_Software.Views
             this.label5.TabIndex = 2;
             this.label5.Text = "Fee:";
             // 
-            // textBox3
+            // txtProfitPrice
             // 
-            this.textBox3.Location = new System.Drawing.Point(230, 29);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 23);
-            this.textBox3.TabIndex = 1;
+            this.txtProfitPrice.Location = new System.Drawing.Point(230, 29);
+            this.txtProfitPrice.Name = "txtProfitPrice";
+            this.txtProfitPrice.Size = new System.Drawing.Size(100, 23);
+            this.txtProfitPrice.TabIndex = 1;
             // 
-            // textBox2
+            // txtFeePrice
             // 
-            this.textBox2.Location = new System.Drawing.Point(61, 29);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 23);
-            this.textBox2.TabIndex = 0;
+            this.txtFeePrice.Location = new System.Drawing.Point(61, 29);
+            this.txtFeePrice.Name = "txtFeePrice";
+            this.txtFeePrice.Size = new System.Drawing.Size(100, 23);
+            this.txtFeePrice.TabIndex = 0;
             // 
             // groupBox3
             // 
@@ -376,6 +368,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.Name = "DesktopForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DesktopForm";
+            this.Load += new System.EventHandler(this.DesktopForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -409,14 +402,13 @@ namespace Ads_Listing_Manager_Software.Views
         private System.Windows.Forms.TextBox txtSSDPrice;
         private System.Windows.Forms.TextBox txtCPUPrice;
         private System.Windows.Forms.TextBox txtModelPrice;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtResultCalcul;
+        private System.Windows.Forms.Button btnCalculPrice;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtProfitPrice;
+        private System.Windows.Forms.TextBox txtFeePrice;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox textBox5;
     }

@@ -163,7 +163,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.comboListBrand.Name = "comboListBrand";
             this.comboListBrand.Size = new System.Drawing.Size(317, 23);
             this.comboListBrand.TabIndex = 29;
-            this.comboListBrand.SelectedIndexChanged += new System.EventHandler(this.cmbxListBrand_SelectedIndexChanged);
+            this.comboListBrand.SelectedIndexChanged += new System.EventHandler(this.comboListBrand_SelectedIndexChanged);
             // 
             // AddModelForm
             // 

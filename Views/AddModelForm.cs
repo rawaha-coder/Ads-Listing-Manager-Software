@@ -163,7 +163,7 @@ namespace Ads_Listing_Manager_Software.Views
             }
         }
 
-        private void cmbxListBrand_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboListBrand_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(comboListBrand.SelectedIndex != -1)
                 LoadModelData();
