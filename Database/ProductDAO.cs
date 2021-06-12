@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ads_Listing_Manager_Software.Database
 {
@@ -31,32 +28,16 @@ namespace Ads_Listing_Manager_Software.Database
 
         public List<Product> getProductsByModelComponentId(int ModelId, int ComponentId)
         {
-            List<Product> list = new List<Product>();
             var selectStmt = "SELECT * FROM " + TABLE_PRODUCT 
                 + " WHERE  " + COLUMN_PRODUCT_MODEL + " = " + ModelId 
                 + " AND " + COLUMN_PRODUCT_TYPE + " = " + ComponentId 
                 + " ORDER BY " + COLUMN_PRODUCT_NAME + " ASC;";
-
             try
             {
                 SQLiteCommand sQLiteCommand = new SQLiteCommand(selectStmt, mSQLiteConnection);
                 OpenConnection();
                 SQLiteDataReader result = sQLiteCommand.ExecuteReader();
-                if (result.HasRows)
-                {
-                    while (result.Read())
-                    {
-                        Product item = new Product();
-                        item.Id = result.GetInt32(result.GetOrdinal(COLUMN_PRODUCT_ID));
-                        item.Name = result.GetString(result.GetOrdinal(COLUMN_PRODUCT_NAME));
-                        item.Price = result.GetDouble(result.GetOrdinal(COLUMN_PRODUCT_PRICE));
-                        item.Description = result.GetString(result.GetOrdinal(COLUMN_PRODUCT_DESCRIPTION));
-                        item.Model.Id = result.GetInt32(result.GetOrdinal(COLUMN_PRODUCT_MODEL));
-                        item.Type.Id = result.GetInt32(result.GetOrdinal(COLUMN_PRODUCT_TYPE));
-                        list.Add(item);
-                    }
-                }
-                return list;
+                return GetProductDataFromResult(result);
             }
             catch (SQLiteException ex)
             {
@@ -66,6 +47,26 @@ namespace Ads_Listing_Manager_Software.Database
             {
                 CloseConnection();
             }
+        }
+
+        private static List<Product> GetProductDataFromResult(SQLiteDataReader result)
+        {
+            List<Product> list = new List<Product>();
+            if (result.HasRows)
+            {
+                while (result.Read())
+                {
+                    Product item = new Product();
+                    item.Id = result.GetInt32(result.GetOrdinal(COLUMN_PRODUCT_ID));
+                    item.Name = result.GetString(result.GetOrdinal(COLUMN_PRODUCT_NAME));
+                    item.Price = result.GetDouble(result.GetOrdinal(COLUMN_PRODUCT_PRICE));
+                    item.Description = result.GetString(result.GetOrdinal(COLUMN_PRODUCT_DESCRIPTION));
+                    item.Model.Id = result.GetInt32(result.GetOrdinal(COLUMN_PRODUCT_MODEL));
+                    item.Type.Id = result.GetInt32(result.GetOrdinal(COLUMN_PRODUCT_TYPE));
+                    list.Add(item);
+                }
+            }
+            return list;
         }
 
         public void AddData(Product item)

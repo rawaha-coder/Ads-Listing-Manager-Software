@@ -2,12 +2,6 @@
 using Ads_Listing_Manager_Software.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Ads_Listing_Manager_Software.Views
@@ -83,7 +77,7 @@ namespace Ads_Listing_Manager_Software.Views
             try
             {
                 GetFieldsInput();
-                modelDAO.addData(mModel);
+                modelDAO.AddData(mModel);
                 LoadBrandData();
             }
             catch (Exception ex)
@@ -163,7 +157,7 @@ namespace Ads_Listing_Manager_Software.Views
             }
         }
 
-        private void cmbxListBrand_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboListBrand_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(comboListBrand.SelectedIndex != -1)
                 LoadModelData();

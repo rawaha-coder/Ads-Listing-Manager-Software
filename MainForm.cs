@@ -57,7 +57,7 @@ namespace Ads_Listing_Manager_Software
 
         private void btnLaptopForm_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new LaptopForm());
+            //OpenChildForm(new LaptopForm());
         }
 
         private void btnAddBrand_Click(object sender, EventArgs e)
@@ -75,7 +75,7 @@ namespace Ads_Listing_Manager_Software
             OpenChildForm(new AddComponentForm());
         }
 
-        private void btnAddItem_Click(object sender, EventArgs e)
+        private void btnAddProduct_Click(object sender, EventArgs e)
         {
             OpenChildForm(new AddProductForm());
         }
