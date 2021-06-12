@@ -95,7 +95,7 @@ namespace Ads_Listing_Manager_Software.Views
             listComponent.Clear(); comboComponentList.Items.Clear();
             try
             {
-                listComponent = mComponentDAO.GetData();
+                listComponent = mComponentDAO.SelectData();
                 getComponentList();
             }
             catch (Exception ex)

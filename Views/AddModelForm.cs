@@ -32,7 +32,7 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void LoadBrandData()
         {
-            listBrand.Clear(); cmbxListBrand.Items.Clear();
+            ClearField();
             try
             {
                 listBrand = brandDAO.GetData();
@@ -44,82 +44,106 @@ namespace Ads_Listing_Manager_Software.Views
             }
         }
 
+        private void ClearField()
+        {
+            txtModelName.Text = "";
+            txtModelPrice.Text = "";
+            txtModelDescription.Text = "";
+            boxListModel.Items.Clear();
+            comboListBrand.Items.Clear();
+            comboListBrand.SelectedIndex = -1;
+            comboListBrand.Text = "";
+            listBrand.Clear();
+        }
+
         private void getBrandList()
         {
             foreach (Brand item in listBrand)
             {
-                cmbxListBrand.Items.Add(item.Name);
+                comboListBrand.Items.Add(item.Name);
             }
         }
 
         private void btnAddModel_Click(object sender, EventArgs e)
         {
-            if (CheckInput())
+            if (InputIsNotValide())
             {
-                MessageBox.Show("Model name required");
+                MessageBox.Show(Utility.Utility.CHECK_INPUT_VALUE);
                 return;
             }
+            SaveModelData();
+        }
+        private bool InputIsNotValide()
+        {
+            return txtModelName.Text == "" || txtModelPrice.Text == "" || comboListBrand.SelectedIndex == -1;
+        }
+
+        private void SaveModelData()
+        {
             try
             {
-                Model pc = new Model();
-                pc.Name = txtModelName.Text.Trim().ToUpper();
-                pc.Price = Convert.ToDouble(txtModelPrice.Text);
-                pc.Description = txtModelDescription.Text;
-                pc.Brand.Id = listBrand[cmbxListBrand.SelectedIndex].Id;
-                modelDAO.addData(pc);
-                MessageBox.Show("Model Saved", "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
-                ClearField();
+                GetFieldsInput();
+                modelDAO.addData(mModel);
+                LoadBrandData();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Model Not Saved: " + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show(Utility.Utility.DATA_NOT_SAVED + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
         }
 
-        private bool CheckInput()
+        private void GetFieldsInput()
         {
-            return txtModelName.Text == "" || txtModelPrice.Text == "" || cmbxListBrand.SelectedIndex == -1;
+            mModel.Name = txtModelName.Text.Trim().ToUpper();
+            mModel.Price = Convert.ToDouble(txtModelPrice.Text);
+            mModel.Description = txtModelDescription.Text;
+            mModel.Brand.Id = listBrand[comboListBrand.SelectedIndex].Id;
         }
 
         private void btnUpdateModel_Click(object sender, EventArgs e)
         {
-            if (txtModelName.Text == "" || txtModelPrice.Text == "" || cmbxListBrand.SelectedIndex == -1)
+            if (InputIsNotValide())
             {
-                MessageBox.Show("Model name required");
+                MessageBox.Show(Utility.Utility.CHECK_INPUT_VALUE);
                 return;
             }
+            UpdateModelData();
+        }
+
+        private void UpdateModelData()
+        {
             try
             {
-                mModel.Name = txtModelName.Text.Trim().ToUpper();
-                mModel.Price = Convert.ToDouble(txtModelPrice.Text);
-                mModel.Description = txtModelDescription.Text;
-                mModel.Brand.Id = listBrand[cmbxListBrand.SelectedIndex].Id;
+                GetFieldsInput();
                 modelDAO.UpdateData(mModel);
-                MessageBox.Show("Model Updated", "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
-                ClearField();
+                LoadBrandData();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Model Not Updated: " + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show(Utility.Utility.DATA_NOT_UPDATED + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
         }
 
         private void btnDeleteModel_Click(object sender, EventArgs e)
         {
-            if (txtModelName.Text == "" || txtModelPrice.Text == "" || cmbxListBrand.SelectedIndex == -1)
+            if (InputIsNotValide() || mModel.Id <= 0)
             {
-                MessageBox.Show("Model name required");
+                MessageBox.Show(Utility.Utility.CHECK_INPUT_VALUE);
                 return;
             }
+            DeleteModelData();
+        }
+
+        private void DeleteModelData()
+        {
             try
             {
                 modelDAO.DeleteData(mModel);
-                MessageBox.Show("Brand Deleted", "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
-                ClearField();
+                LoadBrandData();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Brand Not Deleted: " + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show(Utility.Utility.DATA_NOT_DELETED + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
         }
 
@@ -141,36 +165,30 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void cmbxListBrand_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cmbxListBrand.SelectedIndex != -1)
+            if(comboListBrand.SelectedIndex != -1)
                 LoadModelData();
         }
 
         private void LoadModelData()
         {
-            listModel.Clear();
-            boxListModel.Items.Clear();
+            listModel.Clear(); boxListModel.Items.Clear();
             try
             {
-                listModel = modelDAO.getModelsByBrandId(listBrand[cmbxListBrand.SelectedIndex].Id);
+                listModel = modelDAO.getModelsByBrandId(listBrand[comboListBrand.SelectedIndex].Id);
+                getModelList();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                return;
             }
+        }
+
+        private void getModelList()
+        {
             foreach (Model item in listModel)
             {
                 boxListModel.Items.Add(item.Name);
             }
-        }
-
-        private void ClearField()
-        {
-            txtModelName.Text = "";
-            txtModelPrice.Text = "";
-            txtModelDescription.Text = "";
-            cmbxListBrand.SelectedIndex = -1;
-            boxListModel.Items.Clear();
         }
 
         private void ValidateNumberEntred(object sender, KeyPressEventArgs e)

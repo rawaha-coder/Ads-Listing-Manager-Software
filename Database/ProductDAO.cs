@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Ads_Listing_Manager_Software.Database
 {
-    class ProductDAO : DAO, IDatabaseCRUD<Product>
+    class ProductDAO : DAO, DatabaseCRUD<Product>
     {
         public const string TABLE_PRODUCT = "Products";
         public const string COLUMN_PRODUCT_ID = "ProductId";
@@ -124,7 +124,7 @@ namespace Ads_Listing_Manager_Software.Database
             }
         }
 
-        public List<Product> GetData()
+        public List<Product> SelectData()
         {
             throw new NotImplementedException();
         }
