@@ -135,7 +135,7 @@ namespace Ads_Listing_Manager_Software.Views
             try
             {
                 list.Clear();
-                list = mProductDAO.getProductsByModelComponentId(modelId, ComponentId);
+                list = mProductDAO.getProductsByModelAndType(modelId, ComponentId);
                 getProductList(list, combo);
             }
             catch (Exception ex)
@@ -149,7 +149,7 @@ namespace Ads_Listing_Manager_Software.Views
             combo.Items.Clear();
             foreach (Product item in list)
             {
-                combo.Items.Add(item.Name);
+                combo.Items.Add(item.Item.Name);
             }
         }
 
@@ -158,9 +158,9 @@ namespace Ads_Listing_Manager_Software.Views
             if (comboCPUList.SelectedIndex != -1 && CPUList.Count > 0)
             {
                 Product product = CPUList[comboCPUList.SelectedIndex];
-                txtCPUPrice.Text = product.Price.ToString();
-                mCPUName = product.Name;
-                mCPUPrice = product.Price;
+                txtCPUPrice.Text = product.Item.Price.ToString();
+                mCPUName = product.Item.Name;
+                mCPUPrice = product.Item.Price;
             }
         }
 
@@ -169,9 +169,9 @@ namespace Ads_Listing_Manager_Software.Views
             if (comboSSDList.SelectedIndex != -1 && SSDList.Count > 0)
             {
                 Product product = SSDList[comboSSDList.SelectedIndex];
-                txtSSDPrice.Text = product.Price.ToString();
-                mSSDName = product.Name;
-                mSSDPrice = product.Price;
+                txtSSDPrice.Text = product.Item.Price.ToString();
+                mSSDName = product.Item.Name;
+                mSSDPrice = product.Item.Price;
             }
         }
 
@@ -180,9 +180,9 @@ namespace Ads_Listing_Manager_Software.Views
             if (comboHDDList.SelectedIndex != -1 && HDDList.Count > 0)
             {
                 Product product = HDDList[comboHDDList.SelectedIndex];
-                txtHDDPrice.Text = product.Price.ToString();
-                mHDDName = product.Name;
-                mHDDPrice = product.Price;
+                txtHDDPrice.Text = product.Item.Price.ToString();
+                mHDDName = product.Item.Name;
+                mHDDPrice = product.Item.Price;
             }
         }
 
@@ -191,9 +191,9 @@ namespace Ads_Listing_Manager_Software.Views
             if (comboRAMList.SelectedIndex != -1 && RAMList.Count > 0)
             {
                 Product product = RAMList[comboRAMList.SelectedIndex];
-                txtRAMPrice.Text = product.Price.ToString();
-                mRAMName = product.Name;
-                mRAMPrice = product.Price;
+                txtRAMPrice.Text = product.Item.Price.ToString();
+                mRAMName = product.Item.Name;
+                mRAMPrice = product.Item.Price;
             }
         }
 
@@ -202,9 +202,9 @@ namespace Ads_Listing_Manager_Software.Views
             if (comboNVIDIAList.SelectedIndex != -1 && NVIDIAList.Count > 0)
             {
                 Product product = NVIDIAList[comboNVIDIAList.SelectedIndex];
-                txtNvidiaPrice.Text = product.Price.ToString();
-                mNVIDIAName = product.Name;
-                mNVIDIAPrice = product.Price;
+                txtNvidiaPrice.Text = product.Item.Price.ToString();
+                mNVIDIAName = product.Item.Name;
+                mNVIDIAPrice = product.Item.Price;
             }
         }
 
