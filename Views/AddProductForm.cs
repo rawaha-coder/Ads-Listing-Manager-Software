@@ -3,12 +3,7 @@ using Ads_Listing_Manager_Software.Models;
 using Ads_Listing_Manager_Software.Utility;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Component = Ads_Listing_Manager_Software.Models.Component;
 
@@ -20,15 +15,16 @@ namespace Ads_Listing_Manager_Software.Views
         ComponentDAO mComponentDAO = ComponentDAO.getInstance();
         ModelDAO mModelDAO = ModelDAO.getInstance();
         ProductDAO mProductDAO = ProductDAO.getInstance();
+        ItemDAO itemDAO = ItemDAO.getInstance();
         Model mModel = new Model();
         Component mComponent = new Component();
         Product mProduct = new Product();
-        
+        Item mItem = new Item();
         List<Brand> listBrand = new List<Brand>();
         List<Component> listComponent = new List<Component>();
         List<Model> listModel = new List<Model>();
         List<Product> listProduct = new List<Product>();
-
+        List<Item> listItem = new List<Item>();
         public AddProductForm()
         {
             InitializeComponent();
@@ -42,9 +38,9 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void LoadBrandList()
         {
-            comboBrandList.Items.Clear(); listBrand.Clear();
             try
             {
+                listBrand.Clear();
                 listBrand = mBrandDAO.GetData();
                 getBrandList();
             }
@@ -56,31 +52,10 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void getBrandList()
         {
+            comboBrandList.Items.Clear();
             foreach (Brand item in listBrand)
             {
                 comboBrandList.Items.Add(item.Name);
-            }
-        }
-
-        private void LoadComponentList()
-        {
-            listComponent.Clear(); comboComponentList.Items.Clear();
-            try
-            {
-                listComponent = mComponentDAO.SelectData();
-                getComponentList();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void getComponentList()
-        {
-            foreach (Component item in listComponent)
-            {
-                comboComponentList.Items.Add(item.Name);
             }
         }
 
@@ -92,7 +67,7 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void LoadModelList()
         {
-            comboModelList.Items.Clear(); listModel.Clear();
+            listModel.Clear();
             try
             {
                 listModel = mModelDAO.getModelsByBrandId(listBrand[comboBrandList.SelectedIndex].Id);
@@ -106,6 +81,7 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void getModelList()
         {
+            comboModelList.Items.Clear();
             foreach (Model item in listModel)
             {
                 comboModelList.Items.Add(item.Name);
@@ -117,26 +93,16 @@ namespace Ads_Listing_Manager_Software.Views
             if (comboModelList.SelectedIndex != -1)
             {
                 mModel = listModel[comboModelList.SelectedIndex];
-                mProduct.Model.Id = mModel.Id;
-            }
-        }
-
-        private void comboListComponent_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBrandList.SelectedIndex != -1 && comboModelList.SelectedIndex != -1 && comboComponentList.SelectedIndex != -1)
-            {
-                mComponent = listComponent[comboComponentList.SelectedIndex];
-                mProduct.Type.Id = mComponent.Id;
                 LoadProductList();
             }
         }
 
         private void LoadProductList()
         {
-            boxListProduct.Items.Clear(); listProduct.Clear();
             try
             {
-                listProduct = mProductDAO.getProductsByModelComponentId(mModel.Id, mComponent.Id);
+                listProduct.Clear();
+                listProduct = mProductDAO.getProductsByModel(mModel.Id);
                 getProductList();
             }
             catch (Exception ex)
@@ -147,24 +113,153 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void getProductList()
         {
-            foreach (Product item in listProduct)
+            viewListItems.Clear();
+            viewListItems.Items.Clear();
+            viewListItems.Columns.Add("CPU", 500, HorizontalAlignment.Left);
+            viewListItems.Columns.Add("Price", 100, HorizontalAlignment.Left);
+            viewListItems.Columns.Add("Quantity", 80, HorizontalAlignment.Left);
+            foreach (Product product in listProduct)
             {
-                boxListProduct.Items.Add(item.Name);
+                ListViewItem lvi = new ListViewItem();
+                lvi.Text = product.Item.Name;
+                lvi.SubItems.Add(product.Item.Price.ToString());
+                lvi.SubItems.Add(product.Item.Quantity.ToString());
+                viewListItems.Items.Add(lvi);
             }
         }
 
-        private void boxListProduct_DoubleClick(object sender, EventArgs e)
+        private void LoadComponentList()
         {
+            listComponent.Clear();
             try
             {
-                mProduct = listProduct[boxListProduct.SelectedIndex];
-                txtProductName.Text = mProduct.Name;
-                txtProductPrice.Text = mProduct.Price.ToString();
-                txtProductDescription.Text = mProduct.Description; ;
+                listComponent = mComponentDAO.SelectData();
+                getComponentList();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void getComponentList()
+        {
+            comboComponentList.Items.Clear();
+            foreach (Component item in listComponent)
+            {
+                comboComponentList.Items.Add(item.Name);
+            }
+        }
+
+        private void comboListComponent_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updateItemList();
+            updateListView();
+        }
+
+        private void updateListView()
+        {
+            if (comboComponentList.SelectedIndex != -1 && comboModelList.SelectedIndex != -1)
+            {
+                mComponent = listComponent[comboComponentList.SelectedIndex];
+                mModel = listModel[comboModelList.SelectedIndex];
+                LoadProductListByModelAndType();
+            }
+        }
+
+        private void updateItemList()
+        {
+            if (comboComponentList.SelectedIndex != -1)
+            {
+                mComponent = listComponent[comboComponentList.SelectedIndex];
+                LoadItemtList();
+            }
+        }
+
+        private void LoadItemtList()
+        {
+            try
+            {
+                listItem.Clear();
+                listItem = itemDAO.getItemsByType(mComponent.Id);
+                getItemsList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void getItemsList()
+        {
+            comboItemList.Items.Clear();
+            ClearItemFields();
+            foreach (Item item in listItem)
+            {
+                comboItemList.Items.Add(item.Name);
+            }
+        }
+
+        private void LoadProductListByModelAndType()
+        {
+            try
+            {
+                listProduct.Clear();
+                listProduct = mProductDAO.getProductsByModelAndType(mModel.Id, mComponent.Id);
+                getProductList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void comboItemList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (comboComponentList.SelectedIndex != -1 && comboItemList.SelectedIndex != -1)
+                {
+                    mItem = listItem[comboItemList.SelectedIndex];
+                    setProductFields();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void setProductFields()
+        {
+            txtProductCode.Text = mItem.Code;
+            txtProductPrice.Text = mItem.Price.ToString();
+            txtProductQuantity.Text = mItem.Quantity.ToString();
+            txtProductDescription.Text = mItem.Description;
+        }
+
+        private void viewListProduct_DoubleClick(object sender, EventArgs e)
+        {
+            selectProductForUpdateOrDelete();
+        }
+
+        private void selectProductForUpdateOrDelete()
+        {
+           
+            if (viewListItems.SelectedItems.Count > 0)
+            {
+                try
+                {
+                    mProduct = listProduct[viewListItems.Items.IndexOf(viewListItems.SelectedItems[0])];
+                    comboItemList.Text = mProduct.Item.Name;
+                    txtProductPrice.Text = mProduct.Item.Price.ToString();
+                    txtProductDescription.Text = mProduct.Description; ;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
@@ -190,35 +285,6 @@ namespace Ads_Listing_Manager_Software.Views
             {
                 MessageBox.Show(Utility.Utility.DATA_NOT_SAVED + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
-        }
-
-        private void GetFieldsInput()
-        {
-            mProduct.Name = txtProductName.Text;
-            mProduct.Price = Convert.ToDouble(txtProductPrice.Text);
-            mProduct.Description = txtProductDescription.Text;
-            mProduct.Model.Id = listModel[comboModelList.SelectedIndex].Id;
-            mProduct.Type.Id = listComponent[comboComponentList.SelectedIndex].Id;
-        }
-
-        private bool InputIsNotValidate()
-        {
-            return txtProductName.Text == "" || txtProductPrice.Text == "" || comboModelList.SelectedIndex == -1 || comboComponentList.SelectedIndex == -1;
-        }
-
-        private void ClearField()
-        {
-            txtProductName.Text = "";
-            txtProductPrice.Text = "";
-            txtProductDescription.Text = "";
-            comboModelList.SelectedIndex = -1;
-            comboBrandList.Text = "";
-            comboComponentList.SelectedIndex = -1;
-            comboComponentList.Text = "";
-            comboModelList.SelectedIndex = -1;
-            comboModelList.Text = "";
-            if(boxListProduct.Items.Count > 0)
-                boxListProduct.Items.Clear();
         }
 
         private void btnUpdateProduct_Click(object sender, EventArgs e)
@@ -268,9 +334,55 @@ namespace Ads_Listing_Manager_Software.Views
             }
         }
 
+        private void GetFieldsInput()
+        {
+            mProduct.Item.Id = listItem[comboItemList.SelectedIndex].Id;
+            mProduct.Item.Name = comboItemList.Text;
+            mProduct.Item.Price = Convert.ToDouble(txtProductPrice.Text);
+            mProduct.Item.Quantity = Convert.ToInt32(txtProductQuantity.Text);
+            mProduct.Description = txtProductDescription.Text;
+            mProduct.Model.Id = listModel[comboModelList.SelectedIndex].Id;
+            mProduct.Type.Id = listComponent[comboComponentList.SelectedIndex].Id;
+        }
+
+        private bool InputIsNotValidate()
+        {
+            return comboItemList.SelectedIndex == -1 || comboModelList.SelectedIndex == -1 || comboComponentList.SelectedIndex == -1 || txtProductPrice.Text == "" || txtProductQuantity.Text == "";
+        }
+
+        private void ClearField()
+        {
+            ClearItemFields();
+            comboModelList.SelectedIndex = -1;
+            comboBrandList.Text = "";
+            comboComponentList.SelectedIndex = -1;
+            comboComponentList.Text = "";
+            comboModelList.SelectedIndex = -1;
+            comboModelList.Text = "";
+            if (viewListItems.Items.Count > 0)
+                viewListItems.Items.Clear();
+        }
+
+        private void ClearItemFields()
+        {
+            comboItemList.SelectedIndex = -1;
+            comboItemList.Text = "";
+            txtProductCode.Text = "";
+            txtProductPrice.Text = "";
+            txtProductQuantity.Text = "";
+            txtProductDescription.Text = "";
+        }
+
         private void ValidateNumberEntred(object sender, KeyPressEventArgs e)
         {
             Utility.Utility.ValidateNumberEntred(sender, e);
         }
+
+        private void ValidateIntegerNumberEntred(object sender, KeyPressEventArgs e)
+        {
+            Utility.Utility.ValidateIntegerNumberEntred(sender, e);
+        }
+
+
     }
 }

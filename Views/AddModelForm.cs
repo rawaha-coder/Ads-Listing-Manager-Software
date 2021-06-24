@@ -40,10 +40,10 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void ClearField()
         {
-            txtModelName.Text = "";
-            txtModelPrice.Text = "";
-            txtModelDescription.Text = "";
-            boxListModel.Items.Clear();
+            txtName.Text = "";
+            txtPrice.Text = "";
+            txtDescription.Text = "";
+            viewListModel.Items.Clear();
             comboListBrand.Items.Clear();
             comboListBrand.SelectedIndex = -1;
             comboListBrand.Text = "";
@@ -69,7 +69,7 @@ namespace Ads_Listing_Manager_Software.Views
         }
         private bool InputIsNotValide()
         {
-            return txtModelName.Text == "" || txtModelPrice.Text == "" || comboListBrand.SelectedIndex == -1;
+            return txtName.Text == "" || txtPrice.Text == "" || txtQuantity.Text == "" || comboListBrand.SelectedIndex == -1 || comboGrade.SelectedIndex ==-1;
         }
 
         private void SaveModelData()
@@ -88,9 +88,11 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void GetFieldsInput()
         {
-            mModel.Name = txtModelName.Text.Trim().ToUpper();
-            mModel.Price = Convert.ToDouble(txtModelPrice.Text);
-            mModel.Description = txtModelDescription.Text;
+            mModel.Name = txtName.Text.Trim().ToUpper();
+            mModel.Price = Convert.ToDouble(txtPrice.Text);
+            mModel.Quantity = Convert.ToInt32(txtQuantity.Text);
+            mModel.Grade = Convert.ToString(comboGrade.SelectedItem);
+            mModel.Description = txtDescription.Text;
             mModel.Brand.Id = listBrand[comboListBrand.SelectedIndex].Id;
         }
 
@@ -141,53 +143,80 @@ namespace Ads_Listing_Manager_Software.Views
             }
         }
 
-        private void boxListModel_DoubleClick(object sender, EventArgs e)
-        {
-            try
-            {
-                Model mdl = listModel[boxListModel.SelectedIndex];
-                txtModelName.Text = mdl.Name;
-                txtModelPrice.Text = mdl.Price.ToString();
-                txtModelDescription.Text = mdl.Description; ;
-                mModel.Id = mdl.Id;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         private void comboListBrand_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboListBrand.SelectedIndex != -1)
                 LoadModelData();
         }
 
         private void LoadModelData()
         {
-            listModel.Clear(); boxListModel.Items.Clear();
-            try
+            if (comboListBrand.SelectedIndex != -1)
             {
-                listModel = modelDAO.getModelsByBrandId(listBrand[comboListBrand.SelectedIndex].Id);
-                getModelList();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                try
+                {
+                    listModel.Clear();
+                    listModel = modelDAO.getModelsByBrandId(listBrand[comboListBrand.SelectedIndex].Id);
+                    getItemsList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Load Model Data: " + ex.Message);
+                }
             }
         }
 
-        private void getModelList()
+        private void getItemsList()
         {
-            foreach (Model item in listModel)
+            viewListModel.Clear();
+            viewListModel.Items.Clear();
+            viewListModel.Columns.Add("Model", 200, HorizontalAlignment.Left);
+            viewListModel.Columns.Add("Grade", 80, HorizontalAlignment.Left);
+            viewListModel.Columns.Add("Price", 100, HorizontalAlignment.Left);
+            viewListModel.Columns.Add("Quantity", 100, HorizontalAlignment.Left);
+            foreach (Model model in listModel)
             {
-                boxListModel.Items.Add(item.Name);
+                ListViewItem lvi = new ListViewItem();
+                lvi.Text = model.Name;
+                lvi.SubItems.Add(model.Grade);
+                lvi.SubItems.Add(model.Price.ToString());
+                lvi.SubItems.Add(model.Quantity.ToString());
+                viewListModel.Items.Add(lvi);
             }
         }
 
         private void ValidateNumberEntred(object sender, KeyPressEventArgs e)
         {
             Utility.Utility.ValidateNumberEntred(sender, e);
+        }
+
+        private void ValidateIntegerNumberEntred(object sender, KeyPressEventArgs e)
+        {
+            Utility.Utility.ValidateIntegerNumberEntred(sender, e);
+        }
+
+        private void viewListModel_DoubleClick(object sender, EventArgs e)
+        {
+            selectModelForUpdateOrDelete();
+        }
+
+        private void selectModelForUpdateOrDelete()
+        {
+            if (viewListModel.SelectedItems.Count > 0)
+            {
+                try
+                {
+                    mModel = listModel[viewListModel.Items.IndexOf(viewListModel.SelectedItems[0])];
+                    txtName.Text = mModel.Name;
+                    comboGrade.Text = mModel.Grade;
+                    txtPrice.Text = mModel.Price.ToString();
+                    txtQuantity.Text = mModel.Quantity.ToString();
+                    txtDescription.Text = mModel.Description; ;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
     }
 }

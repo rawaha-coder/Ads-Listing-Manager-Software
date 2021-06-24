@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace Ads_Listing_Manager_Software.Models
 {
-    class Model
+    class Item
     {
         int id;
         string name;
+        string code;
         double price;
         int quantity;
+        int type;
         string description;
-        string grade;
-        Brand brand = new Brand();
 
         public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
+        public string Code { get => code; set => code = value; }
         public double Price { get => price; set => price = value; }
-        public string Description { get => description; set => description = value; }
-        public Brand Brand { get => brand; }
-        public string Grade { get => grade; set => grade = value; }
         public int Quantity { get => quantity; set => quantity = value; }
+        public int Type { get => type; set => type = value; }
+        public string Description { get => description; set => description = value; }
     }
 }

@@ -26,6 +26,8 @@ namespace Ads_Listing_Manager_Software
             try
             {
                 //ComponentDAO b = ComponentDAO.getInstance();
+                //ProductDAO b = ProductDAO.getInstance();
+                //ModelDAO b = ModelDAO.getInstance();
                 //b.CreateTable();
             }
             catch (Exception ex)
@@ -77,6 +79,16 @@ namespace Ads_Listing_Manager_Software
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
+            OpenChildForm(new FormAddItem());
+        }
+
+        private void btnAddMultiProduct_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new AddMultiProductForm());
+        }
+
+        private void btnAddOneProduct_Click(object sender, EventArgs e)
+        {
             OpenChildForm(new AddProductForm());
         }
 
@@ -84,5 +96,7 @@ namespace Ads_Listing_Manager_Software
         {
             activeForm.Close();
         }
+
+
     }
 }

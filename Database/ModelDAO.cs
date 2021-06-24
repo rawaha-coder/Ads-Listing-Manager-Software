@@ -3,6 +3,7 @@ using Ads_Listing_Manager_Software.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
+using System.Windows.Forms;
 
 namespace Ads_Listing_Manager_Software.Database
 {
@@ -12,6 +13,8 @@ namespace Ads_Listing_Manager_Software.Database
         public const string COLUMN_MODEL_ID = "ModelId";
         public const string COLUMN_MODEL_NAME = "ModelName";
         public const string COLUMN_MODEL_PRICE = "ModelPrice";
+        public const string COLUMN_MODEL_QUANTITY = "ModelQuantity";
+        public const string COLUMN_MODEL_GARDE = "ModelGrade";
         public const string COLUMN_MODEL_DESCRIPTION = "ModelDescription";
         public const string COLUMN_MODEL_BRAND_ID = "ModelBrandId";
 
@@ -24,6 +27,23 @@ namespace Ads_Listing_Manager_Software.Database
             if (instance == null)
                 instance = new ModelDAO();
             return instance;
+        }
+
+        public void CreateTable()
+        {
+            string createStmt = "CREATE TABLE " + TABLE_MODEL + "("
+                    + COLUMN_MODEL_ID + " INTEGER PRIMARY KEY, "
+                    + COLUMN_MODEL_NAME + " TEXT UNIQUE NOT NULL, "
+                    + COLUMN_MODEL_PRICE + " REAL NOT NULL, "
+                    + COLUMN_MODEL_QUANTITY + " INTEGER DEFAULT 0, "
+                    + COLUMN_MODEL_GARDE + " VARCHAR(1) NOT NULL, "
+                    + COLUMN_MODEL_DESCRIPTION + " TEXT DEFAULT '', "
+                    + COLUMN_MODEL_BRAND_ID + " INTEGER NOT NULL)";
+
+            SQLiteCommand sQLiteCommand = new SQLiteCommand(createStmt, mSQLiteConnection);
+            OpenConnection();
+            sQLiteCommand.ExecuteNonQuery();
+            CloseConnection();
         }
 
         public List<Model> SelectData()
@@ -58,6 +78,8 @@ namespace Ads_Listing_Manager_Software.Database
                     item.Id = result.GetInt32(result.GetOrdinal(COLUMN_MODEL_ID));
                     item.Name = result.GetString(result.GetOrdinal(COLUMN_MODEL_NAME));
                     item.Price = result.GetDouble(result.GetOrdinal(COLUMN_MODEL_PRICE));
+                    item.Quantity = result.GetInt32(result.GetOrdinal(COLUMN_MODEL_QUANTITY));
+                    item.Grade = result.GetString(result.GetOrdinal(COLUMN_MODEL_GARDE));
                     item.Description = result.GetString(result.GetOrdinal(COLUMN_MODEL_DESCRIPTION));
                     item.Brand.Id = result.GetInt32(result.GetOrdinal(COLUMN_MODEL_BRAND_ID));
                     list.Add(item);
@@ -79,7 +101,7 @@ namespace Ads_Listing_Manager_Software.Database
             }
             catch (SQLiteException ex)
             {
-                throw new Exception(ex.Message);
+                throw new Exception("getModelsByBrandId method: " + ex.Message);
             }
             finally
             {
@@ -111,15 +133,19 @@ namespace Ads_Listing_Manager_Software.Database
         public void AddData(Model item)
         {
             string insertStmt = "INSERT INTO " + TABLE_MODEL + " ("
-                    + COLUMN_MODEL_NAME + ", "
-                    + COLUMN_MODEL_PRICE + ", "
-                    + COLUMN_MODEL_DESCRIPTION + ", "
+                    + COLUMN_MODEL_NAME + ", " 
+                    + COLUMN_MODEL_PRICE + ", " 
+                    + COLUMN_MODEL_QUANTITY + ", " 
+                    + COLUMN_MODEL_GARDE + ", " 
+                    + COLUMN_MODEL_DESCRIPTION + ", " 
                     + COLUMN_MODEL_BRAND_ID
                     + ") VALUES ("
-                    + "@" + COLUMN_MODEL_NAME + ", "
+                    + "@" + COLUMN_MODEL_NAME + ", " 
                     + "@" + COLUMN_MODEL_PRICE + ", "
-                    + "@" + COLUMN_MODEL_DESCRIPTION + ", "
-                    + "@" + COLUMN_MODEL_BRAND_ID
+                    + "@" + COLUMN_MODEL_QUANTITY + ", "
+                    + "@" + COLUMN_MODEL_GARDE + ", "
+                    + "@" + COLUMN_MODEL_DESCRIPTION + ", " 
+                    + "@" + COLUMN_MODEL_BRAND_ID 
                     + ")";
             try
             {
@@ -127,6 +153,8 @@ namespace Ads_Listing_Manager_Software.Database
                 OpenConnection();
                 sQLiteCommand.Parameters.AddWithValue(COLUMN_MODEL_NAME, item.Name);
                 sQLiteCommand.Parameters.AddWithValue(COLUMN_MODEL_PRICE, item.Price);
+                sQLiteCommand.Parameters.AddWithValue(COLUMN_MODEL_QUANTITY, item.Quantity);
+                sQLiteCommand.Parameters.AddWithValue(COLUMN_MODEL_GARDE, item.Grade);
                 sQLiteCommand.Parameters.AddWithValue(COLUMN_MODEL_DESCRIPTION, item.Description);
                 sQLiteCommand.Parameters.AddWithValue(COLUMN_MODEL_BRAND_ID, item.Brand.Id);
                 sQLiteCommand.ExecuteNonQuery();
@@ -146,6 +174,8 @@ namespace Ads_Listing_Manager_Software.Database
             var updateStmt = "UPDATE " + TABLE_MODEL + " SET "
                  + COLUMN_MODEL_NAME + " =@" + COLUMN_MODEL_NAME + ", "
                  + COLUMN_MODEL_PRICE + " =@" + COLUMN_MODEL_PRICE + ", "
+                 + COLUMN_MODEL_QUANTITY + " =@" + COLUMN_MODEL_QUANTITY + ", "
+                 + COLUMN_MODEL_GARDE + " =@" + COLUMN_MODEL_GARDE + ", "
                  + COLUMN_MODEL_DESCRIPTION + " =@" + COLUMN_MODEL_DESCRIPTION + ", "
                  + COLUMN_MODEL_BRAND_ID + " =@" + COLUMN_MODEL_BRAND_ID + " "
                 + " WHERE " + COLUMN_MODEL_ID + " = " + item.Id + " ";
@@ -156,6 +186,8 @@ namespace Ads_Listing_Manager_Software.Database
                 OpenConnection();
                 sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_MODEL_NAME, item.Name));
                 sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_MODEL_PRICE, item.Price));
+                sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_MODEL_QUANTITY, item.Price));
+                sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_MODEL_GARDE, item.Price));
                 sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_MODEL_DESCRIPTION, item.Description));
                 sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_MODEL_BRAND_ID, item.Brand.Id));
                 sQLiteCommand.ExecuteNonQuery();
@@ -190,19 +222,5 @@ namespace Ads_Listing_Manager_Software.Database
             }
         }
 
-        public void CreateTable()
-        {
-            string createStmt = "CREATE TABLE " + TABLE_MODEL + "(" 
-                    + COLUMN_MODEL_ID + " INTEGER PRIMARY KEY, "
-                    + COLUMN_MODEL_NAME + " TEXT UNIQUE NOT NULL, "
-                    + COLUMN_MODEL_PRICE + " REAL NOT NULL, "
-                    + COLUMN_MODEL_DESCRIPTION + " TEXT DEFAULT '', "
-                    + COLUMN_MODEL_BRAND_ID + " INTEGER NOT NULL)";
-
-            SQLiteCommand sQLiteCommand = new SQLiteCommand(createStmt, mSQLiteConnection);
-            OpenConnection();
-            sQLiteCommand.ExecuteNonQuery();
-            CloseConnection();
-        }
     }
 }
