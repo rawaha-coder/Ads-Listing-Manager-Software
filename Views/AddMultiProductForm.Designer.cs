@@ -31,28 +31,28 @@ namespace Ads_Listing_Manager_Software.Views
         {
             this.lblAddModel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBrandList1 = new System.Windows.Forms.ComboBox();
+            this.brandComboList0 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.boxListModel = new System.Windows.Forms.ListBox();
+            this.modelList0 = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.listBoxProduct = new System.Windows.Forms.ListBox();
+            this.listBoxItems = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.comboComponentList = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.comboBrandList2 = new System.Windows.Forms.ComboBox();
+            this.brandComboList1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.modelList1 = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.comboBrandList3 = new System.Windows.Forms.ComboBox();
+            this.brandComboList2 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.modelList2 = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.comboBrandList4 = new System.Windows.Forms.ComboBox();
+            this.brandComboList3 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.modelList3 = new System.Windows.Forms.ListBox();
             this.label9 = new System.Windows.Forms.Label();
             this.btnDeleteBrand = new System.Windows.Forms.Button();
             this.btnUpdateBrand = new System.Windows.Forms.Button();
@@ -69,54 +69,54 @@ namespace Ads_Listing_Manager_Software.Views
             this.lblAddModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblAddModel.Location = new System.Drawing.Point(6, 28);
             this.lblAddModel.Name = "lblAddModel";
-            this.lblAddModel.Size = new System.Drawing.Size(318, 23);
+            this.lblAddModel.Size = new System.Drawing.Size(158, 23);
             this.lblAddModel.TabIndex = 31;
             this.lblAddModel.Text = "Brand";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBrandList1);
+            this.groupBox1.Controls.Add(this.brandComboList0);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.boxListModel);
+            this.groupBox1.Controls.Add(this.modelList0);
             this.groupBox1.Controls.Add(this.lblAddModel);
             this.groupBox1.Location = new System.Drawing.Point(318, 26);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(188, 555);
+            this.groupBox1.Size = new System.Drawing.Size(172, 555);
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Models";
             // 
-            // comboBrandList1
+            // brandComboList0
             // 
-            this.comboBrandList1.FormattingEnabled = true;
-            this.comboBrandList1.Location = new System.Drawing.Point(6, 50);
-            this.comboBrandList1.Name = "comboBrandList1";
-            this.comboBrandList1.Size = new System.Drawing.Size(173, 23);
-            this.comboBrandList1.TabIndex = 36;
-            this.comboBrandList1.SelectedIndexChanged += new System.EventHandler(this.comboBrandList_SelectedIndexChanged);
+            this.brandComboList0.FormattingEnabled = true;
+            this.brandComboList0.Location = new System.Drawing.Point(6, 50);
+            this.brandComboList0.Name = "brandComboList0";
+            this.brandComboList0.Size = new System.Drawing.Size(158, 23);
+            this.brandComboList0.TabIndex = 36;
+            this.brandComboList0.SelectedIndexChanged += new System.EventHandler(this.comboBrandList0_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(8, 85);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(318, 23);
+            this.label1.Size = new System.Drawing.Size(158, 23);
             this.label1.TabIndex = 35;
             this.label1.Text = "Model";
             // 
-            // boxListModel
+            // modelList0
             // 
-            this.boxListModel.FormattingEnabled = true;
-            this.boxListModel.ItemHeight = 15;
-            this.boxListModel.Location = new System.Drawing.Point(7, 106);
-            this.boxListModel.Name = "boxListModel";
-            this.boxListModel.Size = new System.Drawing.Size(172, 439);
-            this.boxListModel.TabIndex = 34;
+            this.modelList0.FormattingEnabled = true;
+            this.modelList0.ItemHeight = 15;
+            this.modelList0.Location = new System.Drawing.Point(7, 106);
+            this.modelList0.Name = "modelList0";
+            this.modelList0.Size = new System.Drawing.Size(160, 439);
+            this.modelList0.TabIndex = 34;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.listBoxProduct);
+            this.groupBox2.Controls.Add(this.listBoxItems);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.comboComponentList);
             this.groupBox2.Location = new System.Drawing.Point(14, 26);
@@ -133,16 +133,16 @@ namespace Ads_Listing_Manager_Software.Views
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(318, 23);
             this.label2.TabIndex = 35;
-            this.label2.Text = "Products";
+            this.label2.Text = "Items";
             // 
-            // listBoxProduct
+            // listBoxItems
             // 
-            this.listBoxProduct.FormattingEnabled = true;
-            this.listBoxProduct.ItemHeight = 15;
-            this.listBoxProduct.Location = new System.Drawing.Point(6, 106);
-            this.listBoxProduct.Name = "listBoxProduct";
-            this.listBoxProduct.Size = new System.Drawing.Size(286, 439);
-            this.listBoxProduct.TabIndex = 34;
+            this.listBoxItems.FormattingEnabled = true;
+            this.listBoxItems.ItemHeight = 15;
+            this.listBoxItems.Location = new System.Drawing.Point(6, 106);
+            this.listBoxItems.Name = "listBoxItems";
+            this.listBoxItems.Size = new System.Drawing.Size(286, 439);
+            this.listBoxItems.TabIndex = 34;
             // 
             // label3
             // 
@@ -165,151 +165,154 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.comboBrandList2);
+            this.groupBox3.Controls.Add(this.brandComboList1);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.listBox1);
+            this.groupBox3.Controls.Add(this.modelList1);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Location = new System.Drawing.Point(512, 26);
+            this.groupBox3.Location = new System.Drawing.Point(496, 26);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(188, 555);
+            this.groupBox3.Size = new System.Drawing.Size(172, 555);
             this.groupBox3.TabIndex = 36;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Models";
             // 
-            // comboBrandList2
+            // brandComboList1
             // 
-            this.comboBrandList2.FormattingEnabled = true;
-            this.comboBrandList2.Location = new System.Drawing.Point(6, 50);
-            this.comboBrandList2.Name = "comboBrandList2";
-            this.comboBrandList2.Size = new System.Drawing.Size(173, 23);
-            this.comboBrandList2.TabIndex = 36;
+            this.brandComboList1.FormattingEnabled = true;
+            this.brandComboList1.Location = new System.Drawing.Point(6, 50);
+            this.brandComboList1.Name = "brandComboList1";
+            this.brandComboList1.Size = new System.Drawing.Size(161, 23);
+            this.brandComboList1.TabIndex = 36;
+            this.brandComboList1.SelectedIndexChanged += new System.EventHandler(this.brandComboList1_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(8, 85);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(318, 23);
+            this.label4.Size = new System.Drawing.Size(159, 23);
             this.label4.TabIndex = 35;
             this.label4.Text = "Model";
             // 
-            // listBox1
+            // modelList1
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(7, 106);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(172, 439);
-            this.listBox1.TabIndex = 34;
+            this.modelList1.FormattingEnabled = true;
+            this.modelList1.ItemHeight = 15;
+            this.modelList1.Location = new System.Drawing.Point(7, 106);
+            this.modelList1.Name = "modelList1";
+            this.modelList1.Size = new System.Drawing.Size(160, 439);
+            this.modelList1.TabIndex = 34;
             // 
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(6, 28);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(318, 23);
+            this.label5.Size = new System.Drawing.Size(161, 23);
             this.label5.TabIndex = 31;
             this.label5.Text = "Brand";
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.comboBrandList3);
+            this.groupBox4.Controls.Add(this.brandComboList2);
             this.groupBox4.Controls.Add(this.label6);
-            this.groupBox4.Controls.Add(this.listBox2);
+            this.groupBox4.Controls.Add(this.modelList2);
             this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Location = new System.Drawing.Point(706, 26);
+            this.groupBox4.Location = new System.Drawing.Point(674, 26);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(188, 555);
+            this.groupBox4.Size = new System.Drawing.Size(173, 555);
             this.groupBox4.TabIndex = 37;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Models";
             // 
-            // comboBrandList3
+            // brandComboList2
             // 
-            this.comboBrandList3.FormattingEnabled = true;
-            this.comboBrandList3.Location = new System.Drawing.Point(6, 50);
-            this.comboBrandList3.Name = "comboBrandList3";
-            this.comboBrandList3.Size = new System.Drawing.Size(173, 23);
-            this.comboBrandList3.TabIndex = 36;
+            this.brandComboList2.FormattingEnabled = true;
+            this.brandComboList2.Location = new System.Drawing.Point(6, 50);
+            this.brandComboList2.Name = "brandComboList2";
+            this.brandComboList2.Size = new System.Drawing.Size(161, 23);
+            this.brandComboList2.TabIndex = 36;
+            this.brandComboList2.SelectedIndexChanged += new System.EventHandler(this.brandComboList2_SelectedIndexChanged);
             // 
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.Location = new System.Drawing.Point(8, 85);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(318, 23);
+            this.label6.Size = new System.Drawing.Size(159, 23);
             this.label6.TabIndex = 35;
             this.label6.Text = "Model";
             // 
-            // listBox2
+            // modelList2
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 15;
-            this.listBox2.Location = new System.Drawing.Point(7, 106);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(172, 439);
-            this.listBox2.TabIndex = 34;
+            this.modelList2.FormattingEnabled = true;
+            this.modelList2.ItemHeight = 15;
+            this.modelList2.Location = new System.Drawing.Point(7, 106);
+            this.modelList2.Name = "modelList2";
+            this.modelList2.Size = new System.Drawing.Size(160, 439);
+            this.modelList2.TabIndex = 34;
             // 
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.Location = new System.Drawing.Point(6, 28);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(318, 23);
+            this.label7.Size = new System.Drawing.Size(161, 23);
             this.label7.TabIndex = 31;
             this.label7.Text = "Brand";
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.comboBrandList4);
+            this.groupBox5.Controls.Add(this.brandComboList3);
             this.groupBox5.Controls.Add(this.label8);
-            this.groupBox5.Controls.Add(this.listBox3);
+            this.groupBox5.Controls.Add(this.modelList3);
             this.groupBox5.Controls.Add(this.label9);
-            this.groupBox5.Location = new System.Drawing.Point(900, 26);
+            this.groupBox5.Location = new System.Drawing.Point(853, 26);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(188, 555);
+            this.groupBox5.Size = new System.Drawing.Size(173, 555);
             this.groupBox5.TabIndex = 38;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Models";
             // 
-            // comboBrandList4
+            // brandComboList3
             // 
-            this.comboBrandList4.FormattingEnabled = true;
-            this.comboBrandList4.Location = new System.Drawing.Point(6, 50);
-            this.comboBrandList4.Name = "comboBrandList4";
-            this.comboBrandList4.Size = new System.Drawing.Size(173, 23);
-            this.comboBrandList4.TabIndex = 36;
+            this.brandComboList3.FormattingEnabled = true;
+            this.brandComboList3.Location = new System.Drawing.Point(6, 50);
+            this.brandComboList3.Name = "brandComboList3";
+            this.brandComboList3.Size = new System.Drawing.Size(161, 23);
+            this.brandComboList3.TabIndex = 36;
+            this.brandComboList3.SelectedIndexChanged += new System.EventHandler(this.brandComboList3_SelectedIndexChanged);
             // 
             // label8
             // 
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.Location = new System.Drawing.Point(8, 85);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(318, 23);
+            this.label8.Size = new System.Drawing.Size(159, 23);
             this.label8.TabIndex = 35;
             this.label8.Text = "Model";
             // 
-            // listBox3
+            // modelList3
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.ItemHeight = 15;
-            this.listBox3.Location = new System.Drawing.Point(7, 106);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(172, 439);
-            this.listBox3.TabIndex = 34;
+            this.modelList3.FormattingEnabled = true;
+            this.modelList3.ItemHeight = 15;
+            this.modelList3.Location = new System.Drawing.Point(7, 106);
+            this.modelList3.Name = "modelList3";
+            this.modelList3.Size = new System.Drawing.Size(160, 439);
+            this.modelList3.TabIndex = 34;
             // 
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label9.Location = new System.Drawing.Point(6, 28);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(318, 23);
+            this.label9.Size = new System.Drawing.Size(161, 23);
             this.label9.TabIndex = 31;
             this.label9.Text = "Brand";
             // 
             // btnDeleteBrand
             // 
-            this.btnDeleteBrand.Location = new System.Drawing.Point(204, 587);
+            this.btnDeleteBrand.Location = new System.Drawing.Point(222, 587);
             this.btnDeleteBrand.Name = "btnDeleteBrand";
             this.btnDeleteBrand.Size = new System.Drawing.Size(90, 34);
             this.btnDeleteBrand.TabIndex = 41;
@@ -318,7 +321,7 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             // btnUpdateBrand
             // 
-            this.btnUpdateBrand.Location = new System.Drawing.Point(108, 587);
+            this.btnUpdateBrand.Location = new System.Drawing.Point(117, 587);
             this.btnUpdateBrand.Name = "btnUpdateBrand";
             this.btnUpdateBrand.Size = new System.Drawing.Size(90, 34);
             this.btnUpdateBrand.TabIndex = 40;
@@ -366,27 +369,27 @@ namespace Ads_Listing_Manager_Software.Views
         private System.Windows.Forms.Label lblAddModel;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox boxListModel;
+        private System.Windows.Forms.ListBox modelList0;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox listBoxProduct;
+        private System.Windows.Forms.ListBox listBoxItems;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboComponentList;
-        private System.Windows.Forms.ComboBox comboBrandList1;
+        private System.Windows.Forms.ComboBox brandComboList0;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ComboBox comboBrandList2;
+        private System.Windows.Forms.ComboBox brandComboList1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox modelList1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.ComboBox comboBrandList3;
+        private System.Windows.Forms.ComboBox brandComboList2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox modelList2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.ComboBox comboBrandList4;
+        private System.Windows.Forms.ComboBox brandComboList3;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.ListBox modelList3;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnDeleteBrand;
         private System.Windows.Forms.Button btnUpdateBrand;

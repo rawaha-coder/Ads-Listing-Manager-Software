@@ -206,7 +206,8 @@ namespace Ads_Listing_Manager_Software.Database
                 + " ON " + ModelDAO.TABLE_MODEL + "." + ModelDAO.COLUMN_MODEL_ID + " = " + TABLE_PRODUCT + "." + COLUMN_PRODUCT_MODEL
                 + " LEFT JOIN " + ComponentDAO.TABLE_COMPONENT + " "
                 + " ON " + ComponentDAO.TABLE_COMPONENT + "." + ComponentDAO.COLUMN_COMPONENT_ID + " = " + TABLE_PRODUCT + "." + COLUMN_PRODUCT_TYPE
-                + " WHERE  "  + COLUMN_PRODUCT_TYPE + " = " + id + " ORDER BY " + COLUMN_PRODUCT_ITEM + " ASC";
+                + " WHERE  " + TABLE_PRODUCT + "." + COLUMN_PRODUCT_TYPE + " = " + id
+                + " ORDER BY " + COLUMN_PRODUCT_ITEM + " ASC";
             try
             {
                 SQLiteCommand sQLiteCommand = new SQLiteCommand(selectStmt, mSQLiteConnection);

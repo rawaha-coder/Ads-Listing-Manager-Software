@@ -67,9 +67,9 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void LoadModelList()
         {
-            listModel.Clear();
             try
             {
+                listModel.Clear();
                 listModel = mModelDAO.getModelsByBrandId(listBrand[comboBrandList.SelectedIndex].Id);
                 getModelList();
             }

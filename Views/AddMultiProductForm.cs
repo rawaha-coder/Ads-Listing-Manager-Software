@@ -11,12 +11,13 @@ namespace Ads_Listing_Manager_Software.Views
         BrandDAO brandDAO = BrandDAO.getInstance();
         ModelDAO modelDAO = ModelDAO.getInstance();
         ComponentDAO mComponentDAO = ComponentDAO.getInstance();
-        ProductDAO productDAO = ProductDAO.getInstance();
+        ItemDAO itemDAO = ItemDAO.getInstance();
         Model mModel = new Model();
+        Component mComponent = new Component();
         List<Brand> listBrand = new List<Brand>();
-        List<Model> listModel = new List<Model>();
+        List<Model>[] listModel = new List<Model>[4];
         List<Component> listComponent = new List<Component>();
-        List<Product> listProduct = new List<Product>();
+        List<Item> listItem = new List<Item>();
 
         public AddMultiProductForm()
         {
@@ -25,8 +26,15 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void AddMultiProductForm_Load(object sender, EventArgs e)
         {
+            initListModel();
             LoadBrandList();
             LoadComponentList();
+        }
+
+        private void initListModel()
+        {
+            for (int i = 0; i < listModel.Length; i++)
+                listModel[i] = new List<Model>();
         }
 
         private void LoadBrandList()
@@ -34,7 +42,7 @@ namespace Ads_Listing_Manager_Software.Views
             try
             {
                 listBrand = brandDAO.GetData();
-                getBrandList();
+                displayBrandList();
             }
             catch (Exception ex)
             {
@@ -42,14 +50,14 @@ namespace Ads_Listing_Manager_Software.Views
             }
         }
 
-        private void getBrandList()
+        private void displayBrandList()
         {
             foreach (Brand item in listBrand)
             {
-                comboBrandList1.Items.Add(item.Name);
-                comboBrandList2.Items.Add(item.Name);
-                comboBrandList3.Items.Add(item.Name);
-                comboBrandList4.Items.Add(item.Name);
+                brandComboList0.Items.Add(item.Name);
+                brandComboList1.Items.Add(item.Name);
+                brandComboList2.Items.Add(item.Name);
+                brandComboList3.Items.Add(item.Name);
             }
         }
 
@@ -59,7 +67,7 @@ namespace Ads_Listing_Manager_Software.Views
             try
             {
                 listComponent = mComponentDAO.SelectData();
-                getComponentList();
+                displayComponentList();
             }
             catch (Exception ex)
             {
@@ -67,7 +75,7 @@ namespace Ads_Listing_Manager_Software.Views
             }
         }
 
-        private void getComponentList()
+        private void displayComponentList()
         {
             foreach (Component item in listComponent)
             {
@@ -77,19 +85,25 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void comboComponentList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            getItemList();
+        }
+
+        private void getItemList()
+        {
             if (comboComponentList.SelectedIndex != -1)
             {
-                LoadProductList(listComponent[comboComponentList.SelectedIndex].Id);
+                mComponent = listComponent[comboComponentList.SelectedIndex];
+                LoadItemtList();
             }
         }
 
-        private void LoadProductList(int id)
+        private void LoadItemtList()
         {
-            listBoxProduct.Items.Clear(); listProduct.Clear();
             try
             {
-                listProduct = productDAO.getProductsByType(id);
-                getProductList();
+                listItem.Clear();
+                listItem = itemDAO.getItemsByType(mComponent.Id);
+                displayItemsList();
             }
             catch (Exception ex)
             {
@@ -97,17 +111,102 @@ namespace Ads_Listing_Manager_Software.Views
             }
         }
 
-        private void getProductList()
+        private void displayItemsList()
         {
-            foreach (Product item in listProduct)
+            listBoxItems.Items.Clear();
+            foreach (Item item in listItem)
             {
-                listBoxProduct.Items.Add(item.Item.Name);
+                listBoxItems.Items.Add(item.Name);
             }
         }
 
-        private void comboBrandList_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
+        private void comboBrandList0_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (brandComboList0.SelectedIndex != -1)
+            {
+                int id = listBrand[brandComboList0.SelectedIndex].Id;
+                displayModelList0(LoadModelList(0, id));
+            }
+                
         }
+        private void brandComboList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (brandComboList1.SelectedIndex != -1)
+            {
+                int id = listBrand[brandComboList1.SelectedIndex].Id;
+                displayModelList1(LoadModelList(1, id));
+            }
+        }
+
+        private void brandComboList2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (brandComboList2.SelectedIndex != -1)
+            {
+                int id = listBrand[brandComboList2.SelectedIndex].Id;
+                displayModelList2(LoadModelList(2, id));
+            }
+        }
+
+        private void brandComboList3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (brandComboList3.SelectedIndex != -1)
+            {
+                int id = listBrand[brandComboList3.SelectedIndex].Id;
+                displayModelList3(LoadModelList(3, id));
+            }
+        }
+
+        private List<Model> LoadModelList(int i, int id)
+        {
+            try
+            {
+                listModel[i].Clear();
+                listModel[i] = modelDAO.getModelsByBrandId(id);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return listModel[i];
+        }
+
+        private void displayModelList0(List<Model> list)
+        {
+            modelList0.Items.Clear();
+            foreach (Model model in list)
+            {
+                modelList0.Items.Add(model.Name);
+            }
+        }
+
+        private void displayModelList1(List<Model> list)
+        {
+            modelList1.Items.Clear();
+            foreach (Model model in list)
+            {
+                modelList1.Items.Add(model.Name);
+            }
+        }
+
+        private void displayModelList2(List<Model> list)
+        {
+            modelList2.Items.Clear();
+            foreach (Model model in list)
+            {
+                modelList2.Items.Add(model.Name);
+            }
+        }
+
+        private void displayModelList3(List<Model> list)
+        {
+            modelList3.Items.Clear();
+            foreach (Model model in list)
+            {
+                modelList3.Items.Add(model.Name);
+            }
+        }
+
+
     }
 }
