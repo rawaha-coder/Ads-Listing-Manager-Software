@@ -348,7 +348,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(159)))), ((int)(((byte)(181)))));
-            this.ClientSize = new System.Drawing.Size(1184, 730);
+            this.ClientSize = new System.Drawing.Size(1184, 721);
             this.Controls.Add(this.btnDeleteMultiProduct);
             this.Controls.Add(this.btnUpdateMultiProduct);
             this.Controls.Add(this.btnAddMultiProduct);

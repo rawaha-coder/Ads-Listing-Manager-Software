@@ -45,7 +45,7 @@ namespace Ads_Listing_Manager_Software.Views
             // lblListComponent
             // 
             this.lblListComponent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblListComponent.Location = new System.Drawing.Point(386, 66);
+            this.lblListComponent.Location = new System.Drawing.Point(388, 26);
             this.lblListComponent.Name = "lblListComponent";
             this.lblListComponent.Size = new System.Drawing.Size(174, 23);
             this.lblListComponent.TabIndex = 25;
@@ -54,7 +54,7 @@ namespace Ads_Listing_Manager_Software.Views
             // txtComponentDescription
             // 
             this.txtComponentDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtComponentDescription.Location = new System.Drawing.Point(12, 216);
+            this.txtComponentDescription.Location = new System.Drawing.Point(14, 193);
             this.txtComponentDescription.Multiline = true;
             this.txtComponentDescription.Name = "txtComponentDescription";
             this.txtComponentDescription.Size = new System.Drawing.Size(318, 338);
@@ -63,7 +63,7 @@ namespace Ads_Listing_Manager_Software.Views
             // lblTypeDescription
             // 
             this.lblTypeDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTypeDescription.Location = new System.Drawing.Point(12, 190);
+            this.lblTypeDescription.Location = new System.Drawing.Point(14, 167);
             this.lblTypeDescription.Name = "lblTypeDescription";
             this.lblTypeDescription.Size = new System.Drawing.Size(255, 23);
             this.lblTypeDescription.TabIndex = 23;
@@ -73,17 +73,17 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             this.boxListComponent.FormattingEnabled = true;
             this.boxListComponent.ItemHeight = 15;
-            this.boxListComponent.Location = new System.Drawing.Point(386, 92);
+            this.boxListComponent.Location = new System.Drawing.Point(388, 52);
             this.boxListComponent.Name = "boxListComponent";
-            this.boxListComponent.Size = new System.Drawing.Size(174, 469);
+            this.boxListComponent.Size = new System.Drawing.Size(628, 529);
             this.boxListComponent.TabIndex = 22;
             this.boxListComponent.DoubleClick += new System.EventHandler(this.boxListComponent_DoubleClick);
             // 
             // btnDeleteComponent
             // 
-            this.btnDeleteComponent.Location = new System.Drawing.Point(174, 560);
+            this.btnDeleteComponent.Location = new System.Drawing.Point(232, 548);
             this.btnDeleteComponent.Name = "btnDeleteComponent";
-            this.btnDeleteComponent.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteComponent.Size = new System.Drawing.Size(100, 35);
             this.btnDeleteComponent.TabIndex = 20;
             this.btnDeleteComponent.Text = "Delete";
             this.btnDeleteComponent.UseVisualStyleBackColor = true;
@@ -91,9 +91,9 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             // btnUpdateComponent
             // 
-            this.btnUpdateComponent.Location = new System.Drawing.Point(93, 560);
+            this.btnUpdateComponent.Location = new System.Drawing.Point(122, 548);
             this.btnUpdateComponent.Name = "btnUpdateComponent";
-            this.btnUpdateComponent.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateComponent.Size = new System.Drawing.Size(100, 35);
             this.btnUpdateComponent.TabIndex = 19;
             this.btnUpdateComponent.Text = "Update";
             this.btnUpdateComponent.UseVisualStyleBackColor = true;
@@ -101,9 +101,9 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             // btnAddComponent
             // 
-            this.btnAddComponent.Location = new System.Drawing.Point(12, 560);
+            this.btnAddComponent.Location = new System.Drawing.Point(12, 548);
             this.btnAddComponent.Name = "btnAddComponent";
-            this.btnAddComponent.Size = new System.Drawing.Size(75, 23);
+            this.btnAddComponent.Size = new System.Drawing.Size(100, 35);
             this.btnAddComponent.TabIndex = 18;
             this.btnAddComponent.Text = "Add";
             this.btnAddComponent.UseVisualStyleBackColor = true;
@@ -112,7 +112,7 @@ namespace Ads_Listing_Manager_Software.Views
             // lblAddComponent
             // 
             this.lblAddComponent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblAddComponent.Location = new System.Drawing.Point(12, 126);
+            this.lblAddComponent.Location = new System.Drawing.Point(14, 97);
             this.lblAddComponent.Name = "lblAddComponent";
             this.lblAddComponent.Size = new System.Drawing.Size(318, 23);
             this.lblAddComponent.TabIndex = 17;
@@ -121,7 +121,7 @@ namespace Ads_Listing_Manager_Software.Views
             // txtComponentName
             // 
             this.txtComponentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtComponentName.Location = new System.Drawing.Point(12, 150);
+            this.txtComponentName.Location = new System.Drawing.Point(14, 121);
             this.txtComponentName.Name = "txtComponentName";
             this.txtComponentName.Size = new System.Drawing.Size(318, 24);
             this.txtComponentName.TabIndex = 16;
@@ -129,7 +129,7 @@ namespace Ads_Listing_Manager_Software.Views
             // labelComponentID
             // 
             this.labelComponentID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelComponentID.Location = new System.Drawing.Point(12, 66);
+            this.labelComponentID.Location = new System.Drawing.Point(14, 26);
             this.labelComponentID.Name = "labelComponentID";
             this.labelComponentID.Size = new System.Drawing.Size(318, 23);
             this.labelComponentID.TabIndex = 27;
@@ -138,7 +138,7 @@ namespace Ads_Listing_Manager_Software.Views
             // txtComponentID
             // 
             this.txtComponentID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtComponentID.Location = new System.Drawing.Point(12, 90);
+            this.txtComponentID.Location = new System.Drawing.Point(14, 50);
             this.txtComponentID.Name = "txtComponentID";
             this.txtComponentID.Size = new System.Drawing.Size(318, 24);
             this.txtComponentID.TabIndex = 26;
@@ -149,7 +149,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(159)))), ((int)(((byte)(181)))));
-            this.ClientSize = new System.Drawing.Size(764, 661);
+            this.ClientSize = new System.Drawing.Size(1184, 721);
             this.Controls.Add(this.labelComponentID);
             this.Controls.Add(this.txtComponentID);
             this.Controls.Add(this.lblListComponent);
