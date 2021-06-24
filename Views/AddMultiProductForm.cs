@@ -12,12 +12,14 @@ namespace Ads_Listing_Manager_Software.Views
         ModelDAO modelDAO = ModelDAO.getInstance();
         ComponentDAO mComponentDAO = ComponentDAO.getInstance();
         ItemDAO itemDAO = ItemDAO.getInstance();
-        Model mModel = new Model();
-        Component mComponent = new Component();
+        ProductDAO productDAO = ProductDAO.getInstance();
         List<Brand> listBrand = new List<Brand>();
         List<Model>[] listModel = new List<Model>[4];
         List<Component> listComponent = new List<Component>();
         List<Item> listItem = new List<Item>();
+        List<int> listModelsId = new List<int>();
+        int selectedItemId = -1;
+        int selectedComponentId = -1;
 
         public AddMultiProductForm()
         {
@@ -63,9 +65,9 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void LoadComponentList()
         {
-            listComponent.Clear(); comboComponentList.Items.Clear();
             try
             {
+                listComponent.Clear();
                 listComponent = mComponentDAO.SelectData();
                 displayComponentList();
             }
@@ -77,6 +79,7 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void displayComponentList()
         {
+            comboComponentList.Items.Clear();
             foreach (Component item in listComponent)
             {
                 comboComponentList.Items.Add(item.Name);
@@ -85,16 +88,14 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void comboComponentList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            getItemList();
+            if (comboComponentList.SelectedIndex != -1)
+                getItemList();
         }
 
         private void getItemList()
         {
-            if (comboComponentList.SelectedIndex != -1)
-            {
-                mComponent = listComponent[comboComponentList.SelectedIndex];
+                selectedComponentId = listComponent[comboComponentList.SelectedIndex].Id;
                 LoadItemtList();
-            }
         }
 
         private void LoadItemtList()
@@ -102,7 +103,7 @@ namespace Ads_Listing_Manager_Software.Views
             try
             {
                 listItem.Clear();
-                listItem = itemDAO.getItemsByType(mComponent.Id);
+                listItem = itemDAO.getItemsByType(selectedComponentId);
                 displayItemsList();
             }
             catch (Exception ex)
@@ -204,6 +205,97 @@ namespace Ads_Listing_Manager_Software.Views
             foreach (Model model in list)
             {
                 modelList3.Items.Add(model.Name);
+            }
+        }
+
+        private void btnAddMultiProduct_Click(object sender, EventArgs e)
+        {
+            saveMultiProduct();
+        }
+
+        private void saveMultiProduct()
+        {
+            getSelectedModelsIndices();
+            getSelectedItem();
+            saveToDatabase();
+        }
+
+        private void saveToDatabase()
+        {
+            try
+            {
+                if (selectedComponentId != -1 && selectedItemId != -1)
+                {
+                    for (int i = 0; i < listModelsId.Count; i++)
+                    {
+                        productDAO.AddProduct(listModelsId[i], selectedItemId, selectedComponentId);
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Utility.Logging.LogError(ex);
+            }
+
+        }
+
+        private void getSelectedItem()
+        {
+            if(listBoxItems.SelectedIndex != -1)
+                selectedItemId = listItem[listBoxItems.SelectedIndex].Id;
+
+        }
+
+        private void getSelectedModelsIndices()
+        {
+            listModelsId.Clear();
+            modelList0Indices();
+            modelList1Indices();
+            modelList2Indices();
+            modelList3Indices();
+        }
+
+        private void modelList0Indices()
+        {
+            if (modelList0.SelectedItems.Count > 0)
+            {
+                for (int i = 0; i < modelList0.SelectedItems.Count; i++)
+                {
+                    listModelsId.Add(listModel[0][modelList0.SelectedIndices[i]].Id);
+                }
+            }
+        }
+
+        private void modelList1Indices()
+        {
+            if (modelList1.SelectedItems.Count > 0)
+            {
+                for (int i = 0; i < modelList1.SelectedItems.Count; i++)
+                {
+                    listModelsId.Add(listModel[1][modelList1.SelectedIndices[i]].Id);
+                }
+            }
+        }
+
+        private void modelList2Indices()
+        {
+            if (modelList2.SelectedItems.Count > 0)
+            {
+                for (int i = 0; i < modelList2.SelectedItems.Count; i++)
+                {
+                    listModelsId.Add(listModel[2][modelList2.SelectedIndices[i]].Id);
+                }
+            }
+        }
+
+        private void modelList3Indices()
+        {
+            if (modelList3.SelectedItems.Count > 0)
+            {
+                for (int i = 0; i < modelList3.SelectedItems.Count; i++)
+                {
+                    listModelsId.Add(listModel[3][modelList3.SelectedIndices[i]].Id);
+                }
             }
         }
 

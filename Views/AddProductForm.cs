@@ -103,7 +103,7 @@ namespace Ads_Listing_Manager_Software.Views
             {
                 listProduct.Clear();
                 listProduct = mProductDAO.getProductsByModel(mModel.Id);
-                getProductList();
+                displayProductList();
             }
             catch (Exception ex)
             {
@@ -111,11 +111,11 @@ namespace Ads_Listing_Manager_Software.Views
             }
         }
 
-        private void getProductList()
+        private void displayProductList()
         {
             viewListItems.Clear();
             viewListItems.Items.Clear();
-            viewListItems.Columns.Add("CPU", 500, HorizontalAlignment.Left);
+            viewListItems.Columns.Add("Product", 500, HorizontalAlignment.Left);
             viewListItems.Columns.Add("Price", 100, HorizontalAlignment.Left);
             viewListItems.Columns.Add("Quantity", 80, HorizontalAlignment.Left);
             foreach (Product product in listProduct)
@@ -206,7 +206,7 @@ namespace Ads_Listing_Manager_Software.Views
             {
                 listProduct.Clear();
                 listProduct = mProductDAO.getProductsByModelAndType(mModel.Id, mComponent.Id);
-                getProductList();
+                displayProductList();
             }
             catch (Exception ex)
             {
@@ -236,31 +236,31 @@ namespace Ads_Listing_Manager_Software.Views
             txtProductCode.Text = mItem.Code;
             txtProductPrice.Text = mItem.Price.ToString();
             txtProductQuantity.Text = mItem.Quantity.ToString();
-            txtProductDescription.Text = mItem.Description;
         }
 
         private void viewListProduct_DoubleClick(object sender, EventArgs e)
         {
+            btnUpdateProduct.Enabled = true;
+            btnDeleteProduct.Enabled = true;
             selectProductForUpdateOrDelete();
         }
 
         private void selectProductForUpdateOrDelete()
         {
-           
-            if (viewListItems.SelectedItems.Count > 0)
-            {
                 try
                 {
-                    mProduct = listProduct[viewListItems.Items.IndexOf(viewListItems.SelectedItems[0])];
-                    comboItemList.Text = mProduct.Item.Name;
-                    txtProductPrice.Text = mProduct.Item.Price.ToString();
-                    txtProductDescription.Text = mProduct.Description; ;
+                    if (viewListItems.SelectedItems.Count > 0)
+                    {
+                        mProduct = listProduct[viewListItems.Items.IndexOf(viewListItems.SelectedItems[0])];
+                        comboItemList.Text = mProduct.Item.Name;
+                        txtProductPrice.Text = mProduct.Item.Price.ToString();
+                    }
+
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-            }
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
@@ -325,7 +325,7 @@ namespace Ads_Listing_Manager_Software.Views
         {
             try
             {
-                mProductDAO.DeleteData(mProduct);
+                mProductDAO.DeleteData(mProduct.Id);
                 ClearField();
             }
             catch (Exception ex)
@@ -340,7 +340,6 @@ namespace Ads_Listing_Manager_Software.Views
             mProduct.Item.Name = comboItemList.Text;
             mProduct.Item.Price = Convert.ToDouble(txtProductPrice.Text);
             mProduct.Item.Quantity = Convert.ToInt32(txtProductQuantity.Text);
-            mProduct.Description = txtProductDescription.Text;
             mProduct.Model.Id = listModel[comboModelList.SelectedIndex].Id;
             mProduct.Type.Id = listComponent[comboComponentList.SelectedIndex].Id;
         }
@@ -359,6 +358,8 @@ namespace Ads_Listing_Manager_Software.Views
             comboComponentList.Text = "";
             comboModelList.SelectedIndex = -1;
             comboModelList.Text = "";
+            btnUpdateProduct.Enabled = false;
+            btnDeleteProduct.Enabled = false;
             if (viewListItems.Items.Count > 0)
                 viewListItems.Items.Clear();
         }
@@ -370,7 +371,6 @@ namespace Ads_Listing_Manager_Software.Views
             txtProductCode.Text = "";
             txtProductPrice.Text = "";
             txtProductQuantity.Text = "";
-            txtProductDescription.Text = "";
         }
 
         private void ValidateNumberEntred(object sender, KeyPressEventArgs e)
@@ -382,7 +382,5 @@ namespace Ads_Listing_Manager_Software.Views
         {
             Utility.Utility.ValidateIntegerNumberEntred(sender, e);
         }
-
-
     }
 }

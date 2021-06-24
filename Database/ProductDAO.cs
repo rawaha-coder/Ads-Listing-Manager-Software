@@ -5,14 +5,13 @@ using System.Data.SQLite;
 
 namespace Ads_Listing_Manager_Software.Database
 {
-    class ProductDAO : DAO, DatabaseCRUD<Product>
+    class ProductDAO : DAO
     {
         public const string TABLE_PRODUCT = "Products";
         public const string COLUMN_PRODUCT_ID = "Id";
         public const string COLUMN_PRODUCT_ITEM = "Item";
         public const string COLUMN_PRODUCT_MODEL = "Model";
         public const string COLUMN_PRODUCT_TYPE = "Type";
-        public const string COLUMN_PRODUCT_DESCRIPTION = "Description";
 
         private static ProductDAO instance = null;
 
@@ -43,24 +42,6 @@ namespace Ads_Listing_Manager_Software.Database
             {
                 CloseConnection();
             }
-        }
-
-        private List<Product> GetProductFromResult(SQLiteDataReader result)
-        {
-            List<Product> list = new List<Product>();
-            if (result.HasRows)
-            {
-                while (result.Read())
-                {
-                    Product item = new Product();
-                    item.Id = result.GetInt32(result.GetOrdinal(COLUMN_PRODUCT_ID));
-                    item.Item.Id = result.GetInt32(result.GetOrdinal(COLUMN_PRODUCT_ITEM));
-                    item.Model.Id = result.GetInt32(result.GetOrdinal(ModelDAO.COLUMN_MODEL_ID));
-                    item.Type.Id = result.GetInt32(result.GetOrdinal(ComponentDAO.COLUMN_COMPONENT_ID));
-                    list.Add(item);
-                }
-            }
-            return list;
         }
 
         public List<Product> getProductsByModelAndType(int ModelId, int ComponentId)
@@ -234,7 +215,6 @@ namespace Ads_Listing_Manager_Software.Database
                 sQLiteCommand.Parameters.AddWithValue(COLUMN_PRODUCT_ITEM, item.Item.Id);
                 sQLiteCommand.Parameters.AddWithValue(COLUMN_PRODUCT_MODEL, item.Model.Id);
                 sQLiteCommand.Parameters.AddWithValue(COLUMN_PRODUCT_TYPE, item.Type.Id);
-                sQLiteCommand.Parameters.AddWithValue(COLUMN_PRODUCT_DESCRIPTION, item.Description);
                 sQLiteCommand.ExecuteNonQuery();
             }
             catch (SQLiteException ex)
@@ -252,14 +232,33 @@ namespace Ads_Listing_Manager_Software.Database
             return "INSERT INTO " + TABLE_PRODUCT + " ("
                                 + COLUMN_PRODUCT_ITEM + ", "
                                 + COLUMN_PRODUCT_MODEL + ", "
-                                + COLUMN_PRODUCT_TYPE + ", "
-                                + COLUMN_PRODUCT_DESCRIPTION
+                                + COLUMN_PRODUCT_TYPE + " "
                                 + ") VALUES ("
                                 + "@" + COLUMN_PRODUCT_ITEM + ", "
                                 + "@" + COLUMN_PRODUCT_MODEL + ", "
-                                + "@" + COLUMN_PRODUCT_TYPE + ", "
-                                + "@" + COLUMN_PRODUCT_DESCRIPTION
+                                + "@" + COLUMN_PRODUCT_TYPE + " "
                                 + ")";
+        }
+
+        public void AddProduct(int modelId, int itemId, int typeId)
+        {
+            try
+            {
+                SQLiteCommand sQLiteCommand = new SQLiteCommand(insertCommand(), mSQLiteConnection);
+                OpenConnection();
+                sQLiteCommand.Parameters.AddWithValue(COLUMN_PRODUCT_ITEM, itemId);
+                sQLiteCommand.Parameters.AddWithValue(COLUMN_PRODUCT_MODEL, modelId);
+                sQLiteCommand.Parameters.AddWithValue(COLUMN_PRODUCT_TYPE, typeId);
+                sQLiteCommand.ExecuteNonQuery();
+            }
+            catch (SQLiteException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                CloseConnection();
+            }
         }
 
         public void UpdateData(Product item)
@@ -271,8 +270,6 @@ namespace Ads_Listing_Manager_Software.Database
                 sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_PRODUCT_ITEM, item.Item.Id));
                 sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_PRODUCT_MODEL, item.Model.Id));
                 sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_PRODUCT_TYPE, item.Type.Id));
-                sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_PRODUCT_DESCRIPTION, item.Description));
-
                 sQLiteCommand.ExecuteNonQuery();
             }
             catch (SQLiteException ex)
@@ -290,14 +287,13 @@ namespace Ads_Listing_Manager_Software.Database
             return "UPDATE " + TABLE_PRODUCT + " SET "
                                         + COLUMN_PRODUCT_ITEM + " =@" + COLUMN_PRODUCT_ITEM + ", "
                                         + COLUMN_PRODUCT_MODEL + " =@" + COLUMN_PRODUCT_MODEL + ", "
-                                        + COLUMN_PRODUCT_TYPE + " =@" + COLUMN_PRODUCT_TYPE + ", "
-                                        + COLUMN_PRODUCT_DESCRIPTION + " =@" + COLUMN_PRODUCT_DESCRIPTION + " "
+                                        + COLUMN_PRODUCT_TYPE + " =@" + COLUMN_PRODUCT_TYPE + " "
                                         + " WHERE " + COLUMN_PRODUCT_ID + " = " + item.Id + " ";
         }
 
-        public void DeleteData(Product item)
+        public void DeleteData(int id)
         {
-            var deleteStmt = "DELETE FROM " + TABLE_PRODUCT + " WHERE " + COLUMN_PRODUCT_ID + " = " + item.Id + " ";
+            var deleteStmt = "DELETE FROM " + TABLE_PRODUCT + " WHERE " + COLUMN_PRODUCT_ID + " = " + id + " ";
 
             try
             {
@@ -322,7 +318,6 @@ namespace Ads_Listing_Manager_Software.Database
                     + COLUMN_PRODUCT_ITEM + " INTEGER NOT NULL, "
                     + COLUMN_PRODUCT_MODEL + " INTEGER NOT NULL, "
                     + COLUMN_PRODUCT_TYPE + " TINTEGER NOT NULL, "
-                    + COLUMN_PRODUCT_DESCRIPTION + " TEXT DEFAULT '', "
                     + " FOREIGN KEY (" + COLUMN_PRODUCT_ITEM + ") REFERENCES " + ItemDAO.TABLE_ITEM + " (" + ItemDAO.COLUMN_ITEM_ID + ")"
                     + " FOREIGN KEY (" + COLUMN_PRODUCT_MODEL + ") REFERENCES " + ModelDAO.TABLE_MODEL + " (" + ModelDAO.COLUMN_MODEL_ID + ")"
                     + " FOREIGN KEY (" + COLUMN_PRODUCT_TYPE + ") REFERENCES " + ComponentDAO.TABLE_COMPONENT + " (" + ComponentDAO.COLUMN_COMPONENT_ID + ")"

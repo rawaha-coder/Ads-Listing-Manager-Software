@@ -12,7 +12,7 @@ namespace Ads_Listing_Manager_Software.Models
         Item item;
         Component type;
         Model model;
-        string description;
+
 
         public Product()
         {
@@ -22,7 +22,6 @@ namespace Ads_Listing_Manager_Software.Models
         }
 
         public int Id { get => id; set => id = value; }
-        public string Description { get => description; set => description = value; }
         internal Component Type { get => type; set => type = value; }
         internal Model Model { get => model; set => model = value; }
         internal Item Item { get => item; set => item = value; }
