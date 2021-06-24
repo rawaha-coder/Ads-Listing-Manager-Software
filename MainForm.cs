@@ -27,6 +27,7 @@ namespace Ads_Listing_Manager_Software
             {
                 //ComponentDAO b = ComponentDAO.getInstance();
                 //ProductDAO b = ProductDAO.getInstance();
+                //ModelDAO b = ModelDAO.getInstance();
                 //b.CreateTable();
             }
             catch (Exception ex)

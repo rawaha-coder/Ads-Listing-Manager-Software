@@ -11,9 +11,9 @@ namespace Ads_Listing_Manager_Software.Models
         int id;
         string name;
         double price;
-        double quantity;
+        int quantity;
         string description;
-        char grade;
+        string grade;
         Brand brand = new Brand();
 
         public int Id { get => id; set => id = value; }
@@ -21,7 +21,7 @@ namespace Ads_Listing_Manager_Software.Models
         public double Price { get => price; set => price = value; }
         public string Description { get => description; set => description = value; }
         public Brand Brand { get => brand; }
-        public char Grade { get => grade; set => grade = value; }
-        public double Quantity { get => quantity; set => quantity = value; }
+        public string Grade { get => grade; set => grade = value; }
+        public int Quantity { get => quantity; set => quantity = value; }
     }
 }
