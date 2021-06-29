@@ -55,6 +55,7 @@ namespace Ads_Listing_Manager_Software.Database
             }
             catch (SQLiteException ex)
             {
+                Utility.Logging.LogSqliteError(ex);
                 throw new Exception(ex.Message);
             }
             finally
@@ -118,6 +119,51 @@ namespace Ads_Listing_Manager_Software.Database
                 }
             }
             return list;
+        }
+
+        public List<Product> getRAMList(int ModelId)
+        {
+            string selectCommand = "SELECT "
+                + TABLE_PRODUCT + "." + COLUMN_PRODUCT_ID + ", "
+                + ItemDAO.TABLE_ITEM + "." + ItemDAO.COLUMN_ITEM_ID + ", "
+                + ItemDAO.TABLE_ITEM + "." + ItemDAO.COLUMN_ITEM_NAME + ", "
+                + ItemDAO.TABLE_ITEM + "." + ItemDAO.COLUMN_ITEM_CODE + ", "
+                + ItemDAO.TABLE_ITEM + "." + ItemDAO.COLUMN_ITEM_PRICE + ", "
+                + ItemDAO.TABLE_ITEM + "." + ItemDAO.COLUMN_ITEM_QUANTITY + ", "
+                + ItemDAO.TABLE_ITEM + "." + ItemDAO.COLUMN_ITEM_DESCRIPTION + ", "
+                + ModelDAO.TABLE_MODEL + "." + ModelDAO.COLUMN_MODEL_ID + ", "
+                + ModelDAO.TABLE_MODEL + "." + ModelDAO.COLUMN_MODEL_NAME + ", "
+                + ModelDAO.TABLE_MODEL + "." + ModelDAO.COLUMN_MODEL_PRICE + ", "
+                + ModelDAO.TABLE_MODEL + "." + ModelDAO.COLUMN_MODEL_DESCRIPTION + ", "
+                + ComponentDAO.TABLE_COMPONENT + "." + ComponentDAO.COLUMN_COMPONENT_ID + ", "
+                + ComponentDAO.TABLE_COMPONENT + "." + ComponentDAO.COLUMN_COMPONENT_NAME + ", "
+                + ComponentDAO.TABLE_COMPONENT + "." + ComponentDAO.COLUMN_COMPONENT_DESCRIPTION + " "
+                + " FROM " + TABLE_PRODUCT
+                + " LEFT JOIN " + ItemDAO.TABLE_ITEM + " "
+                + " ON " + ItemDAO.TABLE_ITEM + "." + ItemDAO.COLUMN_ITEM_ID + " = " + TABLE_PRODUCT + "." + COLUMN_PRODUCT_ITEM
+                + " LEFT JOIN " + ModelDAO.TABLE_MODEL + " "
+                + " ON " + ModelDAO.TABLE_MODEL + "." + ModelDAO.COLUMN_MODEL_ID + " = " + TABLE_PRODUCT + "." + COLUMN_PRODUCT_MODEL
+                + " LEFT JOIN " + ComponentDAO.TABLE_COMPONENT + " "
+                + " ON " + ComponentDAO.TABLE_COMPONENT + "." + ComponentDAO.COLUMN_COMPONENT_ID + " = " + TABLE_PRODUCT + "." + COLUMN_PRODUCT_TYPE
+                + " WHERE  " + COLUMN_PRODUCT_MODEL + " = " + ModelId
+                + " AND " + TABLE_PRODUCT + "." + COLUMN_PRODUCT_TYPE + " = " + 4
+                + " ORDER BY " + COLUMN_PRODUCT_ITEM + " ASC;";
+            try
+            {
+                SQLiteCommand sQLiteCommand = new SQLiteCommand(selectCommand, mSQLiteConnection);
+                OpenConnection();
+                SQLiteDataReader result = sQLiteCommand.ExecuteReader();
+                return GetProductDataFromResult(result);
+            }
+            catch (SQLiteException ex)
+            {
+                Utility.Logging.LogSqliteError(ex);
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                CloseConnection();
+            }
         }
 
         internal List<Product> getProductsByModel(int id)

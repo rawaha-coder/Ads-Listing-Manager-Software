@@ -173,10 +173,10 @@ namespace Ads_Listing_Manager_Software.Views
             | System.Windows.Forms.AnchorStyles.Right)));
             this.viewListItems.GridLines = true;
             this.viewListItems.HideSelection = false;
-            this.viewListItems.Location = new System.Drawing.Point(403, 63);
+            this.viewListItems.Location = new System.Drawing.Point(373, 63);
             this.viewListItems.MultiSelect = false;
             this.viewListItems.Name = "viewListItems";
-            this.viewListItems.Size = new System.Drawing.Size(669, 495);
+            this.viewListItems.Size = new System.Drawing.Size(640, 500);
             this.viewListItems.TabIndex = 11;
             this.viewListItems.UseCompatibleStateImageBehavior = false;
             this.viewListItems.View = System.Windows.Forms.View.Details;
@@ -185,7 +185,7 @@ namespace Ads_Listing_Manager_Software.Views
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(403, 40);
+            this.label1.Location = new System.Drawing.Point(373, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(174, 23);
             this.label1.TabIndex = 25;

@@ -54,8 +54,6 @@ namespace Ads_Listing_Manager_Software.Views
             this.label8 = new System.Windows.Forms.Label();
             this.modelList3 = new System.Windows.Forms.ListBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.btnDeleteMultiProduct = new System.Windows.Forms.Button();
-            this.btnUpdateMultiProduct = new System.Windows.Forms.Button();
             this.btnAddMultiProduct = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -92,7 +90,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.brandComboList0.Location = new System.Drawing.Point(6, 50);
             this.brandComboList0.Name = "brandComboList0";
             this.brandComboList0.Size = new System.Drawing.Size(158, 23);
-            this.brandComboList0.TabIndex = 36;
+            this.brandComboList0.TabIndex = 2;
             this.brandComboList0.SelectedIndexChanged += new System.EventHandler(this.comboBrandList0_SelectedIndexChanged);
             // 
             // label1
@@ -112,7 +110,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.modelList0.Name = "modelList0";
             this.modelList0.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.modelList0.Size = new System.Drawing.Size(160, 439);
-            this.modelList0.TabIndex = 34;
+            this.modelList0.TabIndex = 7;
             // 
             // groupBox2
             // 
@@ -143,7 +141,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.listBoxItems.Location = new System.Drawing.Point(6, 106);
             this.listBoxItems.Name = "listBoxItems";
             this.listBoxItems.Size = new System.Drawing.Size(286, 439);
-            this.listBoxItems.TabIndex = 34;
+            this.listBoxItems.TabIndex = 6;
             // 
             // label3
             // 
@@ -161,7 +159,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.comboComponentList.Location = new System.Drawing.Point(7, 50);
             this.comboComponentList.Name = "comboComponentList";
             this.comboComponentList.Size = new System.Drawing.Size(285, 23);
-            this.comboComponentList.TabIndex = 33;
+            this.comboComponentList.TabIndex = 1;
             this.comboComponentList.SelectedIndexChanged += new System.EventHandler(this.comboComponentList_SelectedIndexChanged);
             // 
             // groupBox3
@@ -183,7 +181,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.brandComboList1.Location = new System.Drawing.Point(6, 50);
             this.brandComboList1.Name = "brandComboList1";
             this.brandComboList1.Size = new System.Drawing.Size(161, 23);
-            this.brandComboList1.TabIndex = 36;
+            this.brandComboList1.TabIndex = 3;
             this.brandComboList1.SelectedIndexChanged += new System.EventHandler(this.brandComboList1_SelectedIndexChanged);
             // 
             // label4
@@ -203,7 +201,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.modelList1.Name = "modelList1";
             this.modelList1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.modelList1.Size = new System.Drawing.Size(160, 439);
-            this.modelList1.TabIndex = 34;
+            this.modelList1.TabIndex = 8;
             // 
             // label5
             // 
@@ -233,7 +231,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.brandComboList2.Location = new System.Drawing.Point(6, 50);
             this.brandComboList2.Name = "brandComboList2";
             this.brandComboList2.Size = new System.Drawing.Size(161, 23);
-            this.brandComboList2.TabIndex = 36;
+            this.brandComboList2.TabIndex = 4;
             this.brandComboList2.SelectedIndexChanged += new System.EventHandler(this.brandComboList2_SelectedIndexChanged);
             // 
             // label6
@@ -253,7 +251,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.modelList2.Name = "modelList2";
             this.modelList2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.modelList2.Size = new System.Drawing.Size(160, 439);
-            this.modelList2.TabIndex = 34;
+            this.modelList2.TabIndex = 9;
             // 
             // label7
             // 
@@ -283,7 +281,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.brandComboList3.Location = new System.Drawing.Point(6, 50);
             this.brandComboList3.Name = "brandComboList3";
             this.brandComboList3.Size = new System.Drawing.Size(161, 23);
-            this.brandComboList3.TabIndex = 36;
+            this.brandComboList3.TabIndex = 5;
             this.brandComboList3.SelectedIndexChanged += new System.EventHandler(this.brandComboList3_SelectedIndexChanged);
             // 
             // label8
@@ -303,7 +301,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.modelList3.Name = "modelList3";
             this.modelList3.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.modelList3.Size = new System.Drawing.Size(160, 439);
-            this.modelList3.TabIndex = 34;
+            this.modelList3.TabIndex = 10;
             // 
             // label9
             // 
@@ -314,31 +312,13 @@ namespace Ads_Listing_Manager_Software.Views
             this.label9.TabIndex = 31;
             this.label9.Text = "Brand";
             // 
-            // btnDeleteMultiProduct
-            // 
-            this.btnDeleteMultiProduct.Location = new System.Drawing.Point(222, 587);
-            this.btnDeleteMultiProduct.Name = "btnDeleteMultiProduct";
-            this.btnDeleteMultiProduct.Size = new System.Drawing.Size(90, 34);
-            this.btnDeleteMultiProduct.TabIndex = 41;
-            this.btnDeleteMultiProduct.Text = "Delete";
-            this.btnDeleteMultiProduct.UseVisualStyleBackColor = true;
-            // 
-            // btnUpdateMultiProduct
-            // 
-            this.btnUpdateMultiProduct.Location = new System.Drawing.Point(117, 587);
-            this.btnUpdateMultiProduct.Name = "btnUpdateMultiProduct";
-            this.btnUpdateMultiProduct.Size = new System.Drawing.Size(90, 34);
-            this.btnUpdateMultiProduct.TabIndex = 40;
-            this.btnUpdateMultiProduct.Text = "Update";
-            this.btnUpdateMultiProduct.UseVisualStyleBackColor = true;
-            // 
             // btnAddMultiProduct
             // 
-            this.btnAddMultiProduct.Location = new System.Drawing.Point(12, 587);
+            this.btnAddMultiProduct.Location = new System.Drawing.Point(20, 587);
             this.btnAddMultiProduct.Name = "btnAddMultiProduct";
-            this.btnAddMultiProduct.Size = new System.Drawing.Size(90, 34);
-            this.btnAddMultiProduct.TabIndex = 39;
-            this.btnAddMultiProduct.Text = "Add";
+            this.btnAddMultiProduct.Size = new System.Drawing.Size(286, 34);
+            this.btnAddMultiProduct.TabIndex = 11;
+            this.btnAddMultiProduct.Text = "Add ";
             this.btnAddMultiProduct.UseVisualStyleBackColor = true;
             this.btnAddMultiProduct.Click += new System.EventHandler(this.btnAddMultiProduct_Click);
             // 
@@ -349,8 +329,6 @@ namespace Ads_Listing_Manager_Software.Views
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(159)))), ((int)(((byte)(181)))));
             this.ClientSize = new System.Drawing.Size(1184, 721);
-            this.Controls.Add(this.btnDeleteMultiProduct);
-            this.Controls.Add(this.btnUpdateMultiProduct);
             this.Controls.Add(this.btnAddMultiProduct);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
@@ -396,8 +374,6 @@ namespace Ads_Listing_Manager_Software.Views
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ListBox modelList3;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btnDeleteMultiProduct;
-        private System.Windows.Forms.Button btnUpdateMultiProduct;
         private System.Windows.Forms.Button btnAddMultiProduct;
     }
 }

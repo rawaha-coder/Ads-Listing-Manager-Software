@@ -68,9 +68,9 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             // btnDeleteModel
             // 
-            this.btnDeleteModel.Location = new System.Drawing.Point(175, 608);
+            this.btnDeleteModel.Location = new System.Drawing.Point(225, 608);
             this.btnDeleteModel.Name = "btnDeleteModel";
-            this.btnDeleteModel.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteModel.Size = new System.Drawing.Size(100, 35);
             this.btnDeleteModel.TabIndex = 20;
             this.btnDeleteModel.Text = "Delete";
             this.btnDeleteModel.UseVisualStyleBackColor = true;
@@ -78,9 +78,9 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             // btnUpdateModel
             // 
-            this.btnUpdateModel.Location = new System.Drawing.Point(94, 608);
+            this.btnUpdateModel.Location = new System.Drawing.Point(119, 608);
             this.btnUpdateModel.Name = "btnUpdateModel";
-            this.btnUpdateModel.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateModel.Size = new System.Drawing.Size(100, 35);
             this.btnUpdateModel.TabIndex = 19;
             this.btnUpdateModel.Text = "Update";
             this.btnUpdateModel.UseVisualStyleBackColor = true;
@@ -90,7 +90,7 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             this.btnAddModel.Location = new System.Drawing.Point(13, 608);
             this.btnAddModel.Name = "btnAddModel";
-            this.btnAddModel.Size = new System.Drawing.Size(75, 23);
+            this.btnAddModel.Size = new System.Drawing.Size(100, 35);
             this.btnAddModel.TabIndex = 18;
             this.btnAddModel.Text = "Add";
             this.btnAddModel.UseVisualStyleBackColor = true;
@@ -208,7 +208,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.viewListModel.Location = new System.Drawing.Point(353, 47);
             this.viewListModel.MultiSelect = false;
             this.viewListModel.Name = "viewListModel";
-            this.viewListModel.Size = new System.Drawing.Size(484, 584);
+            this.viewListModel.Size = new System.Drawing.Size(620, 584);
             this.viewListModel.TabIndex = 56;
             this.viewListModel.UseCompatibleStateImageBehavior = false;
             this.viewListModel.View = System.Windows.Forms.View.Details;
@@ -219,7 +219,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(159)))), ((int)(((byte)(181)))));
-            this.ClientSize = new System.Drawing.Size(1147, 709);
+            this.ClientSize = new System.Drawing.Size(1184, 721);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.viewListModel);
             this.Controls.Add(this.comboGrade);

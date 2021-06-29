@@ -217,26 +217,32 @@ namespace Ads_Listing_Manager_Software.Views
         {
             getSelectedModelsIndices();
             getSelectedItem();
-            saveToDatabase();
+            saveProduct();
         }
 
-        private void saveToDatabase()
+        private void saveProduct()
         {
             try
             {
-                if (selectedComponentId != -1 && selectedItemId != -1)
-                {
-                    for (int i = 0; i < listModelsId.Count; i++)
-                    {
-                        productDAO.AddProduct(listModelsId[i], selectedItemId, selectedComponentId);
-                    }
-                }
+                addToDatabase();
+                MessageBox.Show("Done.");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                Utility.Logging.LogError(ex);
+                Utility.Logging.ShowError(ex);
             }
 
+        }
+
+        private void addToDatabase()
+        {
+            if (selectedComponentId != -1 && selectedItemId != -1)
+            {
+                for (int i = 0; i < listModelsId.Count; i++)
+                {
+                    productDAO.AddProduct(listModelsId[i], selectedItemId, selectedComponentId);
+                }
+            }
         }
 
         private void getSelectedItem()
@@ -299,6 +305,9 @@ namespace Ads_Listing_Manager_Software.Views
             }
         }
 
+        private void btnDeleteMultiProduct_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace Ads_Listing_Manager_Software.Views
 {
-    partial class FormAddItem
+    partial class AddItemForm
     {
         /// <summary>
         /// Required designer variable.
@@ -59,7 +59,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.viewListItems.Location = new System.Drawing.Point(9, 48);
             this.viewListItems.MultiSelect = false;
             this.viewListItems.Name = "viewListItems";
-            this.viewListItems.Size = new System.Drawing.Size(620, 584);
+            this.viewListItems.Size = new System.Drawing.Size(640, 584);
             this.viewListItems.TabIndex = 54;
             this.viewListItems.UseCompatibleStateImageBehavior = false;
             this.viewListItems.View = System.Windows.Forms.View.Details;
@@ -128,7 +128,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(174, 23);
             this.label1.TabIndex = 47;
-            this.label1.Text = "List Product";
+            this.label1.Text = "List Item";
             // 
             // txtItemDescription
             // 
@@ -150,9 +150,9 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             // btnDeleteItem
             // 
-            this.btnDeleteItem.Location = new System.Drawing.Point(174, 609);
+            this.btnDeleteItem.Location = new System.Drawing.Point(224, 609);
             this.btnDeleteItem.Name = "btnDeleteItem";
-            this.btnDeleteItem.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteItem.Size = new System.Drawing.Size(100, 35);
             this.btnDeleteItem.TabIndex = 43;
             this.btnDeleteItem.Text = "Delete";
             this.btnDeleteItem.UseVisualStyleBackColor = true;
@@ -160,9 +160,9 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             // btnUpdateItem
             // 
-            this.btnUpdateItem.Location = new System.Drawing.Point(93, 609);
+            this.btnUpdateItem.Location = new System.Drawing.Point(118, 609);
             this.btnUpdateItem.Name = "btnUpdateItem";
-            this.btnUpdateItem.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateItem.Size = new System.Drawing.Size(100, 35);
             this.btnUpdateItem.TabIndex = 42;
             this.btnUpdateItem.Text = "Update";
             this.btnUpdateItem.UseVisualStyleBackColor = true;
@@ -172,7 +172,7 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             this.btnAddItem.Location = new System.Drawing.Point(12, 609);
             this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(75, 23);
+            this.btnAddItem.Size = new System.Drawing.Size(100, 35);
             this.btnAddItem.TabIndex = 41;
             this.btnAddItem.Text = "Add";
             this.btnAddItem.UseVisualStyleBackColor = true;
@@ -233,7 +233,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.panelAddItem.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelAddItem.Location = new System.Drawing.Point(0, 0);
             this.panelAddItem.Name = "panelAddItem";
-            this.panelAddItem.Size = new System.Drawing.Size(354, 718);
+            this.panelAddItem.Size = new System.Drawing.Size(348, 721);
             this.panelAddItem.TabIndex = 55;
             // 
             // panelDisplayItem
@@ -242,20 +242,20 @@ namespace Ads_Listing_Manager_Software.Views
             this.panelDisplayItem.Controls.Add(this.label1);
             this.panelDisplayItem.Controls.Add(this.viewListItems);
             this.panelDisplayItem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDisplayItem.Location = new System.Drawing.Point(354, 0);
+            this.panelDisplayItem.Location = new System.Drawing.Point(348, 0);
             this.panelDisplayItem.Name = "panelDisplayItem";
-            this.panelDisplayItem.Size = new System.Drawing.Size(770, 718);
+            this.panelDisplayItem.Size = new System.Drawing.Size(836, 721);
             this.panelDisplayItem.TabIndex = 56;
             // 
-            // FormAddItem
+            // AddItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(159)))), ((int)(((byte)(181)))));
-            this.ClientSize = new System.Drawing.Size(1124, 718);
+            this.ClientSize = new System.Drawing.Size(1184, 721);
             this.Controls.Add(this.panelDisplayItem);
             this.Controls.Add(this.panelAddItem);
-            this.Name = "FormAddItem";
+            this.Name = "AddItemForm";
             this.Text = "FormAddItem";
             this.Load += new System.EventHandler(this.FormAddItem_Load);
             this.panelAddItem.ResumeLayout(false);

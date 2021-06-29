@@ -140,7 +140,7 @@ namespace Ads_Listing_Manager_Software.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Utility.Logging.ShowError(ex);
             }
         }
 

@@ -7,7 +7,7 @@ using Component = Ads_Listing_Manager_Software.Models.Component;
 
 namespace Ads_Listing_Manager_Software.Views
 {
-    public partial class FormAddItem : Form
+    public partial class AddItemForm : Form
     {
         ComponentDAO mComponentDAO = ComponentDAO.getInstance();
         ItemDAO itemDAO = ItemDAO.getInstance();
@@ -15,7 +15,7 @@ namespace Ads_Listing_Manager_Software.Views
         Item mItem = new Item();
         List<Component> listComponent = new List<Component>();
         List<Item> listItem = new List<Item>();
-        public FormAddItem()
+        public AddItemForm()
         {
             InitializeComponent();
         }
