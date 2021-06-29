@@ -74,10 +74,11 @@ namespace Ads_Listing_Manager_Software.Database
 
         public void DeleteData(Item item)
         {
-            var deleteStmt = "DELETE FROM " + TABLE_ITEM + " WHERE " + COLUMN_ITEM_ID + " = " + item.Id + " ";
+            var deleteItem = "DELETE FROM " + TABLE_ITEM + " WHERE " + COLUMN_ITEM_ID + " = " + item.Id + " ";
+            var deleteProduct = "DELETE FROM " + ProductDAO.TABLE_PRODUCT + " WHERE " + ProductDAO.COLUMN_PRODUCT_ITEM + " = " + item.Id + " ";
             try
             {
-                SQLiteCommand sQLiteCommand = new SQLiteCommand(deleteStmt, mSQLiteConnection);
+                SQLiteCommand sQLiteCommand = new SQLiteCommand(deleteProduct + ";" + deleteItem, mSQLiteConnection);
                 OpenConnection();
                 sQLiteCommand.ExecuteNonQuery();
             }

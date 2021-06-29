@@ -43,15 +43,15 @@ namespace Ads_Listing_Manager_Software.Views
             // txtBrand
             // 
             this.txtBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtBrand.Location = new System.Drawing.Point(12, 90);
+            this.txtBrand.Location = new System.Drawing.Point(14, 50);
             this.txtBrand.Name = "txtBrand";
             this.txtBrand.Size = new System.Drawing.Size(318, 24);
-            this.txtBrand.TabIndex = 5;
+            this.txtBrand.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(12, 66);
+            this.label1.Location = new System.Drawing.Point(14, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(255, 23);
             this.label1.TabIndex = 7;
@@ -59,30 +59,30 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             // btnAddBrand
             // 
-            this.btnAddBrand.Location = new System.Drawing.Point(12, 560);
+            this.btnAddBrand.Location = new System.Drawing.Point(10, 528);
             this.btnAddBrand.Name = "btnAddBrand";
-            this.btnAddBrand.Size = new System.Drawing.Size(75, 23);
-            this.btnAddBrand.TabIndex = 8;
+            this.btnAddBrand.Size = new System.Drawing.Size(100, 35);
+            this.btnAddBrand.TabIndex = 3;
             this.btnAddBrand.Text = "Add";
             this.btnAddBrand.UseVisualStyleBackColor = true;
             this.btnAddBrand.Click += new System.EventHandler(this.btnAddBrand_Click);
             // 
             // btnUpdateBrand
             // 
-            this.btnUpdateBrand.Location = new System.Drawing.Point(93, 560);
+            this.btnUpdateBrand.Location = new System.Drawing.Point(122, 528);
             this.btnUpdateBrand.Name = "btnUpdateBrand";
-            this.btnUpdateBrand.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdateBrand.TabIndex = 9;
+            this.btnUpdateBrand.Size = new System.Drawing.Size(100, 35);
+            this.btnUpdateBrand.TabIndex = 4;
             this.btnUpdateBrand.Text = "Update";
             this.btnUpdateBrand.UseVisualStyleBackColor = true;
             this.btnUpdateBrand.Click += new System.EventHandler(this.btnUpdateBrand_Click);
             // 
             // btnDeleteBrand
             // 
-            this.btnDeleteBrand.Location = new System.Drawing.Point(174, 560);
+            this.btnDeleteBrand.Location = new System.Drawing.Point(232, 528);
             this.btnDeleteBrand.Name = "btnDeleteBrand";
-            this.btnDeleteBrand.Size = new System.Drawing.Size(75, 23);
-            this.btnDeleteBrand.TabIndex = 10;
+            this.btnDeleteBrand.Size = new System.Drawing.Size(100, 35);
+            this.btnDeleteBrand.TabIndex = 5;
             this.btnDeleteBrand.Text = "Delete";
             this.btnDeleteBrand.UseVisualStyleBackColor = true;
             this.btnDeleteBrand.Click += new System.EventHandler(this.btnDeleteBrand_Click);
@@ -91,16 +91,16 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             this.boxListBrand.FormattingEnabled = true;
             this.boxListBrand.ItemHeight = 15;
-            this.boxListBrand.Location = new System.Drawing.Point(386, 92);
+            this.boxListBrand.Location = new System.Drawing.Point(388, 52);
             this.boxListBrand.Name = "boxListBrand";
-            this.boxListBrand.Size = new System.Drawing.Size(174, 454);
-            this.boxListBrand.TabIndex = 12;
+            this.boxListBrand.Size = new System.Drawing.Size(609, 514);
+            this.boxListBrand.TabIndex = 6;
             this.boxListBrand.DoubleClick += new System.EventHandler(this.boxListBrand_DoubleClick);
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(12, 140);
+            this.label2.Location = new System.Drawing.Point(14, 100);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(255, 23);
             this.label2.TabIndex = 13;
@@ -109,16 +109,16 @@ namespace Ads_Listing_Manager_Software.Views
             // txtDescription
             // 
             this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtDescription.Location = new System.Drawing.Point(8, 166);
+            this.txtDescription.Location = new System.Drawing.Point(10, 126);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(318, 388);
-            this.txtDescription.TabIndex = 14;
+            this.txtDescription.Size = new System.Drawing.Size(322, 388);
+            this.txtDescription.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(386, 66);
+            this.label3.Location = new System.Drawing.Point(388, 26);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(174, 23);
             this.label3.TabIndex = 15;
@@ -130,7 +130,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(159)))), ((int)(((byte)(181)))));
-            this.ClientSize = new System.Drawing.Size(764, 661);
+            this.ClientSize = new System.Drawing.Size(1184, 721);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.label2);
