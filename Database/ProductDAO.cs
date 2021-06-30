@@ -90,7 +90,7 @@ namespace Ads_Listing_Manager_Software.Database
                 + " ON " + ComponentDAO.TABLE_COMPONENT + "." + ComponentDAO.COLUMN_COMPONENT_ID + " = " + TABLE_PRODUCT + "." + COLUMN_PRODUCT_TYPE
                 + " WHERE  " + COLUMN_PRODUCT_MODEL + " = " + ModelId
                 + " AND " + TABLE_PRODUCT + "." + COLUMN_PRODUCT_TYPE + " = " + ComponentId
-                + " ORDER BY " + COLUMN_PRODUCT_ITEM + " ASC;";
+                + " ORDER BY " + ItemDAO.COLUMN_ITEM_PRICE + " ASC;";
         }
 
         private List<Product> GetProductDataFromResult(SQLiteDataReader result)

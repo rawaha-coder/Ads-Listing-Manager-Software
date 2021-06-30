@@ -231,7 +231,6 @@ namespace Ads_Listing_Manager_Software.Views
             {
                 Utility.Logging.ShowError(ex);
             }
-
         }
 
         private void addToDatabase()
@@ -305,9 +304,5 @@ namespace Ads_Listing_Manager_Software.Views
             }
         }
 
-        private void btnDeleteMultiProduct_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
