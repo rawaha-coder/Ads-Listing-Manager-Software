@@ -215,6 +215,7 @@ namespace Ads_Listing_Manager_Software.Views
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.viewListModel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.viewListModel.FullRowSelect = true;
             this.viewListModel.GridLines = true;
             this.viewListModel.HideSelection = false;
             this.viewListModel.Location = new System.Drawing.Point(22, 41);

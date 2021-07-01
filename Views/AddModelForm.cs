@@ -39,7 +39,7 @@ namespace Ads_Listing_Manager_Software.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Utility.Logging.ShowError(ex);
             }
         }
 
@@ -113,7 +113,7 @@ namespace Ads_Listing_Manager_Software.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Utility.Utility.DATA_NOT_SAVED + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+                Utility.Logging.ShowError(ex);
             }
         }
 
@@ -196,7 +196,7 @@ namespace Ads_Listing_Manager_Software.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Utility.Utility.DATA_NOT_DELETED + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+                Utility.Logging.ShowError(ex);
             }
         }
 
@@ -213,16 +213,16 @@ namespace Ads_Listing_Manager_Software.Views
                 {
                     listModel.Clear();
                     listModel = modelDAO.getModelsByBrandId(listBrand[comboListBrand.SelectedIndex].Id);
-                    getItemsList();
+                    DisplayItemsInViewListModel();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Load Model Data: " + ex.Message);
+                    Utility.Logging.ShowError(ex);
                 }
             }
         }
 
-        private void getItemsList()
+        private void DisplayItemsInViewListModel()
         {
             viewListModel.Clear();
             viewListModel.Items.Clear();
@@ -269,17 +269,22 @@ namespace Ads_Listing_Manager_Software.Views
             try
             {
                 mModel = listModel[viewListModel.Items.IndexOf(viewListModel.SelectedItems[0])];
-                txtName.Text = mModel.Name;
-                comboGrade.Text = mModel.Grade;
-                txtPrice.Text = mModel.Price.ToString();
-                txtQuantity.Text = mModel.Quantity.ToString();
-                txtDescription.Text = mModel.Description; ;
+                SetInputFieldValue();
                 EnableUpdateAndDeleteButton();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Utility.Logging.ShowError(ex);
             }
+        }
+
+        private void SetInputFieldValue()
+        {
+            txtName.Text = mModel.Name;
+            comboGrade.Text = mModel.Grade;
+            txtPrice.Text = mModel.Price.ToString();
+            txtQuantity.Text = mModel.Quantity.ToString();
+            txtDescription.Text = mModel.Description; ;
         }
 
         private void EnableUpdateAndDeleteButton()

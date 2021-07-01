@@ -2,24 +2,22 @@
 using Ads_Listing_Manager_Software.Models;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Ads_Listing_Manager_Software.Views
 {
     public partial class AddComponentForm : Form
     {
-        ComponentDAO mComponentDAO = ComponentDAO.getInstance();
-        Component mComponent = new Component();
-        List<Component> listComponent = new List<Component>();
+        private readonly ComponentDAO mComponentDAO;
+        private Component mComponent;
+        private List<Component> listComponent;
 
         public AddComponentForm()
         {
             InitializeComponent();
+            mComponentDAO = ComponentDAO.getInstance();
+            mComponent = new Component();
+            listComponent = new List<Component>();
         }
 
         private void AddComponentForm_Load(object sender, EventArgs e)
@@ -29,9 +27,9 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void LoadComponentData()
         {
-            ClearField();
             try
             {
+                listComponent.Clear();
                 listComponent = mComponentDAO.SelectData();
                 getComponentList();
             }
@@ -41,24 +39,44 @@ namespace Ads_Listing_Manager_Software.Views
             }
         }
 
-        private void ClearField()
-        {
-            txtComponentID.Text = "";
-            txtComponentName.Text = "";
-            txtComponentDescription.Text = "";
-            listComponent.Clear();
-            boxListComponent.Items.Clear();
-        }
-
         private void getComponentList()
         {
+            viewListComponent.Clear();
+            viewListComponent.Items.Clear();
+            SetHeaderStyle();
+            boxListComponent.Items.Clear();
             foreach (Component item in listComponent)
             {
                 boxListComponent.Items.Add(item.Id + ": " + item.Name);
+                ListViewItem lvi = new ListViewItem();
+                lvi.Text = item.Id.ToString();
+                lvi.SubItems.Add(item.Name);
+                lvi.SubItems.Add(item.Description);
+                viewListComponent.Items.Add(lvi);
             }
         }
 
-        private void btnAddComponent_Click(object sender, EventArgs e)
+        private void SetHeaderStyle()
+        {
+            ColumnHeader id, name, description;
+            id = new ColumnHeader();
+            name = new ColumnHeader();
+            description = new ColumnHeader();
+            id.Text = "ID";
+            id.TextAlign = HorizontalAlignment.Left;
+            id.Width = 40;
+            name.Text = "Name";
+            name.TextAlign = HorizontalAlignment.Left;
+            name.Width = 160;
+            description.TextAlign = HorizontalAlignment.Left;
+            description.Text = "Description";
+            description.Width = 400;
+            viewListComponent.Columns.Add(id);
+            viewListComponent.Columns.Add(name);
+            viewListComponent.Columns.Add(description);
+        }
+
+        private void ButtonAddComponent_Click(object sender, EventArgs e)
         {
             if (InputIsNotValide())
             {
@@ -72,17 +90,17 @@ namespace Ads_Listing_Manager_Software.Views
         {
             try
             {
-                GetFieldsInput();
+                GetInputFieldValue();
                 mComponentDAO.AddData(mComponent);
                 LoadComponentData();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Utility.Utility.DATA_NOT_SAVED + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+                Utility.Logging.ShowError(ex);
             }
         }
 
-        private void GetFieldsInput()
+        private void GetInputFieldValue()
         {
             mComponent.Id = Convert.ToInt32(txtComponentID.Text);
             mComponent.Name = txtComponentName.Text.Trim().ToUpper();
@@ -94,7 +112,7 @@ namespace Ads_Listing_Manager_Software.Views
             return txtComponentName.Text == "" || txtComponentID.Text == "";
         }
 
-        private void btnUpdateComponent_Click(object sender, EventArgs e)
+        private void ButtonUpdateComponent_Click(object sender, EventArgs e)
         {
             if (InputIsNotValide())
             {
@@ -108,13 +126,13 @@ namespace Ads_Listing_Manager_Software.Views
         {
             try
             {
-                GetFieldsInput();
+                GetInputFieldValue();
                 mComponentDAO.UpdateData(mComponent);
                 LoadComponentData();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Utility.Utility.DATA_NOT_UPDATED + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+                Utility.Logging.ShowError(ex);
             }
         }
 
@@ -137,7 +155,7 @@ namespace Ads_Listing_Manager_Software.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Utility.Utility.DATA_NOT_DELETED + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+                Utility.Logging.ShowError(ex);
             }
         }
 
@@ -150,7 +168,7 @@ namespace Ads_Listing_Manager_Software.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Utility.Logging.ShowError(ex);
             }
         }
 
@@ -164,6 +182,18 @@ namespace Ads_Listing_Manager_Software.Views
         private void txtComponentID_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.Utility.ValidateIntegerNumberEntred(sender, e);
+        }
+
+        private void buttonClearFields_Click(object sender, EventArgs e)
+        {
+            ClearField();
+        }
+
+        private void ClearField()
+        {
+            txtComponentID.Text = "";
+            txtComponentName.Text = "";
+            txtComponentDescription.Text = "";
         }
     }
 }
