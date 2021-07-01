@@ -14,11 +14,11 @@ namespace Ads_Listing_Manager_Software
 {
     public partial class MainForm : Form
     {
-        private bool SideMenuIsHide = false;
-        private Form activeForm = null;
+        private Form activeForm;
         public MainForm()
         {
             InitializeComponent();
+            activeForm = null;
         }
 
         private void MainForm_Load(object sender, EventArgs e)

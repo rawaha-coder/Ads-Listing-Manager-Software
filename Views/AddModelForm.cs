@@ -54,8 +54,8 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void DisableUpdateAndDeleteButton()
         {
-            btnUpdateModel.Enabled = false;
-            btnDeleteModel.Enabled = false;
+            buttonUpdateModel.Enabled = false;
+            buttonDeleteModel.Enabled = false;
         }
 
         private void ClearField()
@@ -82,7 +82,7 @@ namespace Ads_Listing_Manager_Software.Views
             comboListBrand.Text = "";
         }
 
-        private void btnAddModel_Click(object sender, EventArgs e)
+        private void ButtonAddModel_Click(object sender, EventArgs e)
         {
             if (InputIsNotValide())
             {
@@ -272,8 +272,8 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void EnableUpdateAndDeleteButton()
         {
-            btnUpdateModel.Enabled = true;
-            btnDeleteModel.Enabled = true;
+            buttonUpdateModel.Enabled = true;
+            buttonDeleteModel.Enabled = true;
         }
 
     }
