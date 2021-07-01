@@ -34,36 +34,21 @@ namespace Ads_Listing_Manager_Software.Views
         {
             try
             {
-                GetBrandData();
+                listItem.Clear();
+                listItem = brandDAO.GetData();
+                DisplayBrandDataInViewList();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                return;
-            }
-
-        }
-
-        private void GetBrandData()
-        {
-            try
-            {
-                listItem.Clear();
-                listItem = brandDAO.GetData();
-                DisplayBrandInViewList();
-            }
-            catch(Exception ex)
-            {
                 Utility.Logging.ShowError(ex);
             }
-
         }
 
-        private void DisplayBrandInViewList()
+        private void DisplayBrandDataInViewList()
         {
             viewListBrand.Clear();
             viewListBrand.Items.Clear();
-            LoadHeaderStyle();
+            SetHeaderStyle();
             foreach (Brand item in listItem)
             {
                 ListViewItem lvi = new ListViewItem();
@@ -73,7 +58,7 @@ namespace Ads_Listing_Manager_Software.Views
             }
         }
 
-        private void LoadHeaderStyle()
+        private void SetHeaderStyle()
         {
             ColumnHeader brandName, brandDescription;
             brandName = new ColumnHeader();
@@ -88,7 +73,7 @@ namespace Ads_Listing_Manager_Software.Views
             viewListBrand.Columns.Add(brandDescription);
         }
 
-        private void btnAddBrand_Click(object sender, EventArgs e)
+        private void ButtonAddBrand_Click(object sender, EventArgs e)
         {
             if (txtBrand.Text == "")
             {
@@ -102,18 +87,22 @@ namespace Ads_Listing_Manager_Software.Views
         {
             try
             {
-                Brand brand = new Brand();
-                brand.Name = txtBrand.Text.Trim().ToUpper();
-                brand.Description = txtDescription.Text;
-                brandDAO.AddData(brand);
+                GetFieldsValues();
+                brandDAO.AddData(mBrand);
                 MessageBox.Show("Brand Saved", "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
                 ClearField();
                 LoadBrandData();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Brand Not Saved: " + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+                Utility.Logging.ShowError(ex);
             }
+        }
+
+        private void GetFieldsValues()
+        {
+            mBrand.Name = txtBrand.Text.Trim().ToUpper();
+            mBrand.Description = txtDescription.Text;
         }
 
         private void ClearField()
@@ -123,7 +112,7 @@ namespace Ads_Listing_Manager_Software.Views
             DisableUpdateAndDeleteButton();
         }
 
-        private void btnUpdateBrand_Click(object sender, EventArgs e)
+        private void ButtonUpdateBrand_Click(object sender, EventArgs e)
         {
             if (txtBrand.Text == "")
             {
@@ -137,8 +126,7 @@ namespace Ads_Listing_Manager_Software.Views
         {
             try
             {
-                mBrand.Name = txtBrand.Text.Trim().ToUpper();
-                mBrand.Description = txtDescription.Text;
+                GetFieldsValues();
                 brandDAO.UpdateData(mBrand);
                 MessageBox.Show("Brand Updated", "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
                 ClearField();
@@ -150,13 +138,13 @@ namespace Ads_Listing_Manager_Software.Views
             }
         }
 
-        private void btnDeleteBrand_Click(object sender, EventArgs e)
+        private void ButtonDeleteBrand_Click(object sender, EventArgs e)
         {
             if (CheckAbilityForDelete())
             {
                 return;
             }
-            DeleteBranddataFromDatabase();
+            DeleteBrandDataFromDatabase();
         }
 
         private bool CheckAbilityForDelete()
@@ -183,7 +171,7 @@ namespace Ads_Listing_Manager_Software.Views
             return haveModel;
         }
 
-        private void DeleteBranddataFromDatabase()
+        private void DeleteBrandDataFromDatabase()
         {
             try
             {
@@ -194,17 +182,17 @@ namespace Ads_Listing_Manager_Software.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Brand Not Deleted: " + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+                Utility.Logging.ShowError(ex);
             }
         }
 
         private void viewListBrand_DoubleClick(object sender, EventArgs e)
         {
             if (viewListBrand.SelectedItems.Count > 0)
-                SelectBrandForUpdateOrDelete1();
+                SelectBrandForUpdateOrDelete();
         }
 
-        private void SelectBrandForUpdateOrDelete1()
+        private void SelectBrandForUpdateOrDelete()
         {
             EnableUpdateAndDeleteButton();
             mBrand = listItem[viewListBrand.Items.IndexOf(viewListBrand.SelectedItems[0])];
@@ -214,17 +202,19 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void EnableUpdateAndDeleteButton()
         {
-            btnUpdateBrand.Enabled = true;
-            btnDeleteBrand.Enabled = true;
+            buttonAddBrand.Enabled = false;
+            buttonUpdateBrand.Enabled = true;
+            buttonDeleteBrand.Enabled = true;
         }
 
         private void DisableUpdateAndDeleteButton()
         {
-            btnUpdateBrand.Enabled = false;
-            btnDeleteBrand.Enabled = false;
+            buttonAddBrand.Enabled = true;
+            buttonUpdateBrand.Enabled = false;
+            buttonDeleteBrand.Enabled = false;
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
+        private void ButtonClearFields_Click(object sender, EventArgs e)
         {
             ClearField();
         }

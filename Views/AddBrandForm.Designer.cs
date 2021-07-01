@@ -32,12 +32,12 @@ namespace Ads_Listing_Manager_Software.Views
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddBrandForm));
             this.txtBrand = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnAddBrand = new System.Windows.Forms.Button();
-            this.btnUpdateBrand = new System.Windows.Forms.Button();
-            this.btnDeleteBrand = new System.Windows.Forms.Button();
+            this.buttonAddBrand = new System.Windows.Forms.Button();
+            this.buttonUpdateBrand = new System.Windows.Forms.Button();
+            this.buttonDeleteBrand = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
-            this.btnClear = new System.Windows.Forms.Button();
+            this.buttonClearFields = new System.Windows.Forms.Button();
             this.viewListBrand = new System.Windows.Forms.ListView();
             this.label3 = new System.Windows.Forms.Label();
             this.panelLeftSide = new System.Windows.Forms.Panel();
@@ -63,37 +63,37 @@ namespace Ads_Listing_Manager_Software.Views
             this.label1.TabIndex = 7;
             this.label1.Text = "Brand";
             // 
-            // btnAddBrand
+            // buttonAddBrand
             // 
-            this.btnAddBrand.Location = new System.Drawing.Point(13, 579);
-            this.btnAddBrand.Name = "btnAddBrand";
-            this.btnAddBrand.Size = new System.Drawing.Size(100, 35);
-            this.btnAddBrand.TabIndex = 3;
-            this.btnAddBrand.Text = "Add";
-            this.btnAddBrand.UseVisualStyleBackColor = true;
-            this.btnAddBrand.Click += new System.EventHandler(this.btnAddBrand_Click);
+            this.buttonAddBrand.Location = new System.Drawing.Point(13, 579);
+            this.buttonAddBrand.Name = "buttonAddBrand";
+            this.buttonAddBrand.Size = new System.Drawing.Size(100, 35);
+            this.buttonAddBrand.TabIndex = 3;
+            this.buttonAddBrand.Text = "Add";
+            this.buttonAddBrand.UseVisualStyleBackColor = true;
+            this.buttonAddBrand.Click += new System.EventHandler(this.ButtonAddBrand_Click);
             // 
-            // btnUpdateBrand
+            // buttonUpdateBrand
             // 
-            this.btnUpdateBrand.Enabled = false;
-            this.btnUpdateBrand.Location = new System.Drawing.Point(119, 579);
-            this.btnUpdateBrand.Name = "btnUpdateBrand";
-            this.btnUpdateBrand.Size = new System.Drawing.Size(100, 35);
-            this.btnUpdateBrand.TabIndex = 4;
-            this.btnUpdateBrand.Text = "Update";
-            this.btnUpdateBrand.UseVisualStyleBackColor = true;
-            this.btnUpdateBrand.Click += new System.EventHandler(this.btnUpdateBrand_Click);
+            this.buttonUpdateBrand.Enabled = false;
+            this.buttonUpdateBrand.Location = new System.Drawing.Point(119, 579);
+            this.buttonUpdateBrand.Name = "buttonUpdateBrand";
+            this.buttonUpdateBrand.Size = new System.Drawing.Size(100, 35);
+            this.buttonUpdateBrand.TabIndex = 4;
+            this.buttonUpdateBrand.Text = "Update";
+            this.buttonUpdateBrand.UseVisualStyleBackColor = true;
+            this.buttonUpdateBrand.Click += new System.EventHandler(this.ButtonUpdateBrand_Click);
             // 
-            // btnDeleteBrand
+            // buttonDeleteBrand
             // 
-            this.btnDeleteBrand.Enabled = false;
-            this.btnDeleteBrand.Location = new System.Drawing.Point(225, 579);
-            this.btnDeleteBrand.Name = "btnDeleteBrand";
-            this.btnDeleteBrand.Size = new System.Drawing.Size(100, 35);
-            this.btnDeleteBrand.TabIndex = 5;
-            this.btnDeleteBrand.Text = "Delete";
-            this.btnDeleteBrand.UseVisualStyleBackColor = true;
-            this.btnDeleteBrand.Click += new System.EventHandler(this.btnDeleteBrand_Click);
+            this.buttonDeleteBrand.Enabled = false;
+            this.buttonDeleteBrand.Location = new System.Drawing.Point(225, 579);
+            this.buttonDeleteBrand.Name = "buttonDeleteBrand";
+            this.buttonDeleteBrand.Size = new System.Drawing.Size(100, 35);
+            this.buttonDeleteBrand.TabIndex = 5;
+            this.buttonDeleteBrand.Text = "Delete";
+            this.buttonDeleteBrand.UseVisualStyleBackColor = true;
+            this.buttonDeleteBrand.Click += new System.EventHandler(this.ButtonDeleteBrand_Click);
             // 
             // label2
             // 
@@ -113,15 +113,15 @@ namespace Ads_Listing_Manager_Software.Views
             this.txtDescription.Size = new System.Drawing.Size(418, 460);
             this.txtDescription.TabIndex = 2;
             // 
-            // btnClear
+            // buttonClearFields
             // 
-            this.btnClear.Location = new System.Drawing.Point(331, 579);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(100, 35);
-            this.btnClear.TabIndex = 5;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            this.buttonClearFields.Location = new System.Drawing.Point(331, 579);
+            this.buttonClearFields.Name = "buttonClearFields";
+            this.buttonClearFields.Size = new System.Drawing.Size(100, 35);
+            this.buttonClearFields.TabIndex = 5;
+            this.buttonClearFields.Text = "Clear";
+            this.buttonClearFields.UseVisualStyleBackColor = true;
+            this.buttonClearFields.Click += new System.EventHandler(this.ButtonClearFields_Click);
             // 
             // viewListBrand
             // 
@@ -155,13 +155,13 @@ namespace Ads_Listing_Manager_Software.Views
             this.panelLeftSide.AutoScroll = true;
             this.panelLeftSide.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelLeftSide.Controls.Add(this.label1);
-            this.panelLeftSide.Controls.Add(this.btnClear);
+            this.panelLeftSide.Controls.Add(this.buttonClearFields);
             this.panelLeftSide.Controls.Add(this.txtDescription);
-            this.panelLeftSide.Controls.Add(this.btnDeleteBrand);
+            this.panelLeftSide.Controls.Add(this.buttonDeleteBrand);
             this.panelLeftSide.Controls.Add(this.txtBrand);
-            this.panelLeftSide.Controls.Add(this.btnUpdateBrand);
+            this.panelLeftSide.Controls.Add(this.buttonUpdateBrand);
             this.panelLeftSide.Controls.Add(this.label2);
-            this.panelLeftSide.Controls.Add(this.btnAddBrand);
+            this.panelLeftSide.Controls.Add(this.buttonAddBrand);
             this.panelLeftSide.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeftSide.Location = new System.Drawing.Point(0, 0);
             this.panelLeftSide.Name = "panelLeftSide";
@@ -204,12 +204,12 @@ namespace Ads_Listing_Manager_Software.Views
         #endregion
         private System.Windows.Forms.TextBox txtBrand;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnAddBrand;
-        private System.Windows.Forms.Button btnUpdateBrand;
-        private System.Windows.Forms.Button btnDeleteBrand;
+        private System.Windows.Forms.Button buttonAddBrand;
+        private System.Windows.Forms.Button buttonUpdateBrand;
+        private System.Windows.Forms.Button buttonDeleteBrand;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDescription;
-        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button buttonClearFields;
         private System.Windows.Forms.ListView viewListBrand;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panelLeftSide;

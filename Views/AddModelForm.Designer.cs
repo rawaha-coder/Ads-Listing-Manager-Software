@@ -81,7 +81,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.buttonDeleteModel.TabIndex = 20;
             this.buttonDeleteModel.Text = "Delete";
             this.buttonDeleteModel.UseVisualStyleBackColor = true;
-            this.buttonDeleteModel.Click += new System.EventHandler(this.btnDeleteModel_Click);
+            this.buttonDeleteModel.Click += new System.EventHandler(this.ButtonDeleteModel_Click);
             // 
             // buttonUpdateModel
             // 
@@ -92,7 +92,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.buttonUpdateModel.TabIndex = 19;
             this.buttonUpdateModel.Text = "Update";
             this.buttonUpdateModel.UseVisualStyleBackColor = true;
-            this.buttonUpdateModel.Click += new System.EventHandler(this.btnUpdateModel_Click);
+            this.buttonUpdateModel.Click += new System.EventHandler(this.ButtonUpdateModel_Click);
             // 
             // buttonAddModel
             // 
@@ -234,7 +234,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.buttonClearFields.TabIndex = 20;
             this.buttonClearFields.Text = "Clear";
             this.buttonClearFields.UseVisualStyleBackColor = true;
-            this.buttonClearFields.Click += new System.EventHandler(this.btnClear_Click);
+            this.buttonClearFields.Click += new System.EventHandler(this.ButtonClearFields_Click);
             // 
             // panelLeftSide
             // 

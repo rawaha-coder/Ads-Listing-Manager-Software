@@ -8,15 +8,20 @@ namespace Ads_Listing_Manager_Software.Views
 {
     public partial class AddModelForm : Form
     {
-        BrandDAO brandDAO = BrandDAO.getInstance();
-        ModelDAO modelDAO = ModelDAO.getInstance();
-        Model mModel = new Model();
-        List<Brand> listBrand = new List<Brand>();
-        List<Model> listModel = new List<Model>();
+        private readonly BrandDAO brandDAO;
+        private readonly ModelDAO modelDAO;
+        private Model mModel = new Model();
+        private List<Brand> listBrand;
+        private List<Model> listModel;
 
         public AddModelForm()
         {
             InitializeComponent();
+            brandDAO = BrandDAO.getInstance();
+            modelDAO = ModelDAO.getInstance();
+            mModel = new Model();
+            listBrand = new List<Brand>();
+            listModel = new List<Model>();
         }
 
         private void AddModelForm_Load(object sender, EventArgs e)
@@ -30,7 +35,7 @@ namespace Ads_Listing_Manager_Software.Views
             {
                 listBrand.Clear();
                 listBrand = brandDAO.GetData();
-                getBrandList();
+                SetBrandListInComboBox();
             }
             catch (Exception ex)
             {
@@ -38,7 +43,7 @@ namespace Ads_Listing_Manager_Software.Views
             }
         }
 
-        private void getBrandList()
+        private void SetBrandListInComboBox()
         {
             comboListBrand.Items.Clear();
             foreach (Brand item in listBrand)
@@ -47,26 +52,27 @@ namespace Ads_Listing_Manager_Software.Views
             }
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
+        private void ButtonClearFields_Click(object sender, EventArgs e)
         {
             ClearField();
         }
 
-        private void DisableUpdateAndDeleteButton()
-        {
-            buttonUpdateModel.Enabled = false;
-            buttonDeleteModel.Enabled = false;
-        }
-
         private void ClearField()
         {
-            ClearInpuTFields();
+            ClearInputFields();
             viewListModel.Items.Clear();
             ResetBrandComboBox();
             DisableUpdateAndDeleteButton();
         }
 
-        private void ClearInpuTFields()
+        private void DisableUpdateAndDeleteButton()
+        {
+            buttonAddModel.Enabled = true;
+            buttonUpdateModel.Enabled = false;
+            buttonDeleteModel.Enabled = false;
+        }
+
+        private void ClearInputFields()
         {
             txtName.Text = "";
             txtPrice.Text = "";
@@ -93,14 +99,14 @@ namespace Ads_Listing_Manager_Software.Views
         }
         private bool InputIsNotValide()
         {
-            return txtName.Text == "" || txtPrice.Text == "" || txtQuantity.Text == "" || comboListBrand.SelectedIndex == -1 || comboGrade.SelectedIndex ==-1;
+            return txtName.Text == "" || txtPrice.Text == "" || txtQuantity.Text == "" || comboListBrand.SelectedIndex == -1 || comboGrade.SelectedIndex == -1;
         }
 
         private void SaveModelData()
         {
             try
             {
-                GetFieldsInput();
+                GetInputFieldValue();
                 modelDAO.AddData(mModel);
                 ClearField();
                 LoadBrandData();
@@ -111,7 +117,7 @@ namespace Ads_Listing_Manager_Software.Views
             }
         }
 
-        private void GetFieldsInput()
+        private void GetInputFieldValue()
         {
             mModel.Name = txtName.Text.Trim().ToUpper();
             mModel.Price = Convert.ToDouble(txtPrice.Text);
@@ -121,7 +127,7 @@ namespace Ads_Listing_Manager_Software.Views
             mModel.Brand.Id = listBrand[comboListBrand.SelectedIndex].Id;
         }
 
-        private void btnUpdateModel_Click(object sender, EventArgs e)
+        private void ButtonUpdateModel_Click(object sender, EventArgs e)
         {
             if (InputIsNotValide())
             {
@@ -135,7 +141,7 @@ namespace Ads_Listing_Manager_Software.Views
         {
             try
             {
-                GetFieldsInput();
+                GetInputFieldValue();
                 modelDAO.UpdateData(mModel);
                 ClearField();
                 LoadBrandData();
@@ -146,37 +152,38 @@ namespace Ads_Listing_Manager_Software.Views
             }
         }
 
-        private void btnDeleteModel_Click(object sender, EventArgs e)
+        private void ButtonDeleteModel_Click(object sender, EventArgs e)
         {
             if (CheckAbilityForDelete())
-            {
                 return;
-            }
             DeleteModelData();
         }
 
         private bool CheckAbilityForDelete()
         {
-            bool haveModel = true;
-            if (txtName.Text != "" && mModel.Id > 0)
+            if (txtName.Text == "" || mModel.Id <= 0)
             {
-                try
-                {
-                    ProductDAO productDAO = ProductDAO.getInstance();
-                    haveModel = productDAO.ProductCountByModel(mModel.Id) > 0;
-                    if (haveModel)
-                        MessageBox.Show("Model has product, Please delete all products first");
-                }
-                catch (Exception ex)
-                {
-                    Utility.Logging.ShowError(ex);
-                }
+                MessageBox.Show("Check input values!");
+                return true;
             }
-            else
+            return ItHasProduct();
+        }
+
+        private bool ItHasProduct()
+        {
+            bool hasProduct = true;
+            try
             {
-                MessageBox.Show(Utility.Utility.CHECK_INPUT_VALUE);
+                ProductDAO productDAO = ProductDAO.getInstance();
+                hasProduct = productDAO.ProductCountByModel(mModel.Id) > 0;
+                if (hasProduct)
+                    MessageBox.Show("Model has product, Please delete all products first");
             }
-            return haveModel;
+            catch (Exception ex)
+            {
+                Utility.Logging.ShowError(ex);
+            }
+            return hasProduct;
         }
 
         private void DeleteModelData()
@@ -195,7 +202,7 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void comboListBrand_SelectedIndexChanged(object sender, EventArgs e)
         {
-                LoadModelData();
+            LoadModelData();
         }
 
         private void LoadModelData()
@@ -219,11 +226,7 @@ namespace Ads_Listing_Manager_Software.Views
         {
             viewListModel.Clear();
             viewListModel.Items.Clear();
-            viewListModel.Columns.Add("Model", 200, HorizontalAlignment.Left);
-            viewListModel.Columns.Add("Grade", 80, HorizontalAlignment.Left);
-            viewListModel.Columns.Add("Price", 100, HorizontalAlignment.Left);
-            viewListModel.Columns.Add("Quantity", 100, HorizontalAlignment.Left);
-            viewListModel.Columns.Add("Description", 260, HorizontalAlignment.Left);
+            SetViewListModelColumns();
             foreach (Model model in listModel)
             {
                 ListViewItem lvi = new ListViewItem();
@@ -234,6 +237,15 @@ namespace Ads_Listing_Manager_Software.Views
                 lvi.SubItems.Add(model.Description);
                 viewListModel.Items.Add(lvi);
             }
+        }
+
+        private void SetViewListModelColumns()
+        {
+            viewListModel.Columns.Add("Model", 200, HorizontalAlignment.Left);
+            viewListModel.Columns.Add("Grade", 80, HorizontalAlignment.Left);
+            viewListModel.Columns.Add("Price", 100, HorizontalAlignment.Left);
+            viewListModel.Columns.Add("Quantity", 100, HorizontalAlignment.Left);
+            viewListModel.Columns.Add("Description", 260, HorizontalAlignment.Left);
         }
 
         private void ValidateNumberEntred(object sender, KeyPressEventArgs e)
@@ -254,24 +266,25 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void selectModelForUpdateOrDelete()
         {
-                try
-                {
-                    mModel = listModel[viewListModel.Items.IndexOf(viewListModel.SelectedItems[0])];
-                    txtName.Text = mModel.Name;
-                    comboGrade.Text = mModel.Grade;
-                    txtPrice.Text = mModel.Price.ToString();
-                    txtQuantity.Text = mModel.Quantity.ToString();
-                    txtDescription.Text = mModel.Description; ;
-                    EnableUpdateAndDeleteButton();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+            try
+            {
+                mModel = listModel[viewListModel.Items.IndexOf(viewListModel.SelectedItems[0])];
+                txtName.Text = mModel.Name;
+                comboGrade.Text = mModel.Grade;
+                txtPrice.Text = mModel.Price.ToString();
+                txtQuantity.Text = mModel.Quantity.ToString();
+                txtDescription.Text = mModel.Description; ;
+                EnableUpdateAndDeleteButton();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void EnableUpdateAndDeleteButton()
         {
+            buttonAddModel.Enabled = false;
             buttonUpdateModel.Enabled = true;
             buttonDeleteModel.Enabled = true;
         }
