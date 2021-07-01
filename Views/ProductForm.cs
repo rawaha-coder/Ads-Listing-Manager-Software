@@ -25,7 +25,6 @@ namespace Ads_Listing_Manager_Software.Views
         List<Component> listComponent ;
         List<Model> listModel;
         List<Product> listProduct;
-        List<Item> listItem;
 
         double mModelPrice;
         double mProductPrice;
@@ -48,7 +47,6 @@ namespace Ads_Listing_Manager_Software.Views
             listComponent = new List<Component>();
             listModel = new List<Model>();
             listProduct = new List<Product>();
-            listItem = new List<Item>();
         }
 
         private void panelProductForm_Paint(object sender, PaintEventArgs e)

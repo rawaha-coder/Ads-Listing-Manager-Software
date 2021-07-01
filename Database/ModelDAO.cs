@@ -222,5 +222,26 @@ namespace Ads_Listing_Manager_Software.Database
             }
         }
 
+        public int ModelsCount(int id)
+        {
+            int count = 0;
+            var countStmt = "SELECT COUNT(*) FROM " + TABLE_MODEL + " WHERE " + COLUMN_MODEL_BRAND_ID + " = " + id + " ";
+
+            try
+            {
+                SQLiteCommand sQLiteCommand = new SQLiteCommand(countStmt, mSQLiteConnection);
+                OpenConnection();
+                count = Convert.ToInt32(sQLiteCommand.ExecuteScalar());
+                return count;
+            }
+            catch (SQLiteException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
     }
 }
