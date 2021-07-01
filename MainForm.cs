@@ -101,5 +101,15 @@ namespace Ads_Listing_Manager_Software
         {
             OpenChildForm(new ItemForm());
         }
+
+        private void btnAddMultiItem_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new AddMultiItemForm());
+        }
+
+        private void btnProductForm_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ProductForm());
+        }
     }
 }

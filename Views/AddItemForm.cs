@@ -27,9 +27,9 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void LoadComponentList()
         {
-            listComponent.Clear();
             try
             {
+                listComponent.Clear();
                 listComponent = mComponentDAO.SelectData();
                 getComponentList();
             }
@@ -38,6 +38,7 @@ namespace Ads_Listing_Manager_Software.Views
                 MessageBox.Show(ex.Message);
             }
         }
+
         private void getComponentList()
         {
             comboComponentList.Items.Clear();

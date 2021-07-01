@@ -31,6 +31,7 @@ namespace Ads_Listing_Manager_Software
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.SideMenuPanel = new System.Windows.Forms.Panel();
+            this.btnAddMultiItem = new System.Windows.Forms.Button();
             this.btnAddOneProduct = new System.Windows.Forms.Button();
             this.btnAddMultiProduct = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
@@ -45,6 +46,7 @@ namespace Ads_Listing_Manager_Software
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnItemForm = new System.Windows.Forms.Button();
+            this.btnProductForm = new System.Windows.Forms.Button();
             this.btnLaptopForm = new System.Windows.Forms.Button();
             this.btnDesktopForm = new System.Windows.Forms.Button();
             this.SideMenuPanel.SuspendLayout();
@@ -60,6 +62,7 @@ namespace Ads_Listing_Manager_Software
             // 
             this.SideMenuPanel.AutoScroll = true;
             this.SideMenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(15)))), ((int)(((byte)(33)))));
+            this.SideMenuPanel.Controls.Add(this.btnAddMultiItem);
             this.SideMenuPanel.Controls.Add(this.btnAddOneProduct);
             this.SideMenuPanel.Controls.Add(this.btnAddMultiProduct);
             this.SideMenuPanel.Controls.Add(this.btnHome);
@@ -74,6 +77,23 @@ namespace Ads_Listing_Manager_Software
             this.SideMenuPanel.Name = "SideMenuPanel";
             this.SideMenuPanel.Size = new System.Drawing.Size(178, 761);
             this.SideMenuPanel.TabIndex = 0;
+            // 
+            // btnAddMultiItem
+            // 
+            this.btnAddMultiItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
+            this.btnAddMultiItem.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAddMultiItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(121)))), ((int)(((byte)(29)))));
+            this.btnAddMultiItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddMultiItem.Location = new System.Drawing.Point(0, 323);
+            this.btnAddMultiItem.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddMultiItem.Name = "btnAddMultiItem";
+            this.btnAddMultiItem.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnAddMultiItem.Size = new System.Drawing.Size(178, 39);
+            this.btnAddMultiItem.TabIndex = 9;
+            this.btnAddMultiItem.Text = "+ Multi Item";
+            this.btnAddMultiItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddMultiItem.UseVisualStyleBackColor = false;
+            this.btnAddMultiItem.Click += new System.EventHandler(this.btnAddMultiItem_Click);
             // 
             // btnAddOneProduct
             // 
@@ -260,6 +280,7 @@ namespace Ads_Listing_Manager_Software
             this.panel2.AutoScroll = true;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(159)))), ((int)(((byte)(181)))));
             this.panel2.Controls.Add(this.btnItemForm);
+            this.panel2.Controls.Add(this.btnProductForm);
             this.panel2.Controls.Add(this.btnLaptopForm);
             this.panel2.Controls.Add(this.btnDesktopForm);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -276,7 +297,7 @@ namespace Ads_Listing_Manager_Software
             this.btnItemForm.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnItemForm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(121)))), ((int)(((byte)(29)))));
             this.btnItemForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnItemForm.Location = new System.Drawing.Point(328, 0);
+            this.btnItemForm.Location = new System.Drawing.Point(491, 0);
             this.btnItemForm.Margin = new System.Windows.Forms.Padding(2);
             this.btnItemForm.Name = "btnItemForm";
             this.btnItemForm.Size = new System.Drawing.Size(163, 41);
@@ -284,6 +305,21 @@ namespace Ads_Listing_Manager_Software
             this.btnItemForm.Text = "Item";
             this.btnItemForm.UseVisualStyleBackColor = false;
             this.btnItemForm.Click += new System.EventHandler(this.btnItemForm_Click);
+            // 
+            // btnProductForm
+            // 
+            this.btnProductForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(185)))), ((int)(((byte)(187)))));
+            this.btnProductForm.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnProductForm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(121)))), ((int)(((byte)(29)))));
+            this.btnProductForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProductForm.Location = new System.Drawing.Point(328, 0);
+            this.btnProductForm.Margin = new System.Windows.Forms.Padding(2);
+            this.btnProductForm.Name = "btnProductForm";
+            this.btnProductForm.Size = new System.Drawing.Size(163, 41);
+            this.btnProductForm.TabIndex = 3;
+            this.btnProductForm.Text = "Product";
+            this.btnProductForm.UseVisualStyleBackColor = false;
+            this.btnProductForm.Click += new System.EventHandler(this.btnProductForm_Click);
             // 
             // btnLaptopForm
             // 
@@ -298,6 +334,7 @@ namespace Ads_Listing_Manager_Software
             this.btnLaptopForm.TabIndex = 1;
             this.btnLaptopForm.Text = "Laptop";
             this.btnLaptopForm.UseVisualStyleBackColor = false;
+            this.btnLaptopForm.Visible = false;
             this.btnLaptopForm.Click += new System.EventHandler(this.btnLaptopForm_Click);
             // 
             // btnDesktopForm
@@ -359,6 +396,8 @@ namespace Ads_Listing_Manager_Software
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Button btnAddMultiProduct;
         private System.Windows.Forms.Button btnAddOneProduct;
+        private System.Windows.Forms.Button btnAddMultiItem;
+        private System.Windows.Forms.Button btnProductForm;
     }
 }
 

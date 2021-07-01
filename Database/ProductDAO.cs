@@ -24,6 +24,66 @@ namespace Ads_Listing_Manager_Software.Database
             return instance;
         }
 
+        public int ProductCountByModel(int id)
+        {
+            var countStmt = "SELECT COUNT(*) FROM " + TABLE_PRODUCT + " WHERE " + COLUMN_PRODUCT_MODEL + " = " + id + " ";
+            try
+            {
+                SQLiteCommand sQLiteCommand = new SQLiteCommand(countStmt, mSQLiteConnection);
+                OpenConnection();
+                int count = Convert.ToInt32(sQLiteCommand.ExecuteScalar());
+                return count;
+            }
+            catch (SQLiteException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+
+        public int ProductCountByItem(int id)
+        {
+            var countStmt = "SELECT COUNT(*) FROM " + TABLE_PRODUCT + " WHERE " + COLUMN_PRODUCT_ITEM + " = " + id + " ";
+            try
+            {
+                SQLiteCommand sQLiteCommand = new SQLiteCommand(countStmt, mSQLiteConnection);
+                OpenConnection();
+                int count = Convert.ToInt32(sQLiteCommand.ExecuteScalar());
+                return count;
+            }
+            catch (SQLiteException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+
+        public int ProductCountByComponent(int id)
+        {
+            var countStmt = "SELECT COUNT(*) FROM " + TABLE_PRODUCT + " WHERE " + COLUMN_PRODUCT_TYPE + " = " + id + " ";
+            try
+            {
+                SQLiteCommand sQLiteCommand = new SQLiteCommand(countStmt, mSQLiteConnection);
+                OpenConnection();
+                int count = Convert.ToInt32(sQLiteCommand.ExecuteScalar());
+                return count;
+            }
+            catch (SQLiteException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+
         public List<Product> SelectData()
         {
             var selectStmt = "SELECT * FROM " + TABLE_PRODUCT + " ORDER BY " + COLUMN_PRODUCT_ITEM + " ASC;";
@@ -90,7 +150,7 @@ namespace Ads_Listing_Manager_Software.Database
                 + " ON " + ComponentDAO.TABLE_COMPONENT + "." + ComponentDAO.COLUMN_COMPONENT_ID + " = " + TABLE_PRODUCT + "." + COLUMN_PRODUCT_TYPE
                 + " WHERE  " + COLUMN_PRODUCT_MODEL + " = " + ModelId
                 + " AND " + TABLE_PRODUCT + "." + COLUMN_PRODUCT_TYPE + " = " + ComponentId
-                + " ORDER BY " + COLUMN_PRODUCT_ITEM + " ASC;";
+                + " ORDER BY " + ItemDAO.COLUMN_ITEM_PRICE + " ASC;";
         }
 
         private List<Product> GetProductDataFromResult(SQLiteDataReader result)

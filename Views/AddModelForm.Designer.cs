@@ -29,6 +29,7 @@ namespace Ads_Listing_Manager_Software.Views
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddModelForm));
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.lblModelDescription = new System.Windows.Forms.Label();
             this.btnDeleteModel = new System.Windows.Forms.Button();
@@ -46,6 +47,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.comboGrade = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.viewListModel = new System.Windows.Forms.ListView();
+            this.btnClear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtDescription
@@ -54,7 +56,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.txtDescription.Location = new System.Drawing.Point(12, 367);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(318, 235);
+            this.txtDescription.Size = new System.Drawing.Size(420, 235);
             this.txtDescription.TabIndex = 24;
             // 
             // lblModelDescription
@@ -62,12 +64,13 @@ namespace Ads_Listing_Manager_Software.Views
             this.lblModelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblModelDescription.Location = new System.Drawing.Point(13, 341);
             this.lblModelDescription.Name = "lblModelDescription";
-            this.lblModelDescription.Size = new System.Drawing.Size(318, 23);
+            this.lblModelDescription.Size = new System.Drawing.Size(100, 23);
             this.lblModelDescription.TabIndex = 23;
             this.lblModelDescription.Text = "Description";
             // 
             // btnDeleteModel
             // 
+            this.btnDeleteModel.Enabled = false;
             this.btnDeleteModel.Location = new System.Drawing.Point(225, 608);
             this.btnDeleteModel.Name = "btnDeleteModel";
             this.btnDeleteModel.Size = new System.Drawing.Size(100, 35);
@@ -78,6 +81,7 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             // btnUpdateModel
             // 
+            this.btnUpdateModel.Enabled = false;
             this.btnUpdateModel.Location = new System.Drawing.Point(119, 608);
             this.btnUpdateModel.Name = "btnUpdateModel";
             this.btnUpdateModel.Size = new System.Drawing.Size(100, 35);
@@ -101,7 +105,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.lblAddModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblAddModel.Location = new System.Drawing.Point(12, 81);
             this.lblAddModel.Name = "lblAddModel";
-            this.lblAddModel.Size = new System.Drawing.Size(318, 23);
+            this.lblAddModel.Size = new System.Drawing.Size(54, 23);
             this.lblAddModel.TabIndex = 17;
             this.lblAddModel.Text = "Model";
             // 
@@ -110,7 +114,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtName.Location = new System.Drawing.Point(12, 105);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(318, 24);
+            this.txtName.Size = new System.Drawing.Size(419, 24);
             this.txtName.TabIndex = 16;
             // 
             // label1
@@ -118,7 +122,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(12, 142);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(318, 23);
+            this.label1.Size = new System.Drawing.Size(52, 23);
             this.label1.TabIndex = 27;
             this.label1.Text = "Price";
             // 
@@ -127,7 +131,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtPrice.Location = new System.Drawing.Point(12, 166);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(318, 24);
+            this.txtPrice.Size = new System.Drawing.Size(419, 24);
             this.txtPrice.TabIndex = 26;
             this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateNumberEntred);
             // 
@@ -146,7 +150,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.comboListBrand.FormattingEnabled = true;
             this.comboListBrand.Location = new System.Drawing.Point(13, 46);
             this.comboListBrand.Name = "comboListBrand";
-            this.comboListBrand.Size = new System.Drawing.Size(317, 23);
+            this.comboListBrand.Size = new System.Drawing.Size(418, 23);
             this.comboListBrand.TabIndex = 29;
             this.comboListBrand.SelectedIndexChanged += new System.EventHandler(this.comboListBrand_SelectedIndexChanged);
             // 
@@ -155,7 +159,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.txtQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtQuantity.Location = new System.Drawing.Point(13, 232);
             this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(318, 24);
+            this.txtQuantity.Size = new System.Drawing.Size(418, 24);
             this.txtQuantity.TabIndex = 26;
             this.txtQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateIntegerNumberEntred);
             // 
@@ -164,7 +168,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.labelQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelQuantity.Location = new System.Drawing.Point(13, 208);
             this.labelQuantity.Name = "labelQuantity";
-            this.labelQuantity.Size = new System.Drawing.Size(318, 23);
+            this.labelQuantity.Size = new System.Drawing.Size(71, 23);
             this.labelQuantity.TabIndex = 27;
             this.labelQuantity.Text = "Quantity";
             // 
@@ -188,36 +192,48 @@ namespace Ads_Listing_Manager_Software.Views
             "C"});
             this.comboGrade.Location = new System.Drawing.Point(13, 299);
             this.comboGrade.Name = "comboGrade";
-            this.comboGrade.Size = new System.Drawing.Size(317, 23);
+            this.comboGrade.Size = new System.Drawing.Size(418, 23);
             this.comboGrade.TabIndex = 29;
             this.comboGrade.SelectedIndexChanged += new System.EventHandler(this.comboListBrand_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(353, 21);
+            this.label3.Location = new System.Drawing.Point(460, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(620, 23);
+            this.label3.Size = new System.Drawing.Size(81, 23);
             this.label3.TabIndex = 55;
             this.label3.Text = "List Model";
             // 
             // viewListModel
             // 
+            this.viewListModel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.viewListModel.GridLines = true;
             this.viewListModel.HideSelection = false;
-            this.viewListModel.Location = new System.Drawing.Point(353, 47);
+            this.viewListModel.Location = new System.Drawing.Point(460, 47);
             this.viewListModel.MultiSelect = false;
             this.viewListModel.Name = "viewListModel";
-            this.viewListModel.Size = new System.Drawing.Size(620, 584);
+            this.viewListModel.Size = new System.Drawing.Size(690, 596);
             this.viewListModel.TabIndex = 56;
             this.viewListModel.UseCompatibleStateImageBehavior = false;
             this.viewListModel.View = System.Windows.Forms.View.Details;
             this.viewListModel.DoubleClick += new System.EventHandler(this.viewListModel_DoubleClick);
             // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(331, 608);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(100, 35);
+            this.btnClear.TabIndex = 20;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // AddModelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(159)))), ((int)(((byte)(181)))));
             this.ClientSize = new System.Drawing.Size(1184, 721);
             this.Controls.Add(this.label3);
@@ -232,12 +248,14 @@ namespace Ads_Listing_Manager_Software.Views
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.lblModelDescription);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnDeleteModel);
             this.Controls.Add(this.btnUpdateModel);
             this.Controls.Add(this.btnAddModel);
             this.Controls.Add(this.lblAddModel);
             this.Controls.Add(this.txtName);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddModelForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddModelForm";
@@ -266,5 +284,6 @@ namespace Ads_Listing_Manager_Software.Views
         private System.Windows.Forms.ComboBox comboGrade;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListView viewListModel;
+        private System.Windows.Forms.Button btnClear;
     }
 }

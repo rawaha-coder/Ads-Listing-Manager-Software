@@ -172,7 +172,7 @@ namespace Ads_Listing_Manager_Software.Database
 
         private static string selectCommand(int ComponentId)
         {
-            return "SELECT * FROM " + TABLE_ITEM + " WHERE  " + COLUMN_ITEM_TYPE + " = " + ComponentId + " ORDER BY " + COLUMN_ITEM_NAME + " ASC;";
+            return "SELECT * FROM " + TABLE_ITEM + " WHERE  " + COLUMN_ITEM_TYPE + " = " + ComponentId + " ORDER BY " + COLUMN_ITEM_PRICE + " ASC;";
         }
 
         private static List<Item> GetItemDataFromResult(SQLiteDataReader result)

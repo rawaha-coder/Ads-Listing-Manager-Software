@@ -26,9 +26,9 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void LoadBrandData()
         {
-            ClearField();
             try
             {
+                listBrand.Clear();
                 listBrand = brandDAO.GetData();
                 getBrandList();
             }
@@ -38,24 +38,48 @@ namespace Ads_Listing_Manager_Software.Views
             }
         }
 
-        private void ClearField()
-        {
-            txtName.Text = "";
-            txtPrice.Text = "";
-            txtDescription.Text = "";
-            viewListModel.Items.Clear();
-            comboListBrand.Items.Clear();
-            comboListBrand.SelectedIndex = -1;
-            comboListBrand.Text = "";
-            listBrand.Clear();
-        }
-
         private void getBrandList()
         {
+            comboListBrand.Items.Clear();
             foreach (Brand item in listBrand)
             {
                 comboListBrand.Items.Add(item.Name);
             }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearField();
+        }
+
+        private void DisableUpdateAndDeleteButton()
+        {
+            btnUpdateModel.Enabled = false;
+            btnDeleteModel.Enabled = false;
+        }
+
+        private void ClearField()
+        {
+            ClearInpuTFields();
+            viewListModel.Items.Clear();
+            ResetBrandComboBox();
+            DisableUpdateAndDeleteButton();
+        }
+
+        private void ClearInpuTFields()
+        {
+            txtName.Text = "";
+            txtPrice.Text = "";
+            txtQuantity.Text = "";
+            comboGrade.SelectedIndex = -1;
+            comboGrade.Text = "";
+            txtDescription.Text = "";
+        }
+
+        private void ResetBrandComboBox()
+        {
+            comboListBrand.SelectedIndex = -1;
+            comboListBrand.Text = "";
         }
 
         private void btnAddModel_Click(object sender, EventArgs e)
@@ -78,6 +102,7 @@ namespace Ads_Listing_Manager_Software.Views
             {
                 GetFieldsInput();
                 modelDAO.AddData(mModel);
+                ClearField();
                 LoadBrandData();
             }
             catch (Exception ex)
@@ -112,6 +137,7 @@ namespace Ads_Listing_Manager_Software.Views
             {
                 GetFieldsInput();
                 modelDAO.UpdateData(mModel);
+                ClearField();
                 LoadBrandData();
             }
             catch (Exception ex)
@@ -122,12 +148,35 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void btnDeleteModel_Click(object sender, EventArgs e)
         {
-            if (InputIsNotValide() || mModel.Id <= 0)
+            if (CheckAbilityForDelete())
             {
-                MessageBox.Show(Utility.Utility.CHECK_INPUT_VALUE);
                 return;
             }
             DeleteModelData();
+        }
+
+        private bool CheckAbilityForDelete()
+        {
+            bool haveModel = true;
+            if (txtName.Text != "" && mModel.Id > 0)
+            {
+                try
+                {
+                    ProductDAO productDAO = ProductDAO.getInstance();
+                    haveModel = productDAO.ProductCountByModel(mModel.Id) > 0;
+                    if (haveModel)
+                        MessageBox.Show("Model has product, Please delete all products first");
+                }
+                catch (Exception ex)
+                {
+                    Utility.Logging.ShowError(ex);
+                }
+            }
+            else
+            {
+                MessageBox.Show(Utility.Utility.CHECK_INPUT_VALUE);
+            }
+            return haveModel;
         }
 
         private void DeleteModelData()
@@ -135,6 +184,7 @@ namespace Ads_Listing_Manager_Software.Views
             try
             {
                 modelDAO.DeleteData(mModel);
+                ClearField();
                 LoadBrandData();
             }
             catch (Exception ex)
@@ -173,6 +223,7 @@ namespace Ads_Listing_Manager_Software.Views
             viewListModel.Columns.Add("Grade", 80, HorizontalAlignment.Left);
             viewListModel.Columns.Add("Price", 100, HorizontalAlignment.Left);
             viewListModel.Columns.Add("Quantity", 100, HorizontalAlignment.Left);
+            viewListModel.Columns.Add("Description", 260, HorizontalAlignment.Left);
             foreach (Model model in listModel)
             {
                 ListViewItem lvi = new ListViewItem();
@@ -180,6 +231,7 @@ namespace Ads_Listing_Manager_Software.Views
                 lvi.SubItems.Add(model.Grade);
                 lvi.SubItems.Add(model.Price.ToString());
                 lvi.SubItems.Add(model.Quantity.ToString());
+                lvi.SubItems.Add(model.Description);
                 viewListModel.Items.Add(lvi);
             }
         }
@@ -196,13 +248,12 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void viewListModel_DoubleClick(object sender, EventArgs e)
         {
-            selectModelForUpdateOrDelete();
+            if (viewListModel.SelectedItems.Count > 0)
+                selectModelForUpdateOrDelete();
         }
 
         private void selectModelForUpdateOrDelete()
         {
-            if (viewListModel.SelectedItems.Count > 0)
-            {
                 try
                 {
                     mModel = listModel[viewListModel.Items.IndexOf(viewListModel.SelectedItems[0])];
@@ -211,12 +262,19 @@ namespace Ads_Listing_Manager_Software.Views
                     txtPrice.Text = mModel.Price.ToString();
                     txtQuantity.Text = mModel.Quantity.ToString();
                     txtDescription.Text = mModel.Description; ;
+                    EnableUpdateAndDeleteButton();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-            }
         }
+
+        private void EnableUpdateAndDeleteButton()
+        {
+            btnUpdateModel.Enabled = true;
+            btnDeleteModel.Enabled = true;
+        }
+
     }
 }
