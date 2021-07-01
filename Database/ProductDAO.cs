@@ -24,6 +24,66 @@ namespace Ads_Listing_Manager_Software.Database
             return instance;
         }
 
+        public int ProductCountByModel(int id)
+        {
+            var countStmt = "SELECT COUNT(*) FROM " + TABLE_PRODUCT + " WHERE " + COLUMN_PRODUCT_MODEL + " = " + id + " ";
+            try
+            {
+                SQLiteCommand sQLiteCommand = new SQLiteCommand(countStmt, mSQLiteConnection);
+                OpenConnection();
+                int count = Convert.ToInt32(sQLiteCommand.ExecuteScalar());
+                return count;
+            }
+            catch (SQLiteException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+
+        public int ProductCountByItem(int id)
+        {
+            var countStmt = "SELECT COUNT(*) FROM " + TABLE_PRODUCT + " WHERE " + COLUMN_PRODUCT_ITEM + " = " + id + " ";
+            try
+            {
+                SQLiteCommand sQLiteCommand = new SQLiteCommand(countStmt, mSQLiteConnection);
+                OpenConnection();
+                int count = Convert.ToInt32(sQLiteCommand.ExecuteScalar());
+                return count;
+            }
+            catch (SQLiteException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+
+        public int ProductCountByComponent(int id)
+        {
+            var countStmt = "SELECT COUNT(*) FROM " + TABLE_PRODUCT + " WHERE " + COLUMN_PRODUCT_TYPE + " = " + id + " ";
+            try
+            {
+                SQLiteCommand sQLiteCommand = new SQLiteCommand(countStmt, mSQLiteConnection);
+                OpenConnection();
+                int count = Convert.ToInt32(sQLiteCommand.ExecuteScalar());
+                return count;
+            }
+            catch (SQLiteException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+
         public List<Product> SelectData()
         {
             var selectStmt = "SELECT * FROM " + TABLE_PRODUCT + " ORDER BY " + COLUMN_PRODUCT_ITEM + " ASC;";

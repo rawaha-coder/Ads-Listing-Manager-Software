@@ -29,6 +29,7 @@ namespace Ads_Listing_Manager_Software.Views
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddBrandForm));
             this.txtBrand = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddBrand = new System.Windows.Forms.Button();
@@ -38,6 +39,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.viewListBrand = new System.Windows.Forms.ListView();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtBrand
@@ -132,6 +134,15 @@ namespace Ads_Listing_Manager_Software.Views
             this.viewListBrand.View = System.Windows.Forms.View.Details;
             this.viewListBrand.DoubleClick += new System.EventHandler(this.viewListBrand_DoubleClick);
             // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(484, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(83, 23);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Brand List";
+            // 
             // AddBrandForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -146,9 +157,11 @@ namespace Ads_Listing_Manager_Software.Views
             this.Controls.Add(this.btnDeleteBrand);
             this.Controls.Add(this.btnUpdateBrand);
             this.Controls.Add(this.btnAddBrand);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtBrand);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddBrandForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddBrandForm";
@@ -168,5 +181,6 @@ namespace Ads_Listing_Manager_Software.Views
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.ListView viewListBrand;
+        private System.Windows.Forms.Label label3;
     }
 }

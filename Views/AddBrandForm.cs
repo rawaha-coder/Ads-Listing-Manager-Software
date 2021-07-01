@@ -161,11 +161,6 @@ namespace Ads_Listing_Manager_Software.Views
 
         private bool CheckAbilityForDelete()
         {
-            return BrandHaveChildModel();
-        }
-
-        private bool BrandHaveChildModel()
-        {
             bool haveModel = true;
             if (mBrand.Id > 0 && txtBrand.Text != "")
             {

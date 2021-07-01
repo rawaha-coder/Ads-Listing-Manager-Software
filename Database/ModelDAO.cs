@@ -187,7 +187,7 @@ namespace Ads_Listing_Manager_Software.Database
                 sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_MODEL_NAME, item.Name));
                 sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_MODEL_PRICE, item.Price));
                 sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_MODEL_QUANTITY, item.Price));
-                sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_MODEL_GARDE, item.Price));
+                sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_MODEL_GARDE, item.Grade));
                 sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_MODEL_DESCRIPTION, item.Description));
                 sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_MODEL_BRAND_ID, item.Brand.Id));
                 sQLiteCommand.ExecuteNonQuery();
