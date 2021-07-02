@@ -52,42 +52,6 @@ namespace Ads_Listing_Manager_Software.Views
             }
         }
 
-        private void ButtonClearFields_Click(object sender, EventArgs e)
-        {
-            ClearField();
-        }
-
-        private void ClearField()
-        {
-            ClearInputFields();
-            viewListModel.Items.Clear();
-            ResetBrandComboBox();
-            DisableUpdateAndDeleteButton();
-        }
-
-        private void DisableUpdateAndDeleteButton()
-        {
-            buttonAddModel.Enabled = true;
-            buttonUpdateModel.Enabled = false;
-            buttonDeleteModel.Enabled = false;
-        }
-
-        private void ClearInputFields()
-        {
-            txtName.Text = "";
-            txtPrice.Text = "";
-            txtQuantity.Text = "";
-            comboGrade.SelectedIndex = -1;
-            comboGrade.Text = "";
-            txtDescription.Text = "";
-        }
-
-        private void ResetBrandComboBox()
-        {
-            comboListBrand.SelectedIndex = -1;
-            comboListBrand.Text = "";
-        }
-
         private void ButtonAddModel_Click(object sender, EventArgs e)
         {
             if (InputIsNotValide())
@@ -119,12 +83,12 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void GetInputFieldValue()
         {
+            mModel.Brand.Id = listBrand[comboListBrand.SelectedIndex].Id;
             mModel.Name = txtName.Text.Trim().ToUpper();
             mModel.Price = Convert.ToDouble(txtPrice.Text);
             mModel.Quantity = Convert.ToInt32(txtQuantity.Text);
             mModel.Grade = Convert.ToString(comboGrade.SelectedItem);
             mModel.Description = txtDescription.Text;
-            mModel.Brand.Id = listBrand[comboListBrand.SelectedIndex].Id;
         }
 
         private void ButtonUpdateModel_Click(object sender, EventArgs e)
@@ -285,6 +249,41 @@ namespace Ads_Listing_Manager_Software.Views
             txtPrice.Text = mModel.Price.ToString();
             txtQuantity.Text = mModel.Quantity.ToString();
             txtDescription.Text = mModel.Description; ;
+        }
+        private void ButtonClearFields_Click(object sender, EventArgs e)
+        {
+            ClearField();
+        }
+
+        private void ClearField()
+        {
+            ClearInputFields();
+            viewListModel.Items.Clear();
+            ResetBrandComboBox();
+            DisableUpdateAndDeleteButton();
+        }
+
+        private void ClearInputFields()
+        {
+            txtName.Text = "";
+            txtPrice.Text = "";
+            txtQuantity.Text = "";
+            comboGrade.SelectedIndex = -1;
+            comboGrade.Text = "";
+            txtDescription.Text = "";
+        }
+
+        private void ResetBrandComboBox()
+        {
+            comboListBrand.SelectedIndex = -1;
+            comboListBrand.Text = "";
+        }
+
+        private void DisableUpdateAndDeleteButton()
+        {
+            buttonAddModel.Enabled = true;
+            buttonUpdateModel.Enabled = false;
+            buttonDeleteModel.Enabled = false;
         }
 
         private void EnableUpdateAndDeleteButton()

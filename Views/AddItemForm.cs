@@ -1,5 +1,6 @@
 ﻿using Ads_Listing_Manager_Software.Database;
 using Ads_Listing_Manager_Software.Models;
+using Ads_Listing_Manager_Software.Utility;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -9,15 +10,21 @@ namespace Ads_Listing_Manager_Software.Views
 {
     public partial class AddItemForm : Form
     {
-        ComponentDAO mComponentDAO = ComponentDAO.getInstance();
-        ItemDAO itemDAO = ItemDAO.getInstance();
-        Component mComponent = new Component();
-        Item mItem = new Item();
-        List<Component> listComponent = new List<Component>();
-        List<Item> listItem = new List<Item>();
+        private readonly ComponentDAO mComponentDAO;
+        private readonly ItemDAO itemDAO;
+        private Component mComponent;
+        private Item mItem;
+        private List<Component> listComponent;
+        private List<Item> listItem ;
         public AddItemForm()
         {
             InitializeComponent();
+            mComponentDAO = ComponentDAO.getInstance();
+            itemDAO = ItemDAO.getInstance();
+            mComponent = new Component();
+            mItem = new Item();
+            listComponent = new List<Component>();
+            listItem = new List<Item>();
         }
 
         private void FormAddItem_Load(object sender, EventArgs e)
@@ -35,7 +42,7 @@ namespace Ads_Listing_Manager_Software.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Logging.ShowError(ex);
             }
         }
 
@@ -60,15 +67,15 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void LoadItemtList()
         {
-            listItem.Clear();
             try
             {
+                listItem.Clear();
                 listItem = itemDAO.getItemsByType(mComponent.Id);
                 getItemsList();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Logging.ShowError(ex);
             }
         }
 
@@ -76,10 +83,7 @@ namespace Ads_Listing_Manager_Software.Views
         {
             viewListItems.Clear();
             viewListItems.Items.Clear();
-            viewListItems.Columns.Add("CPU", 400, HorizontalAlignment.Left);
-            viewListItems.Columns.Add("Code", 140, HorizontalAlignment.Left);
-            viewListItems.Columns.Add("Price", 80, HorizontalAlignment.Left);
-            viewListItems.Columns.Add("Quantity", 80, HorizontalAlignment.Left);
+            SetViewListItemColumns();
             foreach (Item item in listItem)
             {
                 ListViewItem lvi = new ListViewItem();
@@ -87,40 +91,50 @@ namespace Ads_Listing_Manager_Software.Views
                 lvi.SubItems.Add(item.Code);
                 lvi.SubItems.Add(item.Price.ToString());
                 lvi.SubItems.Add(item.Quantity.ToString());
+                lvi.SubItems.Add(item.Description);
                 viewListItems.Items.Add(lvi);
             }
         }
 
-        private void btnAddItem_Click(object sender, EventArgs e)
+        private void SetViewListItemColumns()
+        {
+            viewListItems.Columns.Add("CPU", 400, HorizontalAlignment.Left);
+            viewListItems.Columns.Add("Code", 140, HorizontalAlignment.Left);
+            viewListItems.Columns.Add("Price", 80, HorizontalAlignment.Left);
+            viewListItems.Columns.Add("Quantity", 80, HorizontalAlignment.Left);
+            viewListItems.Columns.Add("Description", 300, HorizontalAlignment.Left);
+        }
+
+        private void ButtonAddItem_Click(object sender, EventArgs e)
         {
             if (InputIsNotValidate())
             {
-                MessageBox.Show(Utility.Utility.CHECK_INPUT_VALUE);
+                MessageBox.Show("Check input value!");
                 return;
             }
             SaveItemData();
+            ClearInputFieldValue();
         }
 
         private bool InputIsNotValidate()
         {
-            return txtItemName.Text == "" || txtItemPrice.Text == "" || comboComponentList.SelectedIndex == -1 || txtItemQuantity.Text == "";
+            return txtItemName.Text == "" || txtItemCode.Text == "" || txtItemPrice.Text == "" || comboComponentList.SelectedIndex == -1 || txtItemQuantity.Text == "";
         }
 
         private void SaveItemData()
         {
             try
             {
-                GetFieldsInput();
+                GetInputFieldValue();
                 itemDAO.AddData(mItem);
-                ClearField();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Utility.Utility.DATA_NOT_SAVED + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+                Logging.ShowError(ex);
             }
         }
 
-        private void GetFieldsInput()
+        private void GetInputFieldValue()
         {
             mItem.Name = txtItemName.Text;
             mItem.Code = txtItemCode.Text;
@@ -130,7 +144,7 @@ namespace Ads_Listing_Manager_Software.Views
             mItem.Type = listComponent[comboComponentList.SelectedIndex].Id;
         }
 
-        private void ClearField()
+        private void ClearInputFieldValue()
         {
             txtItemName.Text = "";
             txtItemCode.Text = "";
@@ -144,32 +158,10 @@ namespace Ads_Listing_Manager_Software.Views
                 viewListItems.Items.Clear();
         }
 
-        private void btnUpdateItem_Click(object sender, EventArgs e)
-        {
-            if (InputIsNotValidate())
-            {
-                MessageBox.Show("Model name required");
-                return;
-            }
-            UpdateItemData();
-        }
-        private void UpdateItemData()
-        {
-            try
-            {
-                GetFieldsInput();
-                itemDAO.UpdateData(mItem);
-                ClearField();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         private void viewListItems_DoubleClick(object sender, EventArgs e)
         {
             selectItemForUpdateOrDelete();
+            EnableUpdateAndDeleteButton();
         }
         private void selectItemForUpdateOrDelete()
         {
@@ -179,38 +171,70 @@ namespace Ads_Listing_Manager_Software.Views
                 try
                 {
                     mItem = listItem[viewListItems.Items.IndexOf(viewListItems.SelectedItems[0])];
-                    txtItemName.Text = mItem.Name;
-                    txtItemCode.Text = mItem.Code;
-                    txtItemPrice.Text = mItem.Price.ToString();
-                    txtItemQuantity.Text = mItem.Quantity.ToString();
-                    txtItemDescription.Text = mItem.Description; ;
+                    SetInputFieldValue();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    Logging.ShowError(ex);
                 }
             }
         }
 
-        private void btnDeleteItem_Click(object sender, EventArgs e)
+        private void SetInputFieldValue()
         {
-            if (InputIsNotValidate())
+            txtItemName.Text = mItem.Name;
+            txtItemCode.Text = mItem.Code;
+            txtItemPrice.Text = mItem.Price.ToString();
+            txtItemQuantity.Text = mItem.Quantity.ToString();
+            txtItemDescription.Text = mItem.Description; ;
+        }
+
+        private void ButtonUpdateItem_Click(object sender, EventArgs e)
+        {
+            if (InputIsNotValidate() || mItem.Id <= 0)
             {
-                MessageBox.Show("Model name required");
+                MessageBox.Show("Check input value!");
+                return;
+            }
+            UpdateItemData();
+            ClearInputFieldValue();
+            DisableUpdateAndDeleteButton();
+        }
+        private void UpdateItemData()
+        {
+            try
+            {
+                GetInputFieldValue();
+                itemDAO.UpdateData(mItem);
+            }
+            catch (Exception ex)
+            {
+                Logging.ShowError(ex);
+            }
+        }
+
+
+
+        private void ButtonDeleteItem_Click(object sender, EventArgs e)
+        {
+            if (InputIsNotValidate() || mItem.Id <= 0)
+            {
+                MessageBox.Show("Check input value!");
                 return;
             }
             DeleteProductData();
+            ClearInputFieldValue();
+            DisableUpdateAndDeleteButton();
         }
         private void DeleteProductData()
         {
             try
             {
                 itemDAO.DeleteData(mItem);
-                ClearField();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Brand Not Deleted: " + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+                Logging.ShowError(ex);
             }
         }
 
@@ -222,6 +246,26 @@ namespace Ads_Listing_Manager_Software.Views
         private void ValidateIntegerNumberEntred(object sender, KeyPressEventArgs e)
         {
             Utility.Utility.ValidateIntegerNumberEntred(sender, e);
+        }
+
+        private void buttonClearFields_Click(object sender, EventArgs e)
+        {
+            ClearInputFieldValue();
+            DisableUpdateAndDeleteButton();
+        }
+
+        private void DisableUpdateAndDeleteButton()
+        {
+            buttonAddItem.Enabled = true;
+            buttonUpdateItem.Enabled = false;
+            buttonDeleteItem.Enabled = false;
+        }
+
+        private void EnableUpdateAndDeleteButton()
+        {
+            buttonAddItem.Enabled = false;
+            buttonUpdateItem.Enabled = true;
+            buttonDeleteItem.Enabled = true;
         }
     }
 }

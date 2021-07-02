@@ -16,6 +16,12 @@ namespace Ads_Listing_Manager_Software.Utility
             MessageBox.Show("Error: " + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
         }
 
+        public static void LogShowError(Exception ex, string errorType)
+        {
+            LogError(ex);
+            MessageBox.Show("Error: " + errorType, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+        }
+
         private static String ErrorlineNo, Errormsg, extype, ErrorLocation;
 
         public static void LogError(Exception ex)

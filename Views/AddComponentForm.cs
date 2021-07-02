@@ -215,6 +215,9 @@ namespace Ads_Listing_Manager_Software.Views
             buttonDeleteComponent.Enabled = false;
         }
 
+        private void lblAddComponent_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

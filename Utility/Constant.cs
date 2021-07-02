@@ -8,6 +8,9 @@ namespace Ads_Listing_Manager_Software.Utility
 {
     class Constant
     {
+        public const string INPUT_ERROR = "input value error";
+        public const string SQLITE_ERROR = "Database error";
+
         public const int CPU_INDEX = 1;
         public const int SDD_INDEX = 2;
         public const int HDD_INDEX = 3;

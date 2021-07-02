@@ -49,7 +49,7 @@ namespace Ads_Listing_Manager_Software.Views
             // txtBrand
             // 
             this.txtBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtBrand.Location = new System.Drawing.Point(13, 37);
+            this.txtBrand.Location = new System.Drawing.Point(3, 33);
             this.txtBrand.Name = "txtBrand";
             this.txtBrand.Size = new System.Drawing.Size(418, 24);
             this.txtBrand.TabIndex = 1;
@@ -57,7 +57,7 @@ namespace Ads_Listing_Manager_Software.Views
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(13, 11);
+            this.label1.Location = new System.Drawing.Point(3, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(255, 23);
             this.label1.TabIndex = 7;
@@ -65,7 +65,7 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             // buttonAddBrand
             // 
-            this.buttonAddBrand.Location = new System.Drawing.Point(13, 579);
+            this.buttonAddBrand.Location = new System.Drawing.Point(3, 600);
             this.buttonAddBrand.Name = "buttonAddBrand";
             this.buttonAddBrand.Size = new System.Drawing.Size(100, 35);
             this.buttonAddBrand.TabIndex = 3;
@@ -76,7 +76,7 @@ namespace Ads_Listing_Manager_Software.Views
             // buttonUpdateBrand
             // 
             this.buttonUpdateBrand.Enabled = false;
-            this.buttonUpdateBrand.Location = new System.Drawing.Point(119, 579);
+            this.buttonUpdateBrand.Location = new System.Drawing.Point(109, 600);
             this.buttonUpdateBrand.Name = "buttonUpdateBrand";
             this.buttonUpdateBrand.Size = new System.Drawing.Size(100, 35);
             this.buttonUpdateBrand.TabIndex = 4;
@@ -87,7 +87,7 @@ namespace Ads_Listing_Manager_Software.Views
             // buttonDeleteBrand
             // 
             this.buttonDeleteBrand.Enabled = false;
-            this.buttonDeleteBrand.Location = new System.Drawing.Point(225, 579);
+            this.buttonDeleteBrand.Location = new System.Drawing.Point(215, 600);
             this.buttonDeleteBrand.Name = "buttonDeleteBrand";
             this.buttonDeleteBrand.Size = new System.Drawing.Size(100, 35);
             this.buttonDeleteBrand.TabIndex = 5;
@@ -98,7 +98,7 @@ namespace Ads_Listing_Manager_Software.Views
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(13, 76);
+            this.label2.Location = new System.Drawing.Point(3, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(255, 23);
             this.label2.TabIndex = 13;
@@ -107,15 +107,15 @@ namespace Ads_Listing_Manager_Software.Views
             // txtDescription
             // 
             this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtDescription.Location = new System.Drawing.Point(13, 102);
+            this.txtDescription.Location = new System.Drawing.Point(3, 102);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(418, 460);
+            this.txtDescription.Size = new System.Drawing.Size(418, 492);
             this.txtDescription.TabIndex = 2;
             // 
             // buttonClearFields
             // 
-            this.buttonClearFields.Location = new System.Drawing.Point(331, 579);
+            this.buttonClearFields.Location = new System.Drawing.Point(321, 600);
             this.buttonClearFields.Name = "buttonClearFields";
             this.buttonClearFields.Size = new System.Drawing.Size(100, 35);
             this.buttonClearFields.TabIndex = 5;
@@ -128,14 +128,14 @@ namespace Ads_Listing_Manager_Software.Views
             this.viewListBrand.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.viewListBrand.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.viewListBrand.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.viewListBrand.FullRowSelect = true;
             this.viewListBrand.GridLines = true;
             this.viewListBrand.HideSelection = false;
-            this.viewListBrand.Location = new System.Drawing.Point(17, 44);
+            this.viewListBrand.Location = new System.Drawing.Point(4, 31);
             this.viewListBrand.MultiSelect = false;
             this.viewListBrand.Name = "viewListBrand";
-            this.viewListBrand.Size = new System.Drawing.Size(648, 568);
+            this.viewListBrand.Size = new System.Drawing.Size(670, 600);
             this.viewListBrand.TabIndex = 57;
             this.viewListBrand.UseCompatibleStateImageBehavior = false;
             this.viewListBrand.View = System.Windows.Forms.View.Details;
@@ -144,7 +144,7 @@ namespace Ads_Listing_Manager_Software.Views
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(17, 18);
+            this.label3.Location = new System.Drawing.Point(4, 7);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 23);
             this.label3.TabIndex = 7;
@@ -165,7 +165,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.panelLeftSide.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeftSide.Location = new System.Drawing.Point(0, 0);
             this.panelLeftSide.Name = "panelLeftSide";
-            this.panelLeftSide.Size = new System.Drawing.Size(449, 721);
+            this.panelLeftSide.Size = new System.Drawing.Size(440, 721);
             this.panelLeftSide.TabIndex = 58;
             // 
             // panelMiddle
@@ -174,9 +174,9 @@ namespace Ads_Listing_Manager_Software.Views
             this.panelMiddle.Controls.Add(this.label3);
             this.panelMiddle.Controls.Add(this.viewListBrand);
             this.panelMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMiddle.Location = new System.Drawing.Point(449, 0);
+            this.panelMiddle.Location = new System.Drawing.Point(440, 0);
             this.panelMiddle.Name = "panelMiddle";
-            this.panelMiddle.Size = new System.Drawing.Size(735, 721);
+            this.panelMiddle.Size = new System.Drawing.Size(744, 721);
             this.panelMiddle.TabIndex = 59;
             // 
             // AddBrandForm
