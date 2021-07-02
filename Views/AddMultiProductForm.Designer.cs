@@ -55,11 +55,13 @@ namespace Ads_Listing_Manager_Software.Views
             this.modelList3 = new System.Windows.Forms.ListBox();
             this.label9 = new System.Windows.Forms.Label();
             this.btnAddMultiProduct = new System.Windows.Forms.Button();
+            this.panelMiddle = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.panelMiddle.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblAddModel
@@ -77,7 +79,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.modelList0);
             this.groupBox1.Controls.Add(this.lblAddModel);
-            this.groupBox1.Location = new System.Drawing.Point(318, 26);
+            this.groupBox1.Location = new System.Drawing.Point(312, 15);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(172, 555);
             this.groupBox1.TabIndex = 34;
@@ -108,7 +110,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.modelList0.ItemHeight = 15;
             this.modelList0.Location = new System.Drawing.Point(7, 106);
             this.modelList0.Name = "modelList0";
-            this.modelList0.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.modelList0.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.modelList0.Size = new System.Drawing.Size(160, 439);
             this.modelList0.TabIndex = 7;
             // 
@@ -118,7 +120,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.groupBox2.Controls.Add(this.listBoxItems);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.comboComponentList);
-            this.groupBox2.Location = new System.Drawing.Point(14, 26);
+            this.groupBox2.Location = new System.Drawing.Point(8, 15);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(298, 555);
             this.groupBox2.TabIndex = 35;
@@ -168,7 +170,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.modelList1);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Location = new System.Drawing.Point(496, 26);
+            this.groupBox3.Location = new System.Drawing.Point(490, 15);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(172, 555);
             this.groupBox3.TabIndex = 36;
@@ -199,7 +201,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.modelList1.ItemHeight = 15;
             this.modelList1.Location = new System.Drawing.Point(7, 106);
             this.modelList1.Name = "modelList1";
-            this.modelList1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.modelList1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.modelList1.Size = new System.Drawing.Size(160, 439);
             this.modelList1.TabIndex = 8;
             // 
@@ -218,7 +220,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.modelList2);
             this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Location = new System.Drawing.Point(674, 26);
+            this.groupBox4.Location = new System.Drawing.Point(668, 15);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(173, 555);
             this.groupBox4.TabIndex = 37;
@@ -249,7 +251,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.modelList2.ItemHeight = 15;
             this.modelList2.Location = new System.Drawing.Point(7, 106);
             this.modelList2.Name = "modelList2";
-            this.modelList2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.modelList2.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.modelList2.Size = new System.Drawing.Size(160, 439);
             this.modelList2.TabIndex = 9;
             // 
@@ -268,7 +270,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.groupBox5.Controls.Add(this.label8);
             this.groupBox5.Controls.Add(this.modelList3);
             this.groupBox5.Controls.Add(this.label9);
-            this.groupBox5.Location = new System.Drawing.Point(853, 26);
+            this.groupBox5.Location = new System.Drawing.Point(847, 15);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(173, 555);
             this.groupBox5.TabIndex = 38;
@@ -299,7 +301,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.modelList3.ItemHeight = 15;
             this.modelList3.Location = new System.Drawing.Point(7, 106);
             this.modelList3.Name = "modelList3";
-            this.modelList3.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.modelList3.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.modelList3.Size = new System.Drawing.Size(160, 439);
             this.modelList3.TabIndex = 10;
             // 
@@ -314,13 +316,29 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             // btnAddMultiProduct
             // 
-            this.btnAddMultiProduct.Location = new System.Drawing.Point(20, 587);
+            this.btnAddMultiProduct.Location = new System.Drawing.Point(8, 576);
             this.btnAddMultiProduct.Name = "btnAddMultiProduct";
-            this.btnAddMultiProduct.Size = new System.Drawing.Size(286, 34);
+            this.btnAddMultiProduct.Size = new System.Drawing.Size(298, 35);
             this.btnAddMultiProduct.TabIndex = 11;
             this.btnAddMultiProduct.Text = "Add ";
             this.btnAddMultiProduct.UseVisualStyleBackColor = true;
             this.btnAddMultiProduct.Click += new System.EventHandler(this.btnAddMultiProduct_Click);
+            // 
+            // panelMiddle
+            // 
+            this.panelMiddle.AutoScroll = true;
+            this.panelMiddle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelMiddle.Controls.Add(this.groupBox2);
+            this.panelMiddle.Controls.Add(this.btnAddMultiProduct);
+            this.panelMiddle.Controls.Add(this.groupBox1);
+            this.panelMiddle.Controls.Add(this.groupBox5);
+            this.panelMiddle.Controls.Add(this.groupBox3);
+            this.panelMiddle.Controls.Add(this.groupBox4);
+            this.panelMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMiddle.Location = new System.Drawing.Point(0, 0);
+            this.panelMiddle.Name = "panelMiddle";
+            this.panelMiddle.Size = new System.Drawing.Size(1184, 721);
+            this.panelMiddle.TabIndex = 39;
             // 
             // AddMultiProductForm
             // 
@@ -329,12 +347,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(159)))), ((int)(((byte)(181)))));
             this.ClientSize = new System.Drawing.Size(1184, 721);
-            this.Controls.Add(this.btnAddMultiProduct);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.panelMiddle);
             this.Name = "AddMultiProductForm";
             this.Text = "AddMultiProductForm";
             this.Load += new System.EventHandler(this.AddMultiProductForm_Load);
@@ -344,6 +357,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
+            this.panelMiddle.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -375,5 +389,6 @@ namespace Ads_Listing_Manager_Software.Views
         private System.Windows.Forms.ListBox modelList3;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnAddMultiProduct;
+        private System.Windows.Forms.Panel panelMiddle;
     }
 }
