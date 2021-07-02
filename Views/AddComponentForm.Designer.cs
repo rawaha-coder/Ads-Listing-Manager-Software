@@ -32,7 +32,6 @@ namespace Ads_Listing_Manager_Software.Views
             this.lblListComponent = new System.Windows.Forms.Label();
             this.txtComponentDescription = new System.Windows.Forms.TextBox();
             this.lblTypeDescription = new System.Windows.Forms.Label();
-            this.boxListComponent = new System.Windows.Forms.ListBox();
             this.buttonDeleteComponent = new System.Windows.Forms.Button();
             this.buttonUpdateComponent = new System.Windows.Forms.Button();
             this.buttonAddComponent = new System.Windows.Forms.Button();
@@ -75,18 +74,9 @@ namespace Ads_Listing_Manager_Software.Views
             this.lblTypeDescription.TabIndex = 23;
             this.lblTypeDescription.Text = "Description";
             // 
-            // boxListComponent
-            // 
-            this.boxListComponent.FormattingEnabled = true;
-            this.boxListComponent.ItemHeight = 15;
-            this.boxListComponent.Location = new System.Drawing.Point(21, 31);
-            this.boxListComponent.Name = "boxListComponent";
-            this.boxListComponent.Size = new System.Drawing.Size(158, 574);
-            this.boxListComponent.TabIndex = 22;
-            this.boxListComponent.DoubleClick += new System.EventHandler(this.boxListComponent_DoubleClick);
-            // 
             // buttonDeleteComponent
             // 
+            this.buttonDeleteComponent.Enabled = false;
             this.buttonDeleteComponent.Location = new System.Drawing.Point(230, 569);
             this.buttonDeleteComponent.Name = "buttonDeleteComponent";
             this.buttonDeleteComponent.Size = new System.Drawing.Size(100, 35);
@@ -97,6 +87,7 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             // buttonUpdateComponent
             // 
+            this.buttonUpdateComponent.Enabled = false;
             this.buttonUpdateComponent.Location = new System.Drawing.Point(120, 569);
             this.buttonUpdateComponent.Name = "buttonUpdateComponent";
             this.buttonUpdateComponent.Size = new System.Drawing.Size(100, 35);
@@ -186,7 +177,6 @@ namespace Ads_Listing_Manager_Software.Views
             this.panelMiddle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelMiddle.Controls.Add(this.viewListComponent);
             this.panelMiddle.Controls.Add(this.lblListComponent);
-            this.panelMiddle.Controls.Add(this.boxListComponent);
             this.panelMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMiddle.Location = new System.Drawing.Point(452, 0);
             this.panelMiddle.Name = "panelMiddle";
@@ -202,13 +192,14 @@ namespace Ads_Listing_Manager_Software.Views
             this.viewListComponent.FullRowSelect = true;
             this.viewListComponent.GridLines = true;
             this.viewListComponent.HideSelection = false;
-            this.viewListComponent.Location = new System.Drawing.Point(216, 31);
+            this.viewListComponent.Location = new System.Drawing.Point(21, 31);
             this.viewListComponent.MultiSelect = false;
             this.viewListComponent.Name = "viewListComponent";
-            this.viewListComponent.Size = new System.Drawing.Size(456, 636);
+            this.viewListComponent.Size = new System.Drawing.Size(638, 636);
             this.viewListComponent.TabIndex = 58;
             this.viewListComponent.UseCompatibleStateImageBehavior = false;
             this.viewListComponent.View = System.Windows.Forms.View.Details;
+            this.viewListComponent.DoubleClick += new System.EventHandler(this.viewListComponent_DoubleClick);
             // 
             // AddComponentForm
             // 
@@ -233,7 +224,6 @@ namespace Ads_Listing_Manager_Software.Views
         private System.Windows.Forms.Label lblListComponent;
         private System.Windows.Forms.TextBox txtComponentDescription;
         private System.Windows.Forms.Label lblTypeDescription;
-        private System.Windows.Forms.ListBox boxListComponent;
         private System.Windows.Forms.Button buttonDeleteComponent;
         private System.Windows.Forms.Button buttonUpdateComponent;
         private System.Windows.Forms.Button buttonAddComponent;

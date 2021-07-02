@@ -44,10 +44,8 @@ namespace Ads_Listing_Manager_Software.Views
             viewListComponent.Clear();
             viewListComponent.Items.Clear();
             SetHeaderStyle();
-            boxListComponent.Items.Clear();
             foreach (Component item in listComponent)
             {
-                boxListComponent.Items.Add(item.Id + ": " + item.Name);
                 ListViewItem lvi = new ListViewItem();
                 lvi.Text = item.Id.ToString();
                 lvi.SubItems.Add(item.Name);
@@ -84,6 +82,7 @@ namespace Ads_Listing_Manager_Software.Views
                 return;
             }
             SaveComponentData();
+            ClearField();
         }
 
         private void SaveComponentData()
@@ -120,6 +119,8 @@ namespace Ads_Listing_Manager_Software.Views
                 return;
             }
             UpdateComponentdata();
+            ClearField();
+            DisableUpdateAndDeleteButton();
         }
 
         private void UpdateComponentdata()
@@ -144,6 +145,8 @@ namespace Ads_Listing_Manager_Software.Views
                 return;
             }
             DeleteComponentData();
+            ClearField();
+            DisableUpdateAndDeleteButton();
         }
 
         private void DeleteComponentData()
@@ -159,12 +162,13 @@ namespace Ads_Listing_Manager_Software.Views
             }
         }
 
-        private void boxListComponent_DoubleClick(object sender, EventArgs e)
+        private void viewListComponent_DoubleClick(object sender, EventArgs e)
         {
             try
             {
-                mComponent = listComponent[boxListComponent.SelectedIndex];
-                FillTextBox();
+                mComponent = listComponent[viewListComponent.Items.IndexOf(viewListComponent.SelectedItems[0])];
+                SetInputFieldValue();
+                EnableUpdateAndDeleteButton();
             }
             catch (Exception ex)
             {
@@ -172,7 +176,7 @@ namespace Ads_Listing_Manager_Software.Views
             }
         }
 
-        private void FillTextBox()
+        private void SetInputFieldValue()
         {
             txtComponentID.Text = mComponent.Id.ToString();
             txtComponentName.Text = mComponent.Name;
@@ -187,6 +191,7 @@ namespace Ads_Listing_Manager_Software.Views
         private void buttonClearFields_Click(object sender, EventArgs e)
         {
             ClearField();
+            DisableUpdateAndDeleteButton();
         }
 
         private void ClearField()
@@ -195,5 +200,21 @@ namespace Ads_Listing_Manager_Software.Views
             txtComponentName.Text = "";
             txtComponentDescription.Text = "";
         }
+
+        private void EnableUpdateAndDeleteButton()
+        {
+            buttonAddComponent.Enabled = false;
+            buttonUpdateComponent.Enabled = true;
+            buttonDeleteComponent.Enabled = true;
+        }
+
+        private void DisableUpdateAndDeleteButton()
+        {
+            buttonAddComponent.Enabled = true;
+            buttonUpdateComponent.Enabled = false;
+            buttonDeleteComponent.Enabled = false;
+        }
+
+
     }
 }
