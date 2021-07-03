@@ -48,11 +48,9 @@ namespace Ads_Listing_Manager_Software.Database
 
         public List<Model> SelectData()
         {
-            var selectStmt = "SELECT * FROM " + TABLE_MODEL + " ORDER BY " + COLUMN_MODEL_NAME + " ASC;";
-
             try
             {
-                SQLiteCommand sQLiteCommand = new SQLiteCommand(selectStmt, mSQLiteConnection);
+                SQLiteCommand sQLiteCommand = new SQLiteCommand(selectStatment(), mSQLiteConnection);
                 OpenConnection();
                 SQLiteDataReader result = sQLiteCommand.ExecuteReader();
                 return GetDataFromResult(result);
@@ -65,6 +63,11 @@ namespace Ads_Listing_Manager_Software.Database
             {
                 CloseConnection();
             }
+        }
+
+        private static string selectStatment()
+        {
+            return "SELECT * FROM " + TABLE_MODEL + " ORDER BY " + COLUMN_MODEL_NAME + " ASC;";
         }
 
         private static List<Model> GetDataFromResult(SQLiteDataReader result)
@@ -186,7 +189,7 @@ namespace Ads_Listing_Manager_Software.Database
                 OpenConnection();
                 sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_MODEL_NAME, item.Name));
                 sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_MODEL_PRICE, item.Price));
-                sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_MODEL_QUANTITY, item.Price));
+                sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_MODEL_QUANTITY, item.Quantity));
                 sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_MODEL_GARDE, item.Grade));
                 sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_MODEL_DESCRIPTION, item.Description));
                 sQLiteCommand.Parameters.Add(new SQLiteParameter(COLUMN_MODEL_BRAND_ID, item.Brand.Id));

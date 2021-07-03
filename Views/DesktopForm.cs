@@ -1,5 +1,6 @@
 ﻿using Ads_Listing_Manager_Software.Database;
 using Ads_Listing_Manager_Software.Models;
+using Ads_Listing_Manager_Software.Utility;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -8,43 +9,45 @@ namespace Ads_Listing_Manager_Software.Views
 {
     public partial class DesktopForm : Form
     {
-        ProductDAO mProductDAO = ProductDAO.getInstance();
-        BrandDAO mBrandDAO = BrandDAO.getInstance();
-        ModelDAO mModelDAO = ModelDAO.getInstance();
-        List<Brand> listBrand = new List<Brand>();
-        List<Model> listModel = new List<Model>();
-        List<Product> CPUList = new List<Product>();
-        List<Product> SSDList = new List<Product>();
-        List<Product> HDDList = new List<Product>();
-        List<Product> RAMList = new List<Product>();
-        List<Product> NVIDIAList = new List<Product>();
+        private readonly ProductDAO mProductDAO;
+        private readonly BrandDAO mBrandDAO;
+        private readonly ModelDAO mModelDAO;
+        private List<Brand> listBrand;
+        private List<Model> listModel;
+        private List<Product> CPUList;
+        private List<Product> SSDList;
+        private List<Product> HDDList;
+        private List<Product> RAMList;
+        private List<Product> NVIDIAList;
 
-        double mModelPrice = 0.0;
-        double mCPUPrice = 0.0;
-        double mSSDPrice = 0.0;
-        double mHDDPrice = 0.0;
-        double mRAMPrice = 0.0;
-        double mNVIDIAPrice = 0.0;
+        double mModelPrice, mCPUPrice, mSSDPrice, mHDDPrice, mRAMPrice, mNVIDIAPrice;
 
-        string mModelName = "";
-        string mCPUName = "";
-        string mSSDName = "";
-        string mHDDName = "";
-        string mRAMName = "";
-        string mNVIDIAName = "";
+        string mModelName, mCPUName, mSSDName, mHDDName, mRAMName, mNVIDIAName;
 
         public DesktopForm()
         {
             InitializeComponent();
+            mProductDAO = ProductDAO.getInstance();
+            mBrandDAO = BrandDAO.getInstance();
+            mModelDAO = ModelDAO.getInstance();
+            InitProductLists();
+            SetTextViewToZero();
+            setVariableNameToEmpty();
+            SetVariablePriceToZero();
         }
 
-        private void DesktopForm_Load(object sender, EventArgs e)
+        private void InitProductLists()
         {
-            initToZeroString();
-            LoadBrandList();
+            listBrand = new List<Brand>();
+            listModel = new List<Model>();
+            CPUList = new List<Product>();
+            SSDList = new List<Product>();
+            HDDList = new List<Product>();
+            RAMList = new List<Product>();
+            NVIDIAList = new List<Product>();
         }
 
-        private void initToZeroString()
+        private void SetTextViewToZero()
         {
             txtModelPrice.Text = "0.0";
             txtCPUPrice.Text = "0.0";
@@ -55,31 +58,50 @@ namespace Ads_Listing_Manager_Software.Views
             txtResultCalcul.Text = "0.0";
             txtFeePrice.Text = "";
             txtProfitPrice.Text = "";
+        }
 
+        private void setVariableNameToEmpty()
+        {
             mModelName = "";
             mCPUName = "";
             mSSDName = "";
             mHDDName = "";
             mRAMName = "";
             mNVIDIAName = "";
+        }
 
+        private void SetVariablePriceToZero()
+        {
+            mModelPrice = 0.0;
+            mCPUPrice = 0.0;
+            mSSDPrice = 0.0;
+            mHDDPrice = 0.0;
+            mRAMPrice = 0.0;
+            mNVIDIAPrice = 0.0;
+        }
+
+        private void DesktopForm_Load(object sender, EventArgs e)
+        {
+            LoadBrandList();
         }
 
         private void LoadBrandList()
         {
             try
             {
+                listBrand.Clear();
                 listBrand = mBrandDAO.GetData();
                 getBrandList();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Logging.ShowError(ex);
             }
         }
 
         private void getBrandList()
         {
+            comboBrandList.Items.Clear();
             foreach (Brand item in listBrand)
             {
                 comboBrandList.Items.Add(item.Name);
@@ -101,7 +123,7 @@ namespace Ads_Listing_Manager_Software.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Logging.ShowError(ex);
             }
         }
 
@@ -122,11 +144,11 @@ namespace Ads_Listing_Manager_Software.Views
                 txtModelPrice.Text = model.Price.ToString();
                 mModelPrice = model.Price;
                 mModelName = model.Name;
-                LoadProductList(ref CPUList, model.Id, 1, comboCPUList);
-                LoadProductList(ref SSDList, model.Id, 2, comboSSDList);
-                LoadProductList(ref HDDList, model.Id, 3, comboHDDList);
-                LoadProductList(ref RAMList, model.Id, 4, comboRAMList);
-                LoadProductList(ref NVIDIAList, model.Id, 5, comboNVIDIAList);
+                LoadProductList(ref CPUList, model.Id, Constant.CPU_INDEX, comboCPUList);
+                LoadProductList(ref SSDList, model.Id, Constant.SDD_INDEX, comboSSDList);
+                LoadProductList(ref HDDList, model.Id, Constant.HDD_INDEX, comboHDDList);
+                LoadProductList(ref RAMList, model.Id, Constant.RAM_INDEX, comboRAMList);
+                LoadProductList(ref NVIDIAList, model.Id, Constant.NVIDIA_INDEX, comboNVIDIAList);
             }
         }
 
@@ -140,7 +162,7 @@ namespace Ads_Listing_Manager_Software.Views
             }
             catch (Exception ex)
             {
-                Utility.Logging.ShowError(ex);
+                Logging.ShowError(ex);
             }
         }
 
@@ -208,38 +230,32 @@ namespace Ads_Listing_Manager_Software.Views
             }
         }
 
-        private void btnCalculTotalPrice_Click(object sender, EventArgs e)
+        private void ButtonCalculTotalPrice_Click(object sender, EventArgs e)
         {
-            var price = CalculTotalPay();
-            txtResultCalcul.Text = price.ToString();
+            txtResultCalcul.Text = CalculTotalPay().ToString();
             GetArticle();
         }
 
         private double CalculTotalPay()
         {
-            double total = 0.0;
-            total = CalculTotalPrice() + (CalculTotalPrice() * FeePercentage()) + (CalculTotalPrice() * ProfitPercentage());
-            return total;
+            return CalculTotalPrice() + (CalculTotalPrice() * FeePercentage()) + (CalculTotalPrice() * ProfitPercentage());
         }
 
         private double CalculTotalPrice()
         {
-            double CalculTotalPrice = mModelPrice + mCPUPrice + mSSDPrice + mHDDPrice + mRAMPrice + mNVIDIAPrice;
-            return CalculTotalPrice;
+            return mModelPrice + mCPUPrice + mSSDPrice + mHDDPrice + mRAMPrice + mNVIDIAPrice;
         }
 
         private double FeePercentage()
         {
             double fee = (txtFeePrice.Text != "") ? Convert.ToDouble(txtFeePrice.Text) : 0;
-            double feePercenage = fee / 100;
-            return feePercenage;
+            return fee / 100;
         }
 
         private double ProfitPercentage()
         {
             double profit = (txtProfitPrice.Text != "") ? Convert.ToDouble(txtProfitPrice.Text) : 0;
-            double feePercenage = profit / 100;
-            return feePercenage;
+            return profit / 100;
         }
 
         private void GetArticle()
@@ -260,6 +276,32 @@ namespace Ads_Listing_Manager_Software.Views
         private void txtProfitPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.Utility.ValidateNumberEntred(sender, e);
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            SetTextViewToZero();
+            setVariableNameToEmpty();
+            SetVariablePriceToZero();
+            ClearComboBox();
+        }
+
+        private void ClearComboBox()
+        {
+            comboBrandList.SelectedIndex = -1;
+            comboBrandList.Text = "";
+            comboModelList.SelectedIndex = -1;
+            comboModelList.Text = "";
+            comboCPUList.SelectedIndex = -1;
+            comboCPUList.Text = "";
+            comboSSDList.SelectedIndex = -1;
+            comboSSDList.Text = "";
+            comboHDDList.SelectedIndex = -1;
+            comboHDDList.Text = "";
+            comboRAMList.SelectedIndex = -1;
+            comboRAMList.Text = "";
+            comboNVIDIAList.SelectedIndex = -1;
+            comboNVIDIAList.Text = "";
         }
     }
 }

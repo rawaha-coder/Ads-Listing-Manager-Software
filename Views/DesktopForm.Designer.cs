@@ -51,12 +51,13 @@ namespace Ads_Listing_Manager_Software.Views
             this.txtCPUPrice = new System.Windows.Forms.TextBox();
             this.txtModelPrice = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.buttonClear = new System.Windows.Forms.Button();
             this.txtResultCalcul = new System.Windows.Forms.TextBox();
-            this.btnCalculTotalPrice = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.buttonCalculTotalPrice = new System.Windows.Forms.Button();
             this.txtProfitPrice = new System.Windows.Forms.TextBox();
             this.txtFeePrice = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
@@ -276,12 +277,13 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.buttonClear);
             this.groupBox2.Controls.Add(this.txtResultCalcul);
-            this.groupBox2.Controls.Add(this.btnCalculTotalPrice);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.buttonCalculTotalPrice);
             this.groupBox2.Controls.Add(this.txtProfitPrice);
             this.groupBox2.Controls.Add(this.txtFeePrice);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(13, 345);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(578, 68);
@@ -289,32 +291,61 @@ namespace Ads_Listing_Manager_Software.Views
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Calcul price";
             // 
+            // buttonClear
+            // 
+            this.buttonClear.BackColor = System.Drawing.Color.Yellow;
+            this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonClear.Location = new System.Drawing.Point(485, 22);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(70, 35);
+            this.buttonClear.TabIndex = 55;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = false;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
             // txtResultCalcul
             // 
-            this.txtResultCalcul.Location = new System.Drawing.Point(455, 29);
+            this.txtResultCalcul.Location = new System.Drawing.Point(363, 31);
             this.txtResultCalcul.Name = "txtResultCalcul";
             this.txtResultCalcul.ReadOnly = true;
             this.txtResultCalcul.Size = new System.Drawing.Size(100, 23);
             this.txtResultCalcul.TabIndex = 54;
             // 
-            // btnCalculTotalPrice
+            // buttonCalculTotalPrice
             // 
-            this.btnCalculTotalPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnCalculTotalPrice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCalculTotalPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnCalculTotalPrice.Location = new System.Drawing.Point(347, 25);
-            this.btnCalculTotalPrice.Name = "btnCalculTotalPrice";
-            this.btnCalculTotalPrice.Size = new System.Drawing.Size(90, 32);
-            this.btnCalculTotalPrice.TabIndex = 10;
-            this.btnCalculTotalPrice.Text = "Calcul";
-            this.btnCalculTotalPrice.UseVisualStyleBackColor = false;
-            this.btnCalculTotalPrice.Click += new System.EventHandler(this.btnCalculTotalPrice_Click);
+            this.buttonCalculTotalPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.buttonCalculTotalPrice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCalculTotalPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonCalculTotalPrice.Location = new System.Drawing.Point(267, 23);
+            this.buttonCalculTotalPrice.Name = "buttonCalculTotalPrice";
+            this.buttonCalculTotalPrice.Size = new System.Drawing.Size(90, 32);
+            this.buttonCalculTotalPrice.TabIndex = 10;
+            this.buttonCalculTotalPrice.Text = "Calcul:";
+            this.buttonCalculTotalPrice.UseVisualStyleBackColor = false;
+            this.buttonCalculTotalPrice.Click += new System.EventHandler(this.ButtonCalculTotalPrice_Click);
+            // 
+            // txtProfitPrice
+            // 
+            this.txtProfitPrice.Location = new System.Drawing.Point(179, 31);
+            this.txtProfitPrice.Name = "txtProfitPrice";
+            this.txtProfitPrice.Size = new System.Drawing.Size(50, 23);
+            this.txtProfitPrice.TabIndex = 9;
+            this.txtProfitPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProfitPrice_KeyPress);
+            // 
+            // txtFeePrice
+            // 
+            this.txtFeePrice.Location = new System.Drawing.Point(54, 31);
+            this.txtFeePrice.Name = "txtFeePrice";
+            this.txtFeePrice.Size = new System.Drawing.Size(50, 23);
+            this.txtFeePrice.TabIndex = 8;
+            this.txtFeePrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFeePrice_KeyPress);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(182, 31);
+            this.label6.Location = new System.Drawing.Point(132, 29);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 21);
             this.label6.TabIndex = 3;
@@ -329,22 +360,6 @@ namespace Ads_Listing_Manager_Software.Views
             this.label5.Size = new System.Drawing.Size(37, 21);
             this.label5.TabIndex = 2;
             this.label5.Text = "Fee:";
-            // 
-            // txtProfitPrice
-            // 
-            this.txtProfitPrice.Location = new System.Drawing.Point(230, 29);
-            this.txtProfitPrice.Name = "txtProfitPrice";
-            this.txtProfitPrice.Size = new System.Drawing.Size(100, 23);
-            this.txtProfitPrice.TabIndex = 9;
-            this.txtProfitPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProfitPrice_KeyPress);
-            // 
-            // txtFeePrice
-            // 
-            this.txtFeePrice.Location = new System.Drawing.Point(61, 29);
-            this.txtFeePrice.Name = "txtFeePrice";
-            this.txtFeePrice.Size = new System.Drawing.Size(100, 23);
-            this.txtFeePrice.TabIndex = 8;
-            this.txtFeePrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFeePrice_KeyPress);
             // 
             // groupBox3
             // 
@@ -369,7 +384,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(159)))), ((int)(((byte)(181)))));
-            this.ClientSize = new System.Drawing.Size(884, 661);
+            this.ClientSize = new System.Drawing.Size(1184, 721);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -412,12 +427,13 @@ namespace Ads_Listing_Manager_Software.Views
         private System.Windows.Forms.TextBox txtModelPrice;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtResultCalcul;
-        private System.Windows.Forms.Button btnCalculTotalPrice;
+        private System.Windows.Forms.Button buttonCalculTotalPrice;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtProfitPrice;
         private System.Windows.Forms.TextBox txtFeePrice;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.Button buttonClear;
     }
 }

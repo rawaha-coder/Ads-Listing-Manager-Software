@@ -31,9 +31,9 @@ namespace Ads_Listing_Manager_Software
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.SideMenuPanel = new System.Windows.Forms.Panel();
-            this.btnAddMultiItem = new System.Windows.Forms.Button();
             this.btnAddOneProduct = new System.Windows.Forms.Button();
             this.btnAddMultiProduct = new System.Windows.Forms.Button();
+            this.btnAddMultiItem = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.btnAddItem = new System.Windows.Forms.Button();
             this.btnAddType = new System.Windows.Forms.Button();
@@ -62,9 +62,9 @@ namespace Ads_Listing_Manager_Software
             // 
             this.SideMenuPanel.AutoScroll = true;
             this.SideMenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(15)))), ((int)(((byte)(33)))));
-            this.SideMenuPanel.Controls.Add(this.btnAddMultiItem);
             this.SideMenuPanel.Controls.Add(this.btnAddOneProduct);
             this.SideMenuPanel.Controls.Add(this.btnAddMultiProduct);
+            this.SideMenuPanel.Controls.Add(this.btnAddMultiItem);
             this.SideMenuPanel.Controls.Add(this.btnHome);
             this.SideMenuPanel.Controls.Add(this.btnAddItem);
             this.SideMenuPanel.Controls.Add(this.btnAddType);
@@ -78,30 +78,13 @@ namespace Ads_Listing_Manager_Software
             this.SideMenuPanel.Size = new System.Drawing.Size(178, 761);
             this.SideMenuPanel.TabIndex = 0;
             // 
-            // btnAddMultiItem
-            // 
-            this.btnAddMultiItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
-            this.btnAddMultiItem.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAddMultiItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(121)))), ((int)(((byte)(29)))));
-            this.btnAddMultiItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddMultiItem.Location = new System.Drawing.Point(0, 323);
-            this.btnAddMultiItem.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAddMultiItem.Name = "btnAddMultiItem";
-            this.btnAddMultiItem.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnAddMultiItem.Size = new System.Drawing.Size(178, 39);
-            this.btnAddMultiItem.TabIndex = 9;
-            this.btnAddMultiItem.Text = "+ Multi Item";
-            this.btnAddMultiItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddMultiItem.UseVisualStyleBackColor = false;
-            this.btnAddMultiItem.Click += new System.EventHandler(this.btnAddMultiItem_Click);
-            // 
             // btnAddOneProduct
             // 
             this.btnAddOneProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
             this.btnAddOneProduct.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAddOneProduct.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(121)))), ((int)(((byte)(29)))));
             this.btnAddOneProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddOneProduct.Location = new System.Drawing.Point(0, 284);
+            this.btnAddOneProduct.Location = new System.Drawing.Point(0, 323);
             this.btnAddOneProduct.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddOneProduct.Name = "btnAddOneProduct";
             this.btnAddOneProduct.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -118,7 +101,7 @@ namespace Ads_Listing_Manager_Software
             this.btnAddMultiProduct.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAddMultiProduct.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(121)))), ((int)(((byte)(29)))));
             this.btnAddMultiProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddMultiProduct.Location = new System.Drawing.Point(0, 245);
+            this.btnAddMultiProduct.Location = new System.Drawing.Point(0, 284);
             this.btnAddMultiProduct.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddMultiProduct.Name = "btnAddMultiProduct";
             this.btnAddMultiProduct.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -128,6 +111,23 @@ namespace Ads_Listing_Manager_Software
             this.btnAddMultiProduct.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddMultiProduct.UseVisualStyleBackColor = false;
             this.btnAddMultiProduct.Click += new System.EventHandler(this.btnAddMultiProduct_Click);
+            // 
+            // btnAddMultiItem
+            // 
+            this.btnAddMultiItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
+            this.btnAddMultiItem.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAddMultiItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(121)))), ((int)(((byte)(29)))));
+            this.btnAddMultiItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddMultiItem.Location = new System.Drawing.Point(0, 245);
+            this.btnAddMultiItem.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddMultiItem.Name = "btnAddMultiItem";
+            this.btnAddMultiItem.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnAddMultiItem.Size = new System.Drawing.Size(178, 39);
+            this.btnAddMultiItem.TabIndex = 9;
+            this.btnAddMultiItem.Text = "+ Multi Item";
+            this.btnAddMultiItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddMultiItem.UseVisualStyleBackColor = false;
+            this.btnAddMultiItem.Click += new System.EventHandler(this.btnAddMultiItem_Click);
             // 
             // btnHome
             // 
@@ -172,7 +172,7 @@ namespace Ads_Listing_Manager_Software
             this.btnAddType.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnAddType.Size = new System.Drawing.Size(178, 39);
             this.btnAddType.TabIndex = 4;
-            this.btnAddType.Text = "+ Component";
+            this.btnAddType.Text = "+ Category";
             this.btnAddType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddType.UseVisualStyleBackColor = false;
             this.btnAddType.Click += new System.EventHandler(this.btnAddType_Click);
