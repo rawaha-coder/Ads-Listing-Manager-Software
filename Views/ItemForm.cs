@@ -143,5 +143,10 @@ namespace Ads_Listing_Manager_Software.Views
         {
             Utility.Utility.ValidateNumberEntred(sender, e);
         }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
