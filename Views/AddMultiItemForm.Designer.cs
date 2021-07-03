@@ -35,28 +35,28 @@ namespace Ads_Listing_Manager_Software.Views
             this.comboModelList = new System.Windows.Forms.ComboBox();
             this.labelModel = new System.Windows.Forms.Label();
             this.panelAddMultiItem = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.listBoxNVIDIA = new System.Windows.Forms.ListBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.listBoxRAM = new System.Windows.Forms.ListBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.listBoxHDD = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.listBoxSSD = new System.Windows.Forms.ListBox();
             this.listBoxCPU = new System.Windows.Forms.ListBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panelAddMultiItem.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAddMultiItem
             // 
-            this.btnAddMultiItem.Location = new System.Drawing.Point(686, 31);
+            this.btnAddMultiItem.Location = new System.Drawing.Point(686, 42);
             this.btnAddMultiItem.Name = "btnAddMultiItem";
-            this.btnAddMultiItem.Size = new System.Drawing.Size(358, 34);
+            this.btnAddMultiItem.Size = new System.Drawing.Size(358, 23);
             this.btnAddMultiItem.TabIndex = 39;
             this.btnAddMultiItem.Text = "Add ";
             this.btnAddMultiItem.UseVisualStyleBackColor = true;
@@ -112,6 +112,42 @@ namespace Ads_Listing_Manager_Software.Views
             this.panelAddMultiItem.Size = new System.Drawing.Size(1184, 721);
             this.panelAddMultiItem.TabIndex = 44;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.listBoxNVIDIA);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.listBoxRAM);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.listBoxHDD);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.listBoxSSD);
+            this.groupBox2.Controls.Add(this.listBoxCPU);
+            this.groupBox2.Location = new System.Drawing.Point(10, 92);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1054, 534);
+            this.groupBox2.TabIndex = 45;
+            this.groupBox2.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(10, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 23);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "CPU";
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(848, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(66, 23);
+            this.label5.TabIndex = 35;
+            this.label5.Text = "NVIDIA";
+            // 
             // listBoxNVIDIA
             // 
             this.listBoxNVIDIA.FormattingEnabled = true;
@@ -121,6 +157,15 @@ namespace Ads_Listing_Manager_Software.Views
             this.listBoxNVIDIA.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBoxNVIDIA.Size = new System.Drawing.Size(196, 469);
             this.listBoxNVIDIA.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(686, 19);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 23);
+            this.label4.TabIndex = 35;
+            this.label4.Text = "RAM";
             // 
             // listBoxRAM
             // 
@@ -132,6 +177,15 @@ namespace Ads_Listing_Manager_Software.Views
             this.listBoxRAM.Size = new System.Drawing.Size(156, 469);
             this.listBoxRAM.TabIndex = 6;
             // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(526, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 23);
+            this.label3.TabIndex = 35;
+            this.label3.Text = "HDD";
+            // 
             // listBoxHDD
             // 
             this.listBoxHDD.FormattingEnabled = true;
@@ -141,6 +195,15 @@ namespace Ads_Listing_Manager_Software.Views
             this.listBoxHDD.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBoxHDD.Size = new System.Drawing.Size(154, 469);
             this.listBoxHDD.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(344, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 23);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "SSD";
             // 
             // listBoxSSD
             // 
@@ -162,51 +225,6 @@ namespace Ads_Listing_Manager_Software.Views
             this.listBoxCPU.Size = new System.Drawing.Size(327, 469);
             this.listBoxCPU.TabIndex = 6;
             // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(10, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 23);
-            this.label2.TabIndex = 35;
-            this.label2.Text = "CPU";
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(344, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 23);
-            this.label1.TabIndex = 35;
-            this.label1.Text = "SSD";
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(526, 19);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 23);
-            this.label3.TabIndex = 35;
-            this.label3.Text = "HDD";
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(686, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 23);
-            this.label4.TabIndex = 35;
-            this.label4.Text = "RAM";
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(848, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 23);
-            this.label5.TabIndex = 35;
-            this.label5.Text = "NVIDIA";
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.labelBrand);
@@ -220,24 +238,6 @@ namespace Ads_Listing_Manager_Software.Views
             this.groupBox1.TabIndex = 44;
             this.groupBox1.TabStop = false;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.listBoxNVIDIA);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.listBoxRAM);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.listBoxHDD);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.listBoxSSD);
-            this.groupBox2.Controls.Add(this.listBoxCPU);
-            this.groupBox2.Location = new System.Drawing.Point(10, 92);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1054, 534);
-            this.groupBox2.TabIndex = 45;
-            this.groupBox2.TabStop = false;
-            // 
             // AddMultiItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -249,9 +249,9 @@ namespace Ads_Listing_Manager_Software.Views
             this.Text = "AddMultiItemForm";
             this.Load += new System.EventHandler(this.AddMultiItemForm_Load);
             this.panelAddMultiItem.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

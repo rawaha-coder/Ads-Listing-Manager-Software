@@ -30,7 +30,6 @@ namespace Ads_Listing_Manager_Software.Views
         private void InitializeComponent()
         {
             this.buttonDeleteProduct = new System.Windows.Forms.Button();
-            this.buttonUpdateProduct = new System.Windows.Forms.Button();
             this.buttonAddProduct = new System.Windows.Forms.Button();
             this.labelProduct = new System.Windows.Forms.Label();
             this.labelComponent = new System.Windows.Forms.Label();
@@ -58,7 +57,7 @@ namespace Ads_Listing_Manager_Software.Views
             // buttonDeleteProduct
             // 
             this.buttonDeleteProduct.Enabled = false;
-            this.buttonDeleteProduct.Location = new System.Drawing.Point(215, 600);
+            this.buttonDeleteProduct.Location = new System.Drawing.Point(116, 500);
             this.buttonDeleteProduct.Name = "buttonDeleteProduct";
             this.buttonDeleteProduct.Size = new System.Drawing.Size(100, 35);
             this.buttonDeleteProduct.TabIndex = 10;
@@ -66,20 +65,9 @@ namespace Ads_Listing_Manager_Software.Views
             this.buttonDeleteProduct.UseVisualStyleBackColor = true;
             this.buttonDeleteProduct.Click += new System.EventHandler(this.ButtonDeleteProduct_Click);
             // 
-            // buttonUpdateProduct
-            // 
-            this.buttonUpdateProduct.Enabled = false;
-            this.buttonUpdateProduct.Location = new System.Drawing.Point(109, 600);
-            this.buttonUpdateProduct.Name = "buttonUpdateProduct";
-            this.buttonUpdateProduct.Size = new System.Drawing.Size(100, 35);
-            this.buttonUpdateProduct.TabIndex = 9;
-            this.buttonUpdateProduct.Text = "Update";
-            this.buttonUpdateProduct.UseVisualStyleBackColor = true;
-            this.buttonUpdateProduct.Click += new System.EventHandler(this.ButtonUpdateProduct_Click);
-            // 
             // buttonAddProduct
             // 
-            this.buttonAddProduct.Location = new System.Drawing.Point(3, 600);
+            this.buttonAddProduct.Location = new System.Drawing.Point(10, 500);
             this.buttonAddProduct.Name = "buttonAddProduct";
             this.buttonAddProduct.Size = new System.Drawing.Size(100, 35);
             this.buttonAddProduct.TabIndex = 8;
@@ -90,7 +78,7 @@ namespace Ads_Listing_Manager_Software.Views
             // labelProduct
             // 
             this.labelProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelProduct.Location = new System.Drawing.Point(10, 241);
+            this.labelProduct.Location = new System.Drawing.Point(10, 204);
             this.labelProduct.Name = "labelProduct";
             this.labelProduct.Size = new System.Drawing.Size(52, 23);
             this.labelProduct.TabIndex = 17;
@@ -100,25 +88,25 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             this.labelComponent.AutoSize = true;
             this.labelComponent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelComponent.Location = new System.Drawing.Point(10, 160);
+            this.labelComponent.Location = new System.Drawing.Point(10, 141);
             this.labelComponent.Name = "labelComponent";
-            this.labelComponent.Size = new System.Drawing.Size(92, 20);
+            this.labelComponent.Size = new System.Drawing.Size(73, 20);
             this.labelComponent.TabIndex = 26;
-            this.labelComponent.Text = "Component";
+            this.labelComponent.Text = "Category";
             // 
             // comboComponentList
             // 
             this.comboComponentList.FormattingEnabled = true;
-            this.comboComponentList.Location = new System.Drawing.Point(10, 183);
+            this.comboComponentList.Location = new System.Drawing.Point(10, 164);
             this.comboComponentList.Name = "comboComponentList";
-            this.comboComponentList.Size = new System.Drawing.Size(408, 23);
+            this.comboComponentList.Size = new System.Drawing.Size(312, 23);
             this.comboComponentList.TabIndex = 3;
             this.comboComponentList.SelectedIndexChanged += new System.EventHandler(this.comboListComponent_SelectedIndexChanged);
             // 
             // labelPrice
             // 
             this.labelPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelPrice.Location = new System.Drawing.Point(8, 406);
+            this.labelPrice.Location = new System.Drawing.Point(10, 344);
             this.labelPrice.Name = "labelPrice";
             this.labelPrice.Size = new System.Drawing.Size(54, 23);
             this.labelPrice.TabIndex = 29;
@@ -127,18 +115,19 @@ namespace Ads_Listing_Manager_Software.Views
             // txtProductPrice
             // 
             this.txtProductPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtProductPrice.Location = new System.Drawing.Point(10, 432);
+            this.txtProductPrice.Location = new System.Drawing.Point(10, 370);
             this.txtProductPrice.Name = "txtProductPrice";
-            this.txtProductPrice.Size = new System.Drawing.Size(408, 24);
+            this.txtProductPrice.ReadOnly = true;
+            this.txtProductPrice.Size = new System.Drawing.Size(312, 24);
             this.txtProductPrice.TabIndex = 6;
             this.txtProductPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateNumberEntred);
             // 
             // comboModelList
             // 
             this.comboModelList.FormattingEnabled = true;
-            this.comboModelList.Location = new System.Drawing.Point(10, 106);
+            this.comboModelList.Location = new System.Drawing.Point(10, 96);
             this.comboModelList.Name = "comboModelList";
-            this.comboModelList.Size = new System.Drawing.Size(411, 23);
+            this.comboModelList.Size = new System.Drawing.Size(312, 23);
             this.comboModelList.TabIndex = 2;
             this.comboModelList.SelectedIndexChanged += new System.EventHandler(this.comboListModel_SelectedIndexChanged);
             // 
@@ -146,7 +135,7 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             this.labelModel.AutoSize = true;
             this.labelModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelModel.Location = new System.Drawing.Point(10, 83);
+            this.labelModel.Location = new System.Drawing.Point(10, 73);
             this.labelModel.Name = "labelModel";
             this.labelModel.Size = new System.Drawing.Size(52, 20);
             this.labelModel.TabIndex = 30;
@@ -157,7 +146,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.comboBrandList.FormattingEnabled = true;
             this.comboBrandList.Location = new System.Drawing.Point(10, 30);
             this.comboBrandList.Name = "comboBrandList";
-            this.comboBrandList.Size = new System.Drawing.Size(411, 23);
+            this.comboBrandList.Size = new System.Drawing.Size(312, 23);
             this.comboBrandList.TabIndex = 1;
             this.comboBrandList.SelectedIndexChanged += new System.EventHandler(this.comboBrandList_SelectedIndexChanged);
             // 
@@ -176,12 +165,13 @@ namespace Ads_Listing_Manager_Software.Views
             this.viewListItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.viewListItems.FullRowSelect = true;
             this.viewListItems.GridLines = true;
             this.viewListItems.HideSelection = false;
             this.viewListItems.Location = new System.Drawing.Point(18, 30);
             this.viewListItems.MultiSelect = false;
             this.viewListItems.Name = "viewListItems";
-            this.viewListItems.Size = new System.Drawing.Size(624, 600);
+            this.viewListItems.Size = new System.Drawing.Size(715, 600);
             this.viewListItems.TabIndex = 11;
             this.viewListItems.UseCompatibleStateImageBehavior = false;
             this.viewListItems.View = System.Windows.Forms.View.Details;
@@ -199,17 +189,17 @@ namespace Ads_Listing_Manager_Software.Views
             // txtProductQuantity
             // 
             this.txtProductQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtProductQuantity.Location = new System.Drawing.Point(10, 515);
+            this.txtProductQuantity.Location = new System.Drawing.Point(10, 440);
             this.txtProductQuantity.Name = "txtProductQuantity";
-            this.txtProductQuantity.Size = new System.Drawing.Size(411, 24);
+            this.txtProductQuantity.ReadOnly = true;
+            this.txtProductQuantity.Size = new System.Drawing.Size(312, 24);
             this.txtProductQuantity.TabIndex = 7;
-            this.txtProductQuantity.Text = "1";
             this.txtProductQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateIntegerNumberEntred);
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(8, 489);
+            this.label2.Location = new System.Drawing.Point(10, 414);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 23);
             this.label2.TabIndex = 29;
@@ -218,16 +208,16 @@ namespace Ads_Listing_Manager_Software.Views
             // comboItemList
             // 
             this.comboItemList.FormattingEnabled = true;
-            this.comboItemList.Location = new System.Drawing.Point(10, 267);
+            this.comboItemList.Location = new System.Drawing.Point(10, 230);
             this.comboItemList.Name = "comboItemList";
-            this.comboItemList.Size = new System.Drawing.Size(408, 23);
+            this.comboItemList.Size = new System.Drawing.Size(312, 23);
             this.comboItemList.TabIndex = 4;
             this.comboItemList.SelectedIndexChanged += new System.EventHandler(this.comboItemList_SelectedIndexChanged);
             // 
             // labelCode
             // 
             this.labelCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelCode.Location = new System.Drawing.Point(10, 323);
+            this.labelCode.Location = new System.Drawing.Point(10, 273);
             this.labelCode.Name = "labelCode";
             this.labelCode.Size = new System.Drawing.Size(52, 23);
             this.labelCode.TabIndex = 53;
@@ -236,9 +226,10 @@ namespace Ads_Listing_Manager_Software.Views
             // txtProductCode
             // 
             this.txtProductCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtProductCode.Location = new System.Drawing.Point(10, 349);
+            this.txtProductCode.Location = new System.Drawing.Point(10, 299);
             this.txtProductCode.Name = "txtProductCode";
-            this.txtProductCode.Size = new System.Drawing.Size(408, 24);
+            this.txtProductCode.ReadOnly = true;
+            this.txtProductCode.Size = new System.Drawing.Size(312, 24);
             this.txtProductCode.TabIndex = 5;
             // 
             // panelLeftSide
@@ -251,7 +242,6 @@ namespace Ads_Listing_Manager_Software.Views
             this.panelLeftSide.Controls.Add(this.txtProductCode);
             this.panelLeftSide.Controls.Add(this.buttonAddProduct);
             this.panelLeftSide.Controls.Add(this.comboItemList);
-            this.panelLeftSide.Controls.Add(this.buttonUpdateProduct);
             this.panelLeftSide.Controls.Add(this.buttonClearFields);
             this.panelLeftSide.Controls.Add(this.buttonDeleteProduct);
             this.panelLeftSide.Controls.Add(this.comboBrandList);
@@ -266,12 +256,12 @@ namespace Ads_Listing_Manager_Software.Views
             this.panelLeftSide.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeftSide.Location = new System.Drawing.Point(0, 0);
             this.panelLeftSide.Name = "panelLeftSide";
-            this.panelLeftSide.Size = new System.Drawing.Size(434, 721);
+            this.panelLeftSide.Size = new System.Drawing.Size(343, 721);
             this.panelLeftSide.TabIndex = 54;
             // 
             // buttonClearFields
             // 
-            this.buttonClearFields.Location = new System.Drawing.Point(321, 600);
+            this.buttonClearFields.Location = new System.Drawing.Point(222, 500);
             this.buttonClearFields.Name = "buttonClearFields";
             this.buttonClearFields.Size = new System.Drawing.Size(100, 35);
             this.buttonClearFields.TabIndex = 10;
@@ -286,9 +276,9 @@ namespace Ads_Listing_Manager_Software.Views
             this.panelMiddle.Controls.Add(this.label1);
             this.panelMiddle.Controls.Add(this.viewListItems);
             this.panelMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMiddle.Location = new System.Drawing.Point(434, 0);
+            this.panelMiddle.Location = new System.Drawing.Point(343, 0);
             this.panelMiddle.Name = "panelMiddle";
-            this.panelMiddle.Size = new System.Drawing.Size(750, 721);
+            this.panelMiddle.Size = new System.Drawing.Size(841, 721);
             this.panelMiddle.TabIndex = 55;
             // 
             // AddProductForm
@@ -312,7 +302,6 @@ namespace Ads_Listing_Manager_Software.Views
 
         #endregion
         private System.Windows.Forms.Button buttonDeleteProduct;
-        private System.Windows.Forms.Button buttonUpdateProduct;
         private System.Windows.Forms.Button buttonAddProduct;
         private System.Windows.Forms.Label labelProduct;
         private System.Windows.Forms.Label labelComponent;

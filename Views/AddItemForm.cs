@@ -98,7 +98,7 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void SetViewListItemColumns()
         {
-            viewListItems.Columns.Add("CPU", 400, HorizontalAlignment.Left);
+            viewListItems.Columns.Add("Name", 400, HorizontalAlignment.Left);
             viewListItems.Columns.Add("Code", 140, HorizontalAlignment.Left);
             viewListItems.Columns.Add("Price", 80, HorizontalAlignment.Left);
             viewListItems.Columns.Add("Quantity", 80, HorizontalAlignment.Left);
@@ -212,8 +212,6 @@ namespace Ads_Listing_Manager_Software.Views
                 Logging.ShowError(ex);
             }
         }
-
-
 
         private void ButtonDeleteItem_Click(object sender, EventArgs e)
         {

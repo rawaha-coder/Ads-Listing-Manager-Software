@@ -34,6 +34,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtResultCalcul = new System.Windows.Forms.TextBox();
+            this.buttonClear = new System.Windows.Forms.Button();
             this.btnCalculTotalPrice = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@ namespace Ads_Listing_Manager_Software.Views
             this.comboModelList = new System.Windows.Forms.ComboBox();
             this.comboComponentList = new System.Windows.Forms.ComboBox();
             this.labelModel = new System.Windows.Forms.Label();
-            this.btnClear = new System.Windows.Forms.Button();
             this.panelProductForm.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -91,12 +91,12 @@ namespace Ads_Listing_Manager_Software.Views
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txtResultCalcul);
-            this.groupBox2.Controls.Add(this.btnClear);
+            this.groupBox2.Controls.Add(this.buttonClear);
             this.groupBox2.Controls.Add(this.btnCalculTotalPrice);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.txtProfitPrice);
             this.groupBox2.Controls.Add(this.txtFeePrice);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Location = new System.Drawing.Point(12, 254);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(578, 68);
@@ -106,18 +106,31 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             // txtResultCalcul
             // 
-            this.txtResultCalcul.Location = new System.Drawing.Point(356, 27);
+            this.txtResultCalcul.Location = new System.Drawing.Point(354, 31);
             this.txtResultCalcul.Name = "txtResultCalcul";
             this.txtResultCalcul.ReadOnly = true;
             this.txtResultCalcul.Size = new System.Drawing.Size(100, 23);
             this.txtResultCalcul.TabIndex = 54;
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.BackColor = System.Drawing.Color.Yellow;
+            this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonClear.Location = new System.Drawing.Point(485, 22);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(70, 35);
+            this.buttonClear.TabIndex = 10;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = false;
+            this.buttonClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnCalculTotalPrice
             // 
             this.btnCalculTotalPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnCalculTotalPrice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalculTotalPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnCalculTotalPrice.Location = new System.Drawing.Point(247, 20);
+            this.btnCalculTotalPrice.Location = new System.Drawing.Point(248, 22);
             this.btnCalculTotalPrice.Name = "btnCalculTotalPrice";
             this.btnCalculTotalPrice.Size = new System.Drawing.Size(100, 35);
             this.btnCalculTotalPrice.TabIndex = 10;
@@ -129,7 +142,7 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(115, 27);
+            this.label6.Location = new System.Drawing.Point(113, 29);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 21);
             this.label6.TabIndex = 3;
@@ -147,16 +160,17 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             // txtProfitPrice
             // 
-            this.txtProfitPrice.Location = new System.Drawing.Point(172, 29);
+            this.txtProfitPrice.Location = new System.Drawing.Point(159, 31);
+            this.txtProfitPrice.Multiline = true;
             this.txtProfitPrice.Name = "txtProfitPrice";
-            this.txtProfitPrice.Size = new System.Drawing.Size(60, 23);
+            this.txtProfitPrice.Size = new System.Drawing.Size(50, 23);
             this.txtProfitPrice.TabIndex = 9;
             // 
             // txtFeePrice
             // 
-            this.txtFeePrice.Location = new System.Drawing.Point(49, 29);
+            this.txtFeePrice.Location = new System.Drawing.Point(47, 31);
             this.txtFeePrice.Name = "txtFeePrice";
-            this.txtFeePrice.Size = new System.Drawing.Size(60, 23);
+            this.txtFeePrice.Size = new System.Drawing.Size(50, 23);
             this.txtFeePrice.TabIndex = 8;
             // 
             // groupBox1
@@ -199,7 +213,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.comboProductList.FormattingEnabled = true;
             this.comboProductList.Location = new System.Drawing.Point(113, 170);
             this.comboProductList.Name = "comboProductList";
-            this.comboProductList.Size = new System.Drawing.Size(318, 23);
+            this.comboProductList.Size = new System.Drawing.Size(324, 23);
             this.comboProductList.TabIndex = 36;
             this.comboProductList.SelectedIndexChanged += new System.EventHandler(this.comboProductList_SelectedIndexChanged);
             // 
@@ -269,19 +283,6 @@ namespace Ads_Listing_Manager_Software.Views
             this.labelModel.TabIndex = 39;
             this.labelModel.Text = "Model";
             // 
-            // btnClear
-            // 
-            this.btnClear.BackColor = System.Drawing.Color.Yellow;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnClear.Location = new System.Drawing.Point(485, 22);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(70, 30);
-            this.btnClear.TabIndex = 10;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
             // ProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -325,6 +326,6 @@ namespace Ads_Listing_Manager_Software.Views
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtProfitPrice;
         private System.Windows.Forms.TextBox txtFeePrice;
-        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button buttonClear;
     }
 }

@@ -55,7 +55,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.lblListComponent.Name = "lblListComponent";
             this.lblListComponent.Size = new System.Drawing.Size(174, 23);
             this.lblListComponent.TabIndex = 25;
-            this.lblListComponent.Text = "List Component";
+            this.lblListComponent.Text = "List Category";
             // 
             // txtComponentDescription
             // 
@@ -114,7 +114,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.lblAddComponent.Name = "lblAddComponent";
             this.lblAddComponent.Size = new System.Drawing.Size(100, 23);
             this.lblAddComponent.TabIndex = 17;
-            this.lblAddComponent.Text = "Component";
+            this.lblAddComponent.Text = "Category";
             this.lblAddComponent.Click += new System.EventHandler(this.lblAddComponent_Click);
             // 
             // txtComponentName

@@ -151,9 +151,9 @@ namespace Ads_Listing_Manager_Software.Views
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(6, 28);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 20);
+            this.label3.Size = new System.Drawing.Size(73, 20);
             this.label3.TabIndex = 32;
-            this.label3.Text = "Component";
+            this.label3.Text = "Category";
             // 
             // comboComponentList
             // 

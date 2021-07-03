@@ -1,5 +1,6 @@
 ﻿using Ads_Listing_Manager_Software.Database;
 using Ads_Listing_Manager_Software.Models;
+using Ads_Listing_Manager_Software.Utility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,7 +41,7 @@ namespace Ads_Listing_Manager_Software.Views
             }
             catch (Exception ex)
             {
-                Utility.Logging.ShowError(ex);
+                Logging.ShowError(ex);
             }
         }
 
@@ -81,6 +82,8 @@ namespace Ads_Listing_Manager_Software.Views
                 return;
             }
             AddBrandDataToDatabase();
+            ClearField();
+            LoadBrandData();
         }
 
         private void AddBrandDataToDatabase()
@@ -89,13 +92,10 @@ namespace Ads_Listing_Manager_Software.Views
             {
                 GetFieldsValues();
                 brandDAO.AddData(mBrand);
-                MessageBox.Show("Brand Saved", "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
-                ClearField();
-                LoadBrandData();
             }
             catch (Exception ex)
             {
-                Utility.Logging.ShowError(ex);
+                Logging.ShowError(ex);
             }
         }
 
@@ -120,6 +120,8 @@ namespace Ads_Listing_Manager_Software.Views
                 return;
             }
             UpdateBrandDataInDatabase();
+            ClearField();
+            LoadBrandData();
         }
 
         private void UpdateBrandDataInDatabase()
@@ -128,13 +130,10 @@ namespace Ads_Listing_Manager_Software.Views
             {
                 GetFieldsValues();
                 brandDAO.UpdateData(mBrand);
-                MessageBox.Show("Brand Updated", "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
-                ClearField();
-                LoadBrandData();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Brand Not Updated: " + ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
+                Logging.ShowError(ex);
             }
         }
 
@@ -145,6 +144,8 @@ namespace Ads_Listing_Manager_Software.Views
                 return;
             }
             DeleteBrandDataFromDatabase();
+            ClearField();
+            LoadBrandData();
         }
 
         private bool CheckAbilityForDelete()
@@ -161,7 +162,7 @@ namespace Ads_Listing_Manager_Software.Views
                 }
                 catch(Exception ex)
                 {
-                    Utility.Logging.ShowError(ex);
+                    Logging.ShowError(ex);
                 }
             }
             else
@@ -176,9 +177,6 @@ namespace Ads_Listing_Manager_Software.Views
             try
             {
                 brandDAO.DeleteData(mBrand);
-                MessageBox.Show("Brand Deleted", "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
-                ClearField();
-                LoadBrandData();
             }
             catch (Exception ex)
             {

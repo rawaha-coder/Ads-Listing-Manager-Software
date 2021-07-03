@@ -19,31 +19,15 @@ namespace Ads_Listing_Manager_Software.Views
         List<Product> RAMList = new List<Product>();
         List<Product> NVIDIAList = new List<Product>();
 
-        double mModelPrice = 0.0;
-        double mCPUPrice = 0.0;
-        double mSSDPrice = 0.0;
-        double mHDDPrice = 0.0;
-        double mRAMPrice = 0.0;
-        double mNVIDIAPrice = 0.0;
+        double mModelPrice, mCPUPrice, mSSDPrice, mHDDPrice, mRAMPrice, mNVIDIAPrice;
 
-        string mModelName = "";
-        string mCPUName = "";
-        string mSSDName = "";
-        string mHDDName = "";
-        string mRAMName = "";
-        string mNVIDIAName = "";
+        string mModelName, mCPUName, mSSDName, mHDDName,mRAMName, mNVIDIAName;
 
         public DesktopForm()
         {
             InitializeComponent();
-        }
-
-        private void DesktopForm_Load(object sender, EventArgs e)
-        {
             initToZeroString();
-            LoadBrandList();
         }
-
         private void initToZeroString()
         {
             txtModelPrice.Text = "0.0";
@@ -55,14 +39,23 @@ namespace Ads_Listing_Manager_Software.Views
             txtResultCalcul.Text = "0.0";
             txtFeePrice.Text = "";
             txtProfitPrice.Text = "";
-
             mModelName = "";
             mCPUName = "";
             mSSDName = "";
             mHDDName = "";
             mRAMName = "";
             mNVIDIAName = "";
+            mModelPrice = 0.0;
+            mCPUPrice = 0.0;
+            mSSDPrice = 0.0;
+            mHDDPrice = 0.0;
+            mRAMPrice = 0.0;
+            mNVIDIAPrice = 0.0;
+        }
 
+        private void DesktopForm_Load(object sender, EventArgs e)
+        {
+            LoadBrandList();
         }
 
         private void LoadBrandList()
@@ -260,6 +253,30 @@ namespace Ads_Listing_Manager_Software.Views
         private void txtProfitPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.Utility.ValidateNumberEntred(sender, e);
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            initToZeroString();
+            ClearComboBox();
+        }
+
+        private void ClearComboBox()
+        {
+            comboBrandList.SelectedIndex = -1;
+            comboBrandList.Text = "";
+            comboModelList.SelectedIndex = -1;
+            comboModelList.Text = "";
+            comboCPUList.SelectedIndex = -1;
+            comboCPUList.Text = "";
+            comboSSDList.SelectedIndex = -1;
+            comboSSDList.Text = "";
+            comboHDDList.SelectedIndex = -1;
+            comboHDDList.Text = "";
+            comboRAMList.SelectedIndex = -1;
+            comboRAMList.Text = "";
+            comboNVIDIAList.SelectedIndex = -1;
+            comboNVIDIAList.Text = "";
         }
     }
 }

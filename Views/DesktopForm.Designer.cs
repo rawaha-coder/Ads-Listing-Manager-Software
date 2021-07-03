@@ -59,6 +59,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.txtFeePrice = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
+            this.buttonClear = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -276,12 +277,13 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.buttonClear);
             this.groupBox2.Controls.Add(this.txtResultCalcul);
             this.groupBox2.Controls.Add(this.btnCalculTotalPrice);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.txtProfitPrice);
             this.groupBox2.Controls.Add(this.txtFeePrice);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(13, 345);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(578, 68);
@@ -291,7 +293,7 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             // txtResultCalcul
             // 
-            this.txtResultCalcul.Location = new System.Drawing.Point(455, 29);
+            this.txtResultCalcul.Location = new System.Drawing.Point(363, 31);
             this.txtResultCalcul.Name = "txtResultCalcul";
             this.txtResultCalcul.ReadOnly = true;
             this.txtResultCalcul.Size = new System.Drawing.Size(100, 23);
@@ -302,11 +304,11 @@ namespace Ads_Listing_Manager_Software.Views
             this.btnCalculTotalPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnCalculTotalPrice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalculTotalPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnCalculTotalPrice.Location = new System.Drawing.Point(347, 25);
+            this.btnCalculTotalPrice.Location = new System.Drawing.Point(267, 23);
             this.btnCalculTotalPrice.Name = "btnCalculTotalPrice";
             this.btnCalculTotalPrice.Size = new System.Drawing.Size(90, 32);
             this.btnCalculTotalPrice.TabIndex = 10;
-            this.btnCalculTotalPrice.Text = "Calcul";
+            this.btnCalculTotalPrice.Text = "Calcul:";
             this.btnCalculTotalPrice.UseVisualStyleBackColor = false;
             this.btnCalculTotalPrice.Click += new System.EventHandler(this.btnCalculTotalPrice_Click);
             // 
@@ -314,7 +316,7 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(182, 31);
+            this.label6.Location = new System.Drawing.Point(132, 29);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 21);
             this.label6.TabIndex = 3;
@@ -332,17 +334,17 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             // txtProfitPrice
             // 
-            this.txtProfitPrice.Location = new System.Drawing.Point(230, 29);
+            this.txtProfitPrice.Location = new System.Drawing.Point(179, 31);
             this.txtProfitPrice.Name = "txtProfitPrice";
-            this.txtProfitPrice.Size = new System.Drawing.Size(100, 23);
+            this.txtProfitPrice.Size = new System.Drawing.Size(50, 23);
             this.txtProfitPrice.TabIndex = 9;
             this.txtProfitPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProfitPrice_KeyPress);
             // 
             // txtFeePrice
             // 
-            this.txtFeePrice.Location = new System.Drawing.Point(61, 29);
+            this.txtFeePrice.Location = new System.Drawing.Point(54, 31);
             this.txtFeePrice.Name = "txtFeePrice";
-            this.txtFeePrice.Size = new System.Drawing.Size(100, 23);
+            this.txtFeePrice.Size = new System.Drawing.Size(50, 23);
             this.txtFeePrice.TabIndex = 8;
             this.txtFeePrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFeePrice_KeyPress);
             // 
@@ -363,6 +365,19 @@ namespace Ads_Listing_Manager_Software.Views
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(565, 209);
             this.txtDescription.TabIndex = 11;
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.BackColor = System.Drawing.Color.Yellow;
+            this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonClear.Location = new System.Drawing.Point(485, 22);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(70, 35);
+            this.buttonClear.TabIndex = 55;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = false;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
             // DesktopForm
             // 
@@ -419,5 +434,6 @@ namespace Ads_Listing_Manager_Software.Views
         private System.Windows.Forms.TextBox txtFeePrice;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.Button buttonClear;
     }
 }

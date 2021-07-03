@@ -58,6 +58,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.viewListItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.viewListItems.FullRowSelect = true;
             this.viewListItems.GridLines = true;
             this.viewListItems.HideSelection = false;
             this.viewListItems.Location = new System.Drawing.Point(3, 30);
@@ -121,9 +122,9 @@ namespace Ads_Listing_Manager_Software.Views
             this.labelComponent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelComponent.Location = new System.Drawing.Point(3, 7);
             this.labelComponent.Name = "labelComponent";
-            this.labelComponent.Size = new System.Drawing.Size(92, 20);
+            this.labelComponent.Size = new System.Drawing.Size(73, 20);
             this.labelComponent.TabIndex = 49;
-            this.labelComponent.Text = "Component";
+            this.labelComponent.Text = "Category";
             // 
             // label1
             // 
@@ -191,7 +192,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.labelProduct.Name = "labelProduct";
             this.labelProduct.Size = new System.Drawing.Size(69, 23);
             this.labelProduct.TabIndex = 45;
-            this.labelProduct.Text = "Product";
+            this.labelProduct.Text = "Name";
             // 
             // txtItemName
             // 

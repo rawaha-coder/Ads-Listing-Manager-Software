@@ -165,7 +165,7 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void SetViewListColumns()
         {
-            viewListItems.Columns.Add("Product", 500, HorizontalAlignment.Left);
+            viewListItems.Columns.Add("Product", 400, HorizontalAlignment.Left);
             viewListItems.Columns.Add("Price", 100, HorizontalAlignment.Left);
             viewListItems.Columns.Add("Quantity", 80, HorizontalAlignment.Left);
         }
@@ -262,7 +262,7 @@ namespace Ads_Listing_Manager_Software.Views
             if (viewListItems.SelectedItems.Count > 0)
             {
                 selectProductForUpdateOrDelete();
-                EnableUpdateAndDeleteButton();
+                EnableDeleteButton();
             }
         }
 
@@ -319,31 +319,6 @@ namespace Ads_Listing_Manager_Software.Views
             mProduct.Type.Id = listComponent[comboComponentList.SelectedIndex].Id;
         }
 
-        private void ButtonUpdateProduct_Click(object sender, EventArgs e)
-        {
-            if (InputIsNotValidate())
-            {
-                MessageBox.Show("Check input values");
-                return;
-            }
-            UpdateProductData();
-            ClearField();
-            DisableUpdateAndDeleteButton();
-        }
-
-        private void UpdateProductData()
-        {
-            try
-            {
-                GetInputFieldValue();
-                mProductDAO.UpdateData(mProduct);
-            }
-            catch (Exception ex)
-            {
-                Logging.ShowError(ex);
-            }
-        }
-
         private void ButtonDeleteProduct_Click(object sender, EventArgs e)
         {
             if (InputIsNotValidate())
@@ -353,7 +328,7 @@ namespace Ads_Listing_Manager_Software.Views
             }
             DeleteProductData();
             ClearField();
-            DisableUpdateAndDeleteButton();
+            DisableDeleteButton();
         }
 
         private void DeleteProductData()
@@ -403,21 +378,27 @@ namespace Ads_Listing_Manager_Software.Views
         private void buttonClearFields_Click(object sender, EventArgs e)
         {
             ClearField();
-            DisableUpdateAndDeleteButton();
+            DisableDeleteButton();
         }
 
-        private void DisableUpdateAndDeleteButton()
+        private void DisableDeleteButton()
         {
-            buttonAddProduct.Enabled = true;
-            buttonUpdateProduct.Enabled = false;
             buttonDeleteProduct.Enabled = false;
+            buttonAddProduct.Enabled = true;
+            comboBrandList.Enabled = true;
+            comboModelList.Enabled = true;
+            comboComponentList.Enabled = true;
+            comboItemList.Enabled = true;
         }
 
-        private void EnableUpdateAndDeleteButton()
+        private void EnableDeleteButton()
         {
-            buttonAddProduct.Enabled = false;
-            buttonUpdateProduct.Enabled = true;
             buttonDeleteProduct.Enabled = true;
+            buttonAddProduct.Enabled = false;
+            comboBrandList.Enabled = false;
+            comboModelList.Enabled = false;
+            comboComponentList.Enabled = false;
+            comboItemList.Enabled = false;
         }
     }
 }
