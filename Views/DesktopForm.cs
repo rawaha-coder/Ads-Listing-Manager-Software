@@ -58,6 +58,7 @@ namespace Ads_Listing_Manager_Software.Views
             txtResultCalcul.Text = "0.0";
             txtFeePrice.Text = "";
             txtProfitPrice.Text = "";
+            txtDescription.Text = "";
         }
 
         private void setVariableNameToEmpty()
