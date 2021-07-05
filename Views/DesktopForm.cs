@@ -58,6 +58,7 @@ namespace Ads_Listing_Manager_Software.Views
             txtResultCalcul.Text = "0.0";
             txtFeePrice.Text = "";
             txtProfitPrice.Text = "";
+            txtDescription.Text = "";
         }
 
         private void setVariableNameToEmpty()
@@ -232,7 +233,7 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void ButtonCalculTotalPrice_Click(object sender, EventArgs e)
         {
-            txtResultCalcul.Text = CalculTotalPay().ToString();
+            txtResultCalcul.Text = CalculTotalPay().ToString("0.00");
             GetArticle();
         }
 

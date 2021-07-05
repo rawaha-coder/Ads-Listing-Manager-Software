@@ -70,7 +70,7 @@ namespace Ads_Listing_Manager_Software.Views
             try
             {
                 listItem.Clear();
-                listItem = itemDAO.getItemsByType(mComponent.Id);
+                listItem = itemDAO.getItemsByTypeSortedByName(mComponent.Id);
                 getItemsList();
             }
             catch (Exception ex)

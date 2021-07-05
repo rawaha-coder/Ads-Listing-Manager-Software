@@ -23,20 +23,14 @@ namespace Ads_Listing_Manager_Software
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            try
-            {
-                //ComponentDAO b = ComponentDAO.getInstance();
-                //ProductDAO b = ProductDAO.getInstance();
-                //ModelDAO b = ModelDAO.getInstance();
-                //b.CreateTable();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
 
         }
 
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+        }
 
         private void OpenChildForm(Form childForm)
         {
@@ -90,11 +84,6 @@ namespace Ads_Listing_Manager_Software
         private void btnAddOneProduct_Click(object sender, EventArgs e)
         {
             OpenChildForm(new AddProductForm());
-        }
-
-        private void btnHome_Click(object sender, EventArgs e)
-        {
-            activeForm.Close();
         }
 
         private void btnItemForm_Click(object sender, EventArgs e)

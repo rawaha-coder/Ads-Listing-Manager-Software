@@ -1,5 +1,6 @@
 ﻿using Ads_Listing_Manager_Software.Database;
 using Ads_Listing_Manager_Software.Models;
+using Ads_Listing_Manager_Software.Utility;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -8,20 +9,28 @@ namespace Ads_Listing_Manager_Software.Views
 {
     public partial class ItemForm : Form
     {
-        ComponentDAO mComponentDAO = ComponentDAO.getInstance();
-        ItemDAO itemDAO = ItemDAO.getInstance();
-        Component mComponent = new Component();
-        Item mItem = new Item();
-        List<Component> listComponent = new List<Component>();
-        List<Item> listItem = new List<Item>();
-
-        double mItemPrice = 0.0;
-        string mItemName = "";
-        string mItemDescription = "";
+        private readonly ComponentDAO mComponentDAO;
+        private readonly ItemDAO itemDAO;
+        private Component mComponent;
+        private Item mItem;
+        private List<Component> listComponent;
+        private List<Item> listItem;
+        double mItemPrice;
+        string mItemName;
+        string mItemDescription;
 
         public ItemForm()
         {
             InitializeComponent();
+            mComponentDAO = ComponentDAO.getInstance();
+            itemDAO = ItemDAO.getInstance();
+            mComponent = new Component();
+            mItem = new Item();
+            listComponent = new List<Component>();
+            listItem = new List<Item>();
+            mItemPrice = 0.0;
+            mItemName = "";
+            mItemDescription = "";
         }
 
         private void ItemForm_Load(object sender, EventArgs e)
@@ -39,7 +48,7 @@ namespace Ads_Listing_Manager_Software.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Logging.ShowError(ex);
             }
         }
 
@@ -71,7 +80,7 @@ namespace Ads_Listing_Manager_Software.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Logging.ShowError(ex);
             }
         }
 
@@ -88,7 +97,7 @@ namespace Ads_Listing_Manager_Software.Views
             }
             catch(Exception ex)
             {
-                Utility.Logging.ShowError(ex);
+                Logging.ShowError(ex);
             }
         }
 
@@ -96,40 +105,40 @@ namespace Ads_Listing_Manager_Software.Views
         {
             if (comboItemList.SelectedIndex != -1)
             {
-                mItem = listItem[comboItemList.SelectedIndex];
-                txtItemPrice.Text = mItem.Price.ToString();
-                mItemPrice = mItem.Price;
-                mItemName = mItem.Name;
-                mItemDescription = mItem.Description;
+                getItemPrice();
             }
         }
 
-        private void btnCalculTotalPrice_Click(object sender, EventArgs e)
+        private void getItemPrice()
         {
-            var price = CalculTotalPay();
-            txtResultCalcul.Text = price.ToString();
+            mItem = listItem[comboItemList.SelectedIndex];
+            txtItemPrice.Text = mItem.Price.ToString();
+            mItemPrice = mItem.Price;
+            mItemName = mItem.Name;
+            mItemDescription = mItem.Description;
+        }
+
+        private void buttonCalculTotalPrice_Click(object sender, EventArgs e)
+        {
+            txtResultCalcul.Text = CalculTotalPay().ToString("0.00");
             GetArticle();
         }
 
         private double CalculTotalPay()
         {
-            double total = 0.0;
-            total = mItemPrice + (mItemPrice * FeePercentage()) + (mItemPrice * ProfitPercentage());
-            return total;
+            return mItemPrice + (mItemPrice * FeePercentage()) + (mItemPrice * ProfitPercentage());
         }
 
         private double FeePercentage()
         {
             double fee = (txtFeePrice.Text != "") ? Convert.ToDouble(txtFeePrice.Text) : 0;
-            double feePercenage = fee / 100;
-            return feePercenage;
+            return fee / 100;
         }
 
         private double ProfitPercentage()
         {
             double profit = (txtProfitPrice.Text != "") ? Convert.ToDouble(txtProfitPrice.Text) : 0;
-            double feePercenage = profit / 100;
-            return feePercenage;
+            return profit / 100;
         }
 
         private void GetArticle()
@@ -146,7 +155,23 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
+            ClearFields();
+        }
 
+        private void ClearFields()
+        {
+            comboComponentList.SelectedIndex = -1;
+            comboComponentList.Text = "";
+            comboItemList.SelectedIndex = -1;
+            comboItemList.Text = "";
+            txtItemPrice.Text = "0.0";
+            txtFeePrice.Text = "";
+            txtProfitPrice.Text = "";
+            txtResultCalcul.Text = "0.0";
+            txtDescription.Text = "";
+            mItemPrice = 0;
+            mItemName = "";
+            mItemDescription = "";
         }
     }
 }

@@ -5,6 +5,7 @@
     <TargetFramework>net5.0-windows</TargetFramework>
     <RootNamespace>Ads_Listing_Manager_Software</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>logo-itworkstation-black~1.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
