@@ -13,27 +13,31 @@ namespace Ads_Listing_Manager_Software.Views
 {
     public partial class AddMultiItemForm : Form
     {
-        BrandDAO mBrandDAO = BrandDAO.getInstance();
-        ModelDAO mModelDAO = ModelDAO.getInstance();
-        ItemDAO mItemDAO = ItemDAO.getInstance();
-        ProductDAO mProductDAO = ProductDAO.getInstance();
-        List<Brand> listBrand = new List<Brand>();
-        List<Model> listModel = new List<Model>();
-
-
-        List<Item> CPUListItem = new List<Item>();
-        List<Item> SSDListItem = new List<Item>();
-        List<Item> HDDListItem = new List<Item>();
-        List<Item> RAMListItem = new List<Item>();
-        List<Item> NVIDIAListItem = new List<Item>();
+        private readonly BrandDAO mBrandDAO;
+        private readonly ModelDAO mModelDAO;
+        private readonly ItemDAO mItemDAO;
+        private readonly ProductDAO mProductDAO;
+        private List<Brand> listBrand;
+        private List<Model> listModel;
+        private List<Item> CPUListItem, SSDListItem, HDDListItem, RAMListItem, NVIDIAListItem;
 
         int ModelId = -1;
         List<int>[] listItemsId = new List<int>[6];
 
-
         public AddMultiItemForm()
         {
             InitializeComponent();
+            mBrandDAO = BrandDAO.getInstance();
+            mModelDAO = ModelDAO.getInstance();
+            mItemDAO = ItemDAO.getInstance();
+            mProductDAO = ProductDAO.getInstance();
+            listBrand = new List<Brand>();
+            listModel = new List<Model>();
+            CPUListItem = new List<Item>();
+            SSDListItem = new List<Item>();
+            HDDListItem = new List<Item>();
+            RAMListItem = new List<Item>();
+            NVIDIAListItem = new List<Item>();
             initArray();
         }
 
@@ -238,6 +242,5 @@ namespace Ads_Listing_Manager_Software.Views
                 }
             }
         }
-
     }
 }

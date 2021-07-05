@@ -34,11 +34,11 @@ namespace Ads_Listing_Manager_Software
             this.btnAddOneProduct = new System.Windows.Forms.Button();
             this.btnAddMultiProduct = new System.Windows.Forms.Button();
             this.btnAddMultiItem = new System.Windows.Forms.Button();
-            this.btnHome = new System.Windows.Forms.Button();
             this.btnAddItem = new System.Windows.Forms.Button();
             this.btnAddType = new System.Windows.Forms.Button();
             this.btnAddModel = new System.Windows.Forms.Button();
             this.btnAddBrand = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.LogoPicBox = new System.Windows.Forms.PictureBox();
             this.MainWindowsPanel = new System.Windows.Forms.Panel();
@@ -65,11 +65,11 @@ namespace Ads_Listing_Manager_Software
             this.SideMenuPanel.Controls.Add(this.btnAddOneProduct);
             this.SideMenuPanel.Controls.Add(this.btnAddMultiProduct);
             this.SideMenuPanel.Controls.Add(this.btnAddMultiItem);
-            this.SideMenuPanel.Controls.Add(this.btnHome);
             this.SideMenuPanel.Controls.Add(this.btnAddItem);
             this.SideMenuPanel.Controls.Add(this.btnAddType);
             this.SideMenuPanel.Controls.Add(this.btnAddModel);
             this.SideMenuPanel.Controls.Add(this.btnAddBrand);
+            this.SideMenuPanel.Controls.Add(this.btnHome);
             this.SideMenuPanel.Controls.Add(this.panel1);
             this.SideMenuPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.SideMenuPanel.Location = new System.Drawing.Point(1226, 0);
@@ -84,7 +84,7 @@ namespace Ads_Listing_Manager_Software
             this.btnAddOneProduct.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAddOneProduct.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(121)))), ((int)(((byte)(29)))));
             this.btnAddOneProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddOneProduct.Location = new System.Drawing.Point(0, 323);
+            this.btnAddOneProduct.Location = new System.Drawing.Point(0, 362);
             this.btnAddOneProduct.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddOneProduct.Name = "btnAddOneProduct";
             this.btnAddOneProduct.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -101,7 +101,7 @@ namespace Ads_Listing_Manager_Software
             this.btnAddMultiProduct.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAddMultiProduct.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(121)))), ((int)(((byte)(29)))));
             this.btnAddMultiProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddMultiProduct.Location = new System.Drawing.Point(0, 284);
+            this.btnAddMultiProduct.Location = new System.Drawing.Point(0, 323);
             this.btnAddMultiProduct.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddMultiProduct.Name = "btnAddMultiProduct";
             this.btnAddMultiProduct.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -118,7 +118,7 @@ namespace Ads_Listing_Manager_Software
             this.btnAddMultiItem.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAddMultiItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(121)))), ((int)(((byte)(29)))));
             this.btnAddMultiItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddMultiItem.Location = new System.Drawing.Point(0, 245);
+            this.btnAddMultiItem.Location = new System.Drawing.Point(0, 284);
             this.btnAddMultiItem.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddMultiItem.Name = "btnAddMultiItem";
             this.btnAddMultiItem.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -129,27 +129,13 @@ namespace Ads_Listing_Manager_Software
             this.btnAddMultiItem.UseVisualStyleBackColor = false;
             this.btnAddMultiItem.Click += new System.EventHandler(this.btnAddMultiItem_Click);
             // 
-            // btnHome
-            // 
-            this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
-            this.btnHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(121)))), ((int)(((byte)(29)))));
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.Location = new System.Drawing.Point(0, 711);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(2);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(178, 39);
-            this.btnHome.TabIndex = 6;
-            this.btnHome.Text = "Home";
-            this.btnHome.UseVisualStyleBackColor = false;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
-            // 
             // btnAddItem
             // 
             this.btnAddItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
             this.btnAddItem.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAddItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(121)))), ((int)(((byte)(29)))));
             this.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddItem.Location = new System.Drawing.Point(0, 206);
+            this.btnAddItem.Location = new System.Drawing.Point(0, 245);
             this.btnAddItem.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -166,7 +152,7 @@ namespace Ads_Listing_Manager_Software
             this.btnAddType.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAddType.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(121)))), ((int)(((byte)(29)))));
             this.btnAddType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddType.Location = new System.Drawing.Point(0, 167);
+            this.btnAddType.Location = new System.Drawing.Point(0, 206);
             this.btnAddType.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddType.Name = "btnAddType";
             this.btnAddType.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -183,7 +169,7 @@ namespace Ads_Listing_Manager_Software
             this.btnAddModel.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAddModel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(121)))), ((int)(((byte)(29)))));
             this.btnAddModel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddModel.Location = new System.Drawing.Point(0, 128);
+            this.btnAddModel.Location = new System.Drawing.Point(0, 167);
             this.btnAddModel.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddModel.Name = "btnAddModel";
             this.btnAddModel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -200,7 +186,7 @@ namespace Ads_Listing_Manager_Software
             this.btnAddBrand.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAddBrand.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(121)))), ((int)(((byte)(29)))));
             this.btnAddBrand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddBrand.Location = new System.Drawing.Point(0, 89);
+            this.btnAddBrand.Location = new System.Drawing.Point(0, 128);
             this.btnAddBrand.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddBrand.Name = "btnAddBrand";
             this.btnAddBrand.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -210,6 +196,21 @@ namespace Ads_Listing_Manager_Software
             this.btnAddBrand.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddBrand.UseVisualStyleBackColor = false;
             this.btnAddBrand.Click += new System.EventHandler(this.btnAddBrand_Click);
+            // 
+            // btnHome
+            // 
+            this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
+            this.btnHome.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(121)))), ((int)(((byte)(29)))));
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.Location = new System.Drawing.Point(0, 89);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(2);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(178, 39);
+            this.btnHome.TabIndex = 6;
+            this.btnHome.Text = "Home";
+            this.btnHome.UseVisualStyleBackColor = false;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // panel1
             // 
@@ -279,6 +280,7 @@ namespace Ads_Listing_Manager_Software
             // 
             this.panel2.AutoScroll = true;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(159)))), ((int)(((byte)(181)))));
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.btnItemForm);
             this.panel2.Controls.Add(this.btnProductForm);
             this.panel2.Controls.Add(this.btnLaptopForm);
@@ -300,7 +302,7 @@ namespace Ads_Listing_Manager_Software
             this.btnItemForm.Location = new System.Drawing.Point(491, 0);
             this.btnItemForm.Margin = new System.Windows.Forms.Padding(2);
             this.btnItemForm.Name = "btnItemForm";
-            this.btnItemForm.Size = new System.Drawing.Size(163, 41);
+            this.btnItemForm.Size = new System.Drawing.Size(163, 37);
             this.btnItemForm.TabIndex = 2;
             this.btnItemForm.Text = "Item";
             this.btnItemForm.UseVisualStyleBackColor = false;
@@ -315,7 +317,7 @@ namespace Ads_Listing_Manager_Software
             this.btnProductForm.Location = new System.Drawing.Point(328, 0);
             this.btnProductForm.Margin = new System.Windows.Forms.Padding(2);
             this.btnProductForm.Name = "btnProductForm";
-            this.btnProductForm.Size = new System.Drawing.Size(163, 41);
+            this.btnProductForm.Size = new System.Drawing.Size(163, 37);
             this.btnProductForm.TabIndex = 3;
             this.btnProductForm.Text = "Product";
             this.btnProductForm.UseVisualStyleBackColor = false;
@@ -330,7 +332,7 @@ namespace Ads_Listing_Manager_Software
             this.btnLaptopForm.Location = new System.Drawing.Point(165, 0);
             this.btnLaptopForm.Margin = new System.Windows.Forms.Padding(2);
             this.btnLaptopForm.Name = "btnLaptopForm";
-            this.btnLaptopForm.Size = new System.Drawing.Size(163, 41);
+            this.btnLaptopForm.Size = new System.Drawing.Size(163, 37);
             this.btnLaptopForm.TabIndex = 1;
             this.btnLaptopForm.Text = "Laptop";
             this.btnLaptopForm.UseVisualStyleBackColor = false;
@@ -346,7 +348,7 @@ namespace Ads_Listing_Manager_Software
             this.btnDesktopForm.Location = new System.Drawing.Point(2, 0);
             this.btnDesktopForm.Margin = new System.Windows.Forms.Padding(2);
             this.btnDesktopForm.Name = "btnDesktopForm";
-            this.btnDesktopForm.Size = new System.Drawing.Size(163, 41);
+            this.btnDesktopForm.Size = new System.Drawing.Size(163, 37);
             this.btnDesktopForm.TabIndex = 0;
             this.btnDesktopForm.Text = "Desktop";
             this.btnDesktopForm.UseVisualStyleBackColor = false;

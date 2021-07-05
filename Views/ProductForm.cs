@@ -258,7 +258,7 @@ namespace Ads_Listing_Manager_Software.Views
 
         private void ButtonCalculTotalPrice_Click(object sender, EventArgs e)
         {
-            txtResultCalcul.Text = CalculTotalPay().ToString();
+            txtResultCalcul.Text = CalculTotalPay().ToString("0.00");
             GetArticle();
         }
 

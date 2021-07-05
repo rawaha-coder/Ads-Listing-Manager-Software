@@ -151,6 +151,31 @@ namespace Ads_Listing_Manager_Software.Database
                                         + " WHERE " + COLUMN_ITEM_ID + " = " + item.Id + " ";
         }
 
+        internal List<Item> getItemsByTypeSortedByName
+            (int id)
+        {
+            try
+            {
+                SQLiteCommand sQLiteCommand = new SQLiteCommand(selectCommandSortedByName(id), mSQLiteConnection);
+                OpenConnection();
+                SQLiteDataReader result = sQLiteCommand.ExecuteReader();
+                return GetItemDataFromResult(result);
+            }
+            catch (SQLiteException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+
+        private static string selectCommandSortedByName(int ComponentId)
+        {
+            return "SELECT * FROM " + TABLE_ITEM + " WHERE  " + COLUMN_ITEM_TYPE + " = " + ComponentId + " ORDER BY " + COLUMN_ITEM_NAME + " ASC;";
+        }
+
         internal List<Item> getItemsByType(int id)
         {
             try
