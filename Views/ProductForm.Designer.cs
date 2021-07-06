@@ -74,7 +74,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.groupBox3.Controls.Add(this.txtDescription);
             this.groupBox3.Location = new System.Drawing.Point(12, 342);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(578, 318);
+            this.groupBox3.Size = new System.Drawing.Size(690, 318);
             this.groupBox3.TabIndex = 58;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Description";
@@ -84,7 +84,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.txtDescription.Location = new System.Drawing.Point(7, 14);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(565, 298);
+            this.txtDescription.Size = new System.Drawing.Size(677, 298);
             this.txtDescription.TabIndex = 11;
             // 
             // groupBox2
@@ -98,14 +98,14 @@ namespace Ads_Listing_Manager_Software.Views
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Location = new System.Drawing.Point(12, 254);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(578, 68);
+            this.groupBox2.Size = new System.Drawing.Size(690, 68);
             this.groupBox2.TabIndex = 57;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Calcul price";
             // 
             // txtResultCalcul
             // 
-            this.txtResultCalcul.Location = new System.Drawing.Point(354, 31);
+            this.txtResultCalcul.Location = new System.Drawing.Point(444, 31);
             this.txtResultCalcul.Name = "txtResultCalcul";
             this.txtResultCalcul.ReadOnly = true;
             this.txtResultCalcul.Size = new System.Drawing.Size(100, 23);
@@ -116,9 +116,9 @@ namespace Ads_Listing_Manager_Software.Views
             this.buttonClear.BackColor = System.Drawing.Color.Yellow;
             this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonClear.Location = new System.Drawing.Point(485, 22);
+            this.buttonClear.Location = new System.Drawing.Point(584, 22);
             this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(70, 35);
+            this.buttonClear.Size = new System.Drawing.Size(100, 35);
             this.buttonClear.TabIndex = 10;
             this.buttonClear.Text = "Clear";
             this.buttonClear.UseVisualStyleBackColor = false;
@@ -129,7 +129,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.buttonCalculTotalPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.buttonCalculTotalPrice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCalculTotalPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonCalculTotalPrice.Location = new System.Drawing.Point(248, 22);
+            this.buttonCalculTotalPrice.Location = new System.Drawing.Point(323, 22);
             this.buttonCalculTotalPrice.Name = "buttonCalculTotalPrice";
             this.buttonCalculTotalPrice.Size = new System.Drawing.Size(100, 35);
             this.buttonCalculTotalPrice.TabIndex = 10;
@@ -139,7 +139,7 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             // txtProfitPrice
             // 
-            this.txtProfitPrice.Location = new System.Drawing.Point(159, 31);
+            this.txtProfitPrice.Location = new System.Drawing.Point(230, 31);
             this.txtProfitPrice.Multiline = true;
             this.txtProfitPrice.Name = "txtProfitPrice";
             this.txtProfitPrice.Size = new System.Drawing.Size(50, 23);
@@ -147,7 +147,7 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             // txtFeePrice
             // 
-            this.txtFeePrice.Location = new System.Drawing.Point(47, 31);
+            this.txtFeePrice.Location = new System.Drawing.Point(118, 31);
             this.txtFeePrice.Name = "txtFeePrice";
             this.txtFeePrice.Size = new System.Drawing.Size(50, 23);
             this.txtFeePrice.TabIndex = 8;
@@ -156,7 +156,7 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(15, 29);
+            this.label5.Location = new System.Drawing.Point(86, 29);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 21);
             this.label5.TabIndex = 2;
@@ -166,7 +166,7 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(113, 29);
+            this.label6.Location = new System.Drawing.Point(184, 29);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 21);
             this.label6.TabIndex = 3;
@@ -186,14 +186,14 @@ namespace Ads_Listing_Manager_Software.Views
             this.groupBox1.Controls.Add(this.labelModel);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(578, 222);
+            this.groupBox1.Size = new System.Drawing.Size(690, 222);
             this.groupBox1.TabIndex = 55;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Product";
             // 
             // txtProductPrice
             // 
-            this.txtProductPrice.Location = new System.Drawing.Point(455, 170);
+            this.txtProductPrice.Location = new System.Drawing.Point(584, 169);
             this.txtProductPrice.Name = "txtProductPrice";
             this.txtProductPrice.ReadOnly = true;
             this.txtProductPrice.Size = new System.Drawing.Size(100, 23);
@@ -201,7 +201,7 @@ namespace Ads_Listing_Manager_Software.Views
             // 
             // txtModelPrice
             // 
-            this.txtModelPrice.Location = new System.Drawing.Point(455, 81);
+            this.txtModelPrice.Location = new System.Drawing.Point(584, 77);
             this.txtModelPrice.Name = "txtModelPrice";
             this.txtModelPrice.ReadOnly = true;
             this.txtModelPrice.Size = new System.Drawing.Size(100, 23);
@@ -210,9 +210,9 @@ namespace Ads_Listing_Manager_Software.Views
             // comboProductList
             // 
             this.comboProductList.FormattingEnabled = true;
-            this.comboProductList.Location = new System.Drawing.Point(113, 170);
+            this.comboProductList.Location = new System.Drawing.Point(113, 169);
             this.comboProductList.Name = "comboProductList";
-            this.comboProductList.Size = new System.Drawing.Size(324, 23);
+            this.comboProductList.Size = new System.Drawing.Size(459, 23);
             this.comboProductList.TabIndex = 36;
             this.comboProductList.SelectedIndexChanged += new System.EventHandler(this.comboProductList_SelectedIndexChanged);
             // 
@@ -231,7 +231,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.comboBrandList.FormattingEnabled = true;
             this.comboBrandList.Location = new System.Drawing.Point(113, 31);
             this.comboBrandList.Name = "comboBrandList";
-            this.comboBrandList.Size = new System.Drawing.Size(442, 23);
+            this.comboBrandList.Size = new System.Drawing.Size(571, 23);
             this.comboBrandList.TabIndex = 33;
             this.comboBrandList.SelectedIndexChanged += new System.EventHandler(this.comboBrandList_SelectedIndexChanged);
             // 
@@ -257,9 +257,9 @@ namespace Ads_Listing_Manager_Software.Views
             // comboModelList
             // 
             this.comboModelList.FormattingEnabled = true;
-            this.comboModelList.Location = new System.Drawing.Point(113, 80);
+            this.comboModelList.Location = new System.Drawing.Point(113, 77);
             this.comboModelList.Name = "comboModelList";
-            this.comboModelList.Size = new System.Drawing.Size(324, 23);
+            this.comboModelList.Size = new System.Drawing.Size(459, 23);
             this.comboModelList.TabIndex = 34;
             this.comboModelList.SelectedIndexChanged += new System.EventHandler(this.comboModelList_SelectedIndexChanged);
             // 
@@ -268,7 +268,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.comboComponentList.FormattingEnabled = true;
             this.comboComponentList.Location = new System.Drawing.Point(113, 125);
             this.comboComponentList.Name = "comboComponentList";
-            this.comboComponentList.Size = new System.Drawing.Size(442, 23);
+            this.comboComponentList.Size = new System.Drawing.Size(571, 23);
             this.comboComponentList.TabIndex = 35;
             this.comboComponentList.SelectedIndexChanged += new System.EventHandler(this.comboComponentList_SelectedIndexChanged);
             // 

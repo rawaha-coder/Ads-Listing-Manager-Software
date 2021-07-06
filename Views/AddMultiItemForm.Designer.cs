@@ -147,18 +147,19 @@ namespace Ads_Listing_Manager_Software.Views
             this.panelCPU.Location = new System.Drawing.Point(0, 0);
             this.panelCPU.Name = "panelCPU";
             this.panelCPU.Padding = new System.Windows.Forms.Padding(5);
-            this.panelCPU.Size = new System.Drawing.Size(360, 610);
+            this.panelCPU.Size = new System.Drawing.Size(270, 610);
             this.panelCPU.TabIndex = 50;
             // 
             // listBoxCPU
             // 
             this.listBoxCPU.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxCPU.FormattingEnabled = true;
+            this.listBoxCPU.HorizontalScrollbar = true;
             this.listBoxCPU.ItemHeight = 15;
             this.listBoxCPU.Location = new System.Drawing.Point(5, 30);
             this.listBoxCPU.Name = "listBoxCPU";
             this.listBoxCPU.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBoxCPU.Size = new System.Drawing.Size(350, 575);
+            this.listBoxCPU.Size = new System.Drawing.Size(260, 575);
             this.listBoxCPU.TabIndex = 6;
             // 
             // label2
@@ -167,7 +168,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(5, 5);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(350, 25);
+            this.label2.Size = new System.Drawing.Size(260, 25);
             this.label2.TabIndex = 35;
             this.label2.Text = "CPU";
             // 
@@ -177,21 +178,22 @@ namespace Ads_Listing_Manager_Software.Views
             this.panelNvidia.Controls.Add(this.listBoxNVIDIA);
             this.panelNvidia.Controls.Add(this.label5);
             this.panelNvidia.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelNvidia.Location = new System.Drawing.Point(360, 0);
+            this.panelNvidia.Location = new System.Drawing.Point(270, 0);
             this.panelNvidia.Name = "panelNvidia";
             this.panelNvidia.Padding = new System.Windows.Forms.Padding(5);
-            this.panelNvidia.Size = new System.Drawing.Size(286, 610);
+            this.panelNvidia.Size = new System.Drawing.Size(260, 610);
             this.panelNvidia.TabIndex = 51;
             // 
             // listBoxNVIDIA
             // 
             this.listBoxNVIDIA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxNVIDIA.FormattingEnabled = true;
+            this.listBoxNVIDIA.HorizontalScrollbar = true;
             this.listBoxNVIDIA.ItemHeight = 15;
             this.listBoxNVIDIA.Location = new System.Drawing.Point(5, 30);
             this.listBoxNVIDIA.Name = "listBoxNVIDIA";
             this.listBoxNVIDIA.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBoxNVIDIA.Size = new System.Drawing.Size(276, 575);
+            this.listBoxNVIDIA.Size = new System.Drawing.Size(250, 575);
             this.listBoxNVIDIA.TabIndex = 6;
             // 
             // label5
@@ -200,7 +202,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(5, 5);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(276, 25);
+            this.label5.Size = new System.Drawing.Size(250, 25);
             this.label5.TabIndex = 35;
             this.label5.Text = "NVIDIA";
             // 
@@ -210,21 +212,22 @@ namespace Ads_Listing_Manager_Software.Views
             this.panelRAM.Controls.Add(this.listBoxRAM);
             this.panelRAM.Controls.Add(this.label4);
             this.panelRAM.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelRAM.Location = new System.Drawing.Point(646, 0);
+            this.panelRAM.Location = new System.Drawing.Point(530, 0);
             this.panelRAM.Name = "panelRAM";
             this.panelRAM.Padding = new System.Windows.Forms.Padding(5);
-            this.panelRAM.Size = new System.Drawing.Size(185, 610);
+            this.panelRAM.Size = new System.Drawing.Size(220, 610);
             this.panelRAM.TabIndex = 52;
             // 
             // listBoxRAM
             // 
             this.listBoxRAM.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxRAM.FormattingEnabled = true;
+            this.listBoxRAM.HorizontalScrollbar = true;
             this.listBoxRAM.ItemHeight = 15;
             this.listBoxRAM.Location = new System.Drawing.Point(5, 30);
             this.listBoxRAM.Name = "listBoxRAM";
             this.listBoxRAM.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBoxRAM.Size = new System.Drawing.Size(175, 575);
+            this.listBoxRAM.Size = new System.Drawing.Size(210, 575);
             this.listBoxRAM.TabIndex = 6;
             // 
             // label4
@@ -233,7 +236,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(5, 5);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(175, 25);
+            this.label4.Size = new System.Drawing.Size(210, 25);
             this.label4.TabIndex = 35;
             this.label4.Text = "RAM";
             // 
@@ -243,22 +246,23 @@ namespace Ads_Listing_Manager_Software.Views
             this.panelSSD.Controls.Add(this.listBoxSSD);
             this.panelSSD.Controls.Add(this.label1);
             this.panelSSD.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelSSD.Location = new System.Drawing.Point(831, 0);
+            this.panelSSD.Location = new System.Drawing.Point(750, 0);
             this.panelSSD.Name = "panelSSD";
             this.panelSSD.Padding = new System.Windows.Forms.Padding(5);
-            this.panelSSD.Size = new System.Drawing.Size(196, 610);
+            this.panelSSD.Size = new System.Drawing.Size(250, 610);
             this.panelSSD.TabIndex = 54;
             // 
             // listBoxSSD
             // 
             this.listBoxSSD.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxSSD.FormattingEnabled = true;
+            this.listBoxSSD.HorizontalScrollbar = true;
             this.listBoxSSD.ItemHeight = 15;
             this.listBoxSSD.Location = new System.Drawing.Point(5, 30);
             this.listBoxSSD.Margin = new System.Windows.Forms.Padding(3, 35, 3, 3);
             this.listBoxSSD.Name = "listBoxSSD";
             this.listBoxSSD.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBoxSSD.Size = new System.Drawing.Size(186, 575);
+            this.listBoxSSD.Size = new System.Drawing.Size(240, 575);
             this.listBoxSSD.TabIndex = 6;
             // 
             // label1
@@ -267,7 +271,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(5, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 25);
+            this.label1.Size = new System.Drawing.Size(240, 25);
             this.label1.TabIndex = 35;
             this.label1.Text = "SSD";
             // 
@@ -277,21 +281,22 @@ namespace Ads_Listing_Manager_Software.Views
             this.panelHDD.Controls.Add(this.listBoxHDD);
             this.panelHDD.Controls.Add(this.label3);
             this.panelHDD.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelHDD.Location = new System.Drawing.Point(1027, 0);
+            this.panelHDD.Location = new System.Drawing.Point(1000, 0);
             this.panelHDD.Name = "panelHDD";
             this.panelHDD.Padding = new System.Windows.Forms.Padding(5);
-            this.panelHDD.Size = new System.Drawing.Size(153, 610);
+            this.panelHDD.Size = new System.Drawing.Size(180, 610);
             this.panelHDD.TabIndex = 53;
             // 
             // listBoxHDD
             // 
             this.listBoxHDD.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxHDD.FormattingEnabled = true;
+            this.listBoxHDD.HorizontalScrollbar = true;
             this.listBoxHDD.ItemHeight = 15;
             this.listBoxHDD.Location = new System.Drawing.Point(5, 30);
             this.listBoxHDD.Name = "listBoxHDD";
             this.listBoxHDD.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBoxHDD.Size = new System.Drawing.Size(143, 575);
+            this.listBoxHDD.Size = new System.Drawing.Size(170, 575);
             this.listBoxHDD.TabIndex = 6;
             // 
             // label3
@@ -300,7 +305,7 @@ namespace Ads_Listing_Manager_Software.Views
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(5, 5);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(143, 25);
+            this.label3.Size = new System.Drawing.Size(170, 25);
             this.label3.TabIndex = 35;
             this.label3.Text = "HDD";
             // 

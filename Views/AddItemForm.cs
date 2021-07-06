@@ -88,8 +88,8 @@ namespace Ads_Listing_Manager_Software.Views
             {
                 ListViewItem lvi = new ListViewItem();
                 lvi.Text = item.Name;
-                lvi.SubItems.Add(item.Code);
                 lvi.SubItems.Add(item.Price.ToString());
+                lvi.SubItems.Add(item.Code);
                 lvi.SubItems.Add(item.Quantity.ToString());
                 lvi.SubItems.Add(item.Description);
                 viewListItems.Items.Add(lvi);
@@ -99,8 +99,8 @@ namespace Ads_Listing_Manager_Software.Views
         private void SetViewListItemColumns()
         {
             viewListItems.Columns.Add("Name", 400, HorizontalAlignment.Left);
-            viewListItems.Columns.Add("Code", 140, HorizontalAlignment.Left);
             viewListItems.Columns.Add("Price", 80, HorizontalAlignment.Left);
+            viewListItems.Columns.Add("Code", 140, HorizontalAlignment.Left);
             viewListItems.Columns.Add("Quantity", 80, HorizontalAlignment.Left);
             viewListItems.Columns.Add("Description", 300, HorizontalAlignment.Left);
         }
