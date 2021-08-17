@@ -100,5 +100,10 @@ namespace Ads_Listing_Manager_Software
         {
             OpenChildForm(new ProductForm());
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ProfitForm());
+        }
     }
 }

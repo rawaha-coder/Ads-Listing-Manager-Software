@@ -49,6 +49,7 @@ namespace Ads_Listing_Manager_Software
             this.btnProductForm = new System.Windows.Forms.Button();
             this.btnLaptopForm = new System.Windows.Forms.Button();
             this.btnDesktopForm = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SideMenuPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPicBox)).BeginInit();
@@ -62,6 +63,7 @@ namespace Ads_Listing_Manager_Software
             // 
             this.SideMenuPanel.AutoScroll = true;
             this.SideMenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(15)))), ((int)(((byte)(33)))));
+            this.SideMenuPanel.Controls.Add(this.button1);
             this.SideMenuPanel.Controls.Add(this.btnAddOneProduct);
             this.SideMenuPanel.Controls.Add(this.btnAddMultiProduct);
             this.SideMenuPanel.Controls.Add(this.btnAddMultiItem);
@@ -354,6 +356,23 @@ namespace Ads_Listing_Manager_Software
             this.btnDesktopForm.UseVisualStyleBackColor = false;
             this.btnDesktopForm.Click += new System.EventHandler(this.btnDesktopForm_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(121)))), ((int)(((byte)(29)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(0, 401);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(178, 39);
+            this.button1.TabIndex = 10;
+            this.button1.Text = " >> Profit";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -400,6 +419,7 @@ namespace Ads_Listing_Manager_Software
         private System.Windows.Forms.Button btnAddOneProduct;
         private System.Windows.Forms.Button btnAddMultiItem;
         private System.Windows.Forms.Button btnProductForm;
+        private System.Windows.Forms.Button button1;
     }
 }
 
