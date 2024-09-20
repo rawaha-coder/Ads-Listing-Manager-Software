@@ -1,6 +1,6 @@
 # Ads Listing Manager Software
 
-## This application provides the company's employees with the latest prices and configurations of computers they want to sell, to list advertisements efficiently on eBay and other wbsites.
+## This application provides the company's employees with the latest prices and configurations of computers they want to sell, to list advertisements efficiently on eBay and other websites.
 
 ![01](https://github.com/user-attachments/assets/41f5306c-ba3d-4084-b8b5-82eb13c21bd2)
 
